@@ -7,6 +7,16 @@ import { TeamMemberCard } from "@/components/TeamMemberCard";
 import { Button } from "@/components/ui/button";
 import { Check, Dna, ArrowRight, Shield, Zap, FileText, BarChart3, Tablet, Database } from "lucide-react";
 
+// Clinic logos
+import uniklinikKoelnLogo from "@/assets/uniklinik-koeln-logo.png";
+import agaplesionHagenLogo from "@/assets/agaplesion-hagen-logo.png";
+
+// Team member photos
+import michaelSchoenfeld from "@/assets/michael-schoenfeld.jpg";
+import kaiLaukamp from "@/assets/kai-laukamp.jpg";
+import eliasUlrich from "@/assets/elias-ulrich.jpg";
+import casparMuenzinger from "@/assets/caspar-muenzinger.jpg";
+
 const platforms = [
   {
     title: "Documentation Suite",
@@ -29,10 +39,10 @@ const platforms = [
 ];
 
 const teamMembers = [
-  { name: "PD Dr. med. Michael Schönfeld", role: "Founder", bio: "" },
-  { name: "PD Dr. med. Kai Laukamp", role: "Founder", bio: "" },
-  { name: "Dr. med. Elias Ulrich", role: "", bio: "" },
-  { name: "Caspar Münzinger", role: "", bio: "" },
+  { name: "PD Dr. med. Michael Schönfeld", role: "Founder", bio: "", image: michaelSchoenfeld },
+  { name: "PD Dr. med. Kai Laukamp", role: "Founder", bio: "", image: kaiLaukamp },
+  { name: "Dr. med. Elias Ulrich", role: "", bio: "", image: eliasUlrich },
+  { name: "Caspar Münzinger", role: "", bio: "", image: casparMuenzinger },
 ];
 
 const valueProps = [
@@ -120,17 +130,20 @@ const Index = () => {
             <p className="text-sm text-muted-foreground text-center mb-8">Bereits im Einsatz bei</p>
           </AnimatedSection>
           
-          {/* GRAPHIC PLACEHOLDER: Uniklinik Köln und Uniklinik Hagen Logos (SVG oder PNG). */}
           <div className="flex flex-wrap justify-center items-center gap-8 lg:gap-16">
             <AnimatedSection delay={50}>
-              <div className="w-48 h-16 rounded-lg border border-border bg-muted/30 flex items-center justify-center">
-                <span className="text-sm text-muted-foreground">Uniklinik Köln</span>
-              </div>
+              <img 
+                src={uniklinikKoelnLogo} 
+                alt="Uniklinik Köln" 
+                className="h-12 lg:h-16 w-auto object-contain"
+              />
             </AnimatedSection>
             <AnimatedSection delay={100}>
-              <div className="w-48 h-16 rounded-lg border border-border bg-muted/30 flex items-center justify-center">
-                <span className="text-sm text-muted-foreground">Uniklinik Hagen</span>
-              </div>
+              <img 
+                src={agaplesionHagenLogo} 
+                alt="Agaplesion Klinikum Hagen" 
+                className="h-12 lg:h-16 w-auto object-contain"
+              />
             </AnimatedSection>
           </div>
         </div>

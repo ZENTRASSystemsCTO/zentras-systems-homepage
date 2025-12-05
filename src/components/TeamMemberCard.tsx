@@ -4,6 +4,7 @@ interface TeamMemberCardProps {
   name: string;
   role: string;
   bio?: string;
+  image?: string;
   className?: string;
 }
 
@@ -11,6 +12,7 @@ export const TeamMemberCard = ({
   name,
   role,
   bio,
+  image,
   className,
 }: TeamMemberCardProps) => {
   return (
@@ -20,12 +22,21 @@ export const TeamMemberCard = ({
         className
       )}
     >
-      {/* Avatar placeholder */}
-      {/* GRAPHIC PLACEHOLDER: individual headshot (portrait), consistent style and background. */}
-      <div className="w-20 h-20 rounded-full gradient-placeholder mb-4 flex items-center justify-center">
-        <span className="text-xs text-muted-foreground text-center px-2">
-          Photo
-        </span>
+      {/* Avatar */}
+      <div className="w-20 h-20 rounded-full overflow-hidden mb-4 bg-muted">
+        {image ? (
+          <img 
+            src={image} 
+            alt={name} 
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <div className="w-full h-full gradient-placeholder flex items-center justify-center">
+            <span className="text-xs text-muted-foreground text-center px-2">
+              Photo
+            </span>
+          </div>
+        )}
       </div>
 
       <h4 className="text-lg font-semibold text-foreground">{name}</h4>
