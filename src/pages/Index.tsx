@@ -5,7 +5,8 @@ import { PlaceholderGraphic } from "@/components/PlaceholderGraphic";
 import { PlatformCard } from "@/components/PlatformCard";
 import { TeamMemberCard } from "@/components/TeamMemberCard";
 import { Button } from "@/components/ui/button";
-import { Check, Dna, ArrowRight, Shield, Zap, FileText, BarChart3, Tablet, Database } from "lucide-react";
+import { Check, ArrowRight, Shield, Zap, FileText, BarChart3, Tablet, Database } from "lucide-react";
+import { DnaAnimation } from "@/components/DnaAnimation";
 
 // Clinic logos
 import uniklinikKoelnLogo from "@/assets/uniklinik-koeln-logo.png";
@@ -99,19 +100,12 @@ const Index = () => {
               </AnimatedSection>
             </div>
 
-            {/* Right: Hero Visual Placeholder */}
+            {/* Right: Hero Visual - DNA Helix Animation */}
             <AnimatedSection delay={400} className="relative">
-              {/* GRAPHIC PLACEHOLDER: looped DNA helix animation (Lottie or MP4 background loop), subtle, tech/medical vibe matching zentras colors. */}
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-brand-light-teal/10 to-accent-green/10 rounded-3xl blur-3xl" />
-                <div className="relative gradient-card rounded-3xl p-8 lg:p-12 min-h-[400px] flex flex-col items-center justify-center">
-                  <Dna size={80} className="text-accent mb-6 animate-float" />
-                  <div className="text-center">
-                    <p className="text-primary-foreground font-medium mb-2">Animation Platzhalter</p>
-                    <p className="text-primary-foreground/60 text-sm max-w-xs">
-                      Medizinische Animation (Lottie JSON oder MP4) in ZENTRAS Markenfarben
-                    </p>
-                  </div>
+                <div className="relative gradient-card rounded-3xl overflow-hidden min-h-[400px] flex items-center justify-center">
+                  <DnaAnimation className="w-full h-full min-h-[400px]" />
                 </div>
               </div>
             </AnimatedSection>
