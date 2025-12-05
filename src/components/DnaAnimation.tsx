@@ -7,19 +7,18 @@ interface DnaAnimationProps {
 
 export const DnaAnimation = ({ className = "" }: DnaAnimationProps) => {
   const lottieRef = useRef<LottieRefCurrentProps>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const [animationData, setAnimationData] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
 
   // Load the animation
   useEffect(() => {
-    console.log("Loading DNA animation...");
     fetch("/animations/dna-helix.json")
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         return res.json();
       })
       .then((data) => {
-        console.log("DNA animation loaded successfully");
         setAnimationData(data);
       })
       .catch((err) => {
@@ -28,11 +27,29 @@ export const DnaAnimation = ({ className = "" }: DnaAnimationProps) => {
       });
   }, []);
 
-  // Slow down animation after it loads
+  // Scroll-coupled animation
   useEffect(() => {
-    if (lottieRef.current) {
-      lottieRef.current.setSpeed(0.15); // Very slow playback
-    }
+    if (!lottieRef.current || !animationData) return;
+
+    const lottie = lottieRef.current;
+    lottie.stop();
+
+    const totalFrames = lottie.getDuration(true) || 100;
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      // Use only first 800px of scroll for animation (keeps it visible longer)
+      const scrollProgress = Math.min(scrollY / 800, 1);
+      const frame = scrollProgress * totalFrames;
+      lottie.goToAndStop(frame, true);
+    };
+
+    // Initial frame
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [animationData]);
 
   if (error) {
@@ -52,15 +69,23 @@ export const DnaAnimation = ({ className = "" }: DnaAnimationProps) => {
   }
 
   return (
-    <div className={`relative ${className}`}>
+    <div 
+      ref={containerRef}
+      className={`relative ${className}`}
+      style={{
+        transform: "rotate(-45deg) scale(1.8)",
+        transformOrigin: "center center",
+      }}
+    >
       <Lottie
         lottieRef={lottieRef}
         animationData={animationData}
-        loop={true}
-        autoplay={true}
+        loop={false}
+        autoplay={false}
         className="w-full h-full"
         style={{
-          filter: "hue-rotate(-15deg) saturate(1.3) brightness(1.05)",
+          // Shift hue to ZENTRAS teal/cyan colors
+          filter: "hue-rotate(160deg) saturate(1.5) brightness(1.1)",
         }}
       />
     </div>
