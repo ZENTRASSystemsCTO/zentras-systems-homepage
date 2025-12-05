@@ -38,9 +38,8 @@ export const DnaAnimation = ({ className = "" }: DnaAnimationProps) => {
 
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-      // Use only first 800px of scroll for animation (keeps it visible longer)
-      const scrollProgress = Math.min(scrollY / 800, 1);
+      // Use 2500px of scroll for animation (much slower progression)
+      const scrollProgress = Math.min(scrollY / 2500, 1);
       const frame = scrollProgress * totalFrames;
       lottie.goToAndStop(frame, true);
     };
@@ -84,8 +83,8 @@ export const DnaAnimation = ({ className = "" }: DnaAnimationProps) => {
         autoplay={false}
         className="w-full h-full"
         style={{
-          // Shift hue to ZENTRAS teal/cyan colors
-          filter: "hue-rotate(160deg) saturate(1.5) brightness(1.1)",
+          // Shift to ZENTRAS teal/cyan colors (original is purple/blue)
+          filter: "hue-rotate(-40deg) saturate(1.2) brightness(1.15)",
         }}
       />
     </div>
