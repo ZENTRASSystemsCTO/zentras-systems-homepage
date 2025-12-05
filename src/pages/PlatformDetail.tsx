@@ -14,12 +14,19 @@ import neuroEingriffeImg from "@/assets/neuro-eingriffe.jpg";
 import ctEingriffeImg from "@/assets/ct-eingriffe.jpg";
 import allgemeinEingriffeImg from "@/assets/allgemein-eingriffe.jpg";
 
+// Import images for Tablets
+import tabletBild03Img from "@/assets/tablet-bild-03.jpg";
+import tabletBild04Img from "@/assets/tablet-bild-04.jpg";
+import autoUpdateImg from "@/assets/auto-update.png";
+import securedByKnoxImg from "@/assets/secured-by-knox.png";
+
 // Platform data for all three products
 const platformData: Record<string, {
   title: string;
   tagline: string;
   description: string;
   icon: typeof Monitor;
+  heroImage?: string;
   features: { title: string; description: string; image?: string }[];
   benefits: string[];
 }> = {
@@ -61,23 +68,28 @@ const platformData: Record<string, {
     title: "Tablets",
     tagline: "Vorkonfiguriert für den OP-Saal",
     icon: Tablet,
+    heroImage: tabletBild03Img,
     description: "Vorkonfigurierte, sterile Tablets im abgesicherten Kiosk Modus, an Halterungen für den OP-Saal. Desinfizierbar, bruch- und diebstahlgesichert mit automatischen Updates.",
     features: [
       {
         title: "KIOSK Mode",
         description: "Gesicherter Modus, der nur die ZENTRAS-Anwendung zulässt. Keine Ablenkung, keine Sicherheitsrisiken durch andere Apps.",
+        image: securedByKnoxImg,
       },
       {
         title: "Automatische Updates",
         description: "Software-Updates werden automatisch eingespielt, ohne IT-Aufwand in Ihrer Klinik. Immer auf dem neuesten Stand.",
+        image: autoUpdateImg,
       },
       {
         title: "Sterile Halterungen",
-        description: "Spezielle Halterungen für OP-Räume ermöglichen die Nutzung auch unter sterilen Bedingungen.",
+        description: "Spezielle Halterungen für OP-Räume ermöglichen die Nutzung auch unter sterilen Bedingungen. Desinfizierbar für den klinischen Einsatz.",
+        image: tabletBild03Img,
       },
       {
         title: "Bruch- & Diebstahlschutz",
         description: "Robuste, gesicherte Geräte, die für den anspruchsvollen Klinikalltag entwickelt wurden.",
+        image: tabletBild04Img,
       },
     ],
     benefits: [
@@ -215,6 +227,14 @@ const PlatformDetail = () => {
             <AnimatedSection delay={400}>
               {isDocumentation ? (
                 <LayeredScreenshots />
+              ) : platform.heroImage ? (
+                <div className="rounded-xl overflow-hidden shadow-lg border border-border/50">
+                  <img 
+                    src={platform.heroImage} 
+                    alt={`${platform.title} Ansicht`}
+                    className="w-full h-auto object-cover"
+                  />
+                </div>
               ) : (
                 <PlaceholderGraphic
                   label={`${platform.title} Ansicht`}
