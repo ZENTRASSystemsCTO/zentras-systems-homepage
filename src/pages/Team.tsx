@@ -1,31 +1,41 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import { AnimatedSection } from "@/components/AnimatedSection";
-import { PlaceholderGraphic } from "@/components/PlaceholderGraphic";
 import { TeamMemberCard } from "@/components/TeamMemberCard";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Users } from "lucide-react";
+
+// Team photos
+import teamFoto from "@/assets/team-foto.jpg";
+import michaelSchoenfeld from "@/assets/michael-schoenfeld.jpg";
+import kaiLaukamp from "@/assets/kai-laukamp.jpg";
+import eliasUlrich from "@/assets/elias-ulrich.jpg";
+import casparMuenzinger from "@/assets/caspar-muenzinger.jpg";
 
 const teamMembers = [
   {
     name: "PD Dr. med. Michael Schönfeld",
     role: "Founder",
     bio: "", // BIO PLACEHOLDER: Kurze Biografie hier einfügen
+    image: michaelSchoenfeld,
   },
   {
     name: "PD Dr. med. Kai Laukamp",
     role: "Founder",
     bio: "", // BIO PLACEHOLDER: Kurze Biografie hier einfügen
+    image: kaiLaukamp,
   },
   {
     name: "Dr. med. Elias Ulrich",
     role: "",
     bio: "", // BIO PLACEHOLDER: Kurze Biografie hier einfügen
+    image: eliasUlrich,
   },
   {
     name: "Caspar Münzinger",
     role: "",
     bio: "", // BIO PLACEHOLDER: Kurze Biografie hier einfügen
+    image: casparMuenzinger,
   },
 ];
 
@@ -69,17 +79,15 @@ const Team = () => {
               </AnimatedSection>
             </div>
 
-            {/* Right: Team Visual Placeholder */}
+            {/* Right: Team Visual */}
             <AnimatedSection delay={400}>
-              {/* GRAPHIC PLACEHOLDER: team group photo or abstract illustration representing collaboration, tinted to match zentras palette. */}
-              <PlaceholderGraphic
-                label="Team-Foto"
-                description="Gruppenfoto oder abstrakte Illustration, farblich abgestimmt auf ZENTRAS Palette"
-                aspectRatio="square"
-                variant="gradient"
-                icon={<Users size={48} />}
-                className="min-h-[400px]"
-              />
+              <div className="rounded-2xl overflow-hidden">
+                <img 
+                  src={teamFoto} 
+                  alt="ZENTRAS Team" 
+                  className="w-full h-auto object-cover min-h-[400px]"
+                />
+              </div>
             </AnimatedSection>
           </div>
         </div>
@@ -87,15 +95,12 @@ const Team = () => {
 
       {/* Full-width Team Photo */}
       <section className="relative">
-        {/* GRAPHIC PLACEHOLDER: large team or office photograph, high quality, with colors that do not clash with #15566f and #00bbd1. */}
-        <div className="h-[300px] lg:h-[500px] gradient-hero flex items-center justify-center">
-          <div className="text-center text-primary-foreground">
-            <Users size={64} className="mx-auto mb-4 opacity-50" />
-            <p className="text-lg font-medium">Team-Foto Platzhalter</p>
-            <p className="text-sm opacity-70 max-w-md mx-auto mt-2">
-              Hochwertiges Team- oder Bürofoto, farblich harmonisiert mit ZENTRAS Palette
-            </p>
-          </div>
+        <div className="h-[300px] lg:h-[500px] overflow-hidden">
+          <img 
+            src={teamFoto} 
+            alt="ZENTRAS Team" 
+            className="w-full h-full object-cover object-center"
+          />
         </div>
       </section>
 
