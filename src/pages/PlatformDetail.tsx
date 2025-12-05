@@ -20,6 +20,9 @@ import tabletBild04Img from "@/assets/tablet-bild-04.jpg";
 import autoUpdateImg from "@/assets/auto-update.png";
 import securedByKnoxImg from "@/assets/secured-by-knox.png";
 
+// Import images for Analytics Platform
+import analyticsScreenshotImg from "@/assets/analytics-screenshot.jpg";
+
 // Platform data for all three products
 const platformData: Record<string, {
   title: string;
@@ -103,6 +106,7 @@ const platformData: Record<string, {
     title: "Analytics Platform",
     tagline: "Daten auswerten und nutzen",
     icon: BarChart3,
+    heroImage: analyticsScreenshotImg,
     description: "Die Analytics Platform ermöglicht Export, Schnittstellen und Reporting für BI-Integration. Nutzen Sie Ihre Dokumentationsdaten für Auswertungen, Register-Anbindungen und individuelle Reports.",
     features: [
       {
@@ -250,7 +254,8 @@ const PlatformDetail = () => {
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* Features Section - Hidden for Analytics Platform */}
+      {slug !== 'analytics' && (
       <section className="py-20 lg:py-28 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
           <AnimatedSection className="max-w-3xl mb-16">
@@ -314,6 +319,7 @@ const PlatformDetail = () => {
           </div>
         </div>
       </section>
+      )}
 
       {/* Benefits Section */}
       <section className="py-20 lg:py-28 bg-brand-surface">
