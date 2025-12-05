@@ -117,7 +117,7 @@ const Team = () => {
                   </p>
                   <p className="text-muted-foreground mb-6">
                     Aus dieser Frustration heraus entstand die Idee, die Dokumentation dorthin zu verlagern, 
-                    wo sie fachlich ohnehin stattfindet – direkt in den Eingriff – und alle nachgelagerten 
+                    wo sie fachlich ohnehin stattfindet und alle nachgelagerten 
                     Anforderungen (QS, Register, Studien, Evaluationen) aus derselben Datengrundlage zu bedienen.
                   </p>
                   <div className="flex items-center gap-4 p-4 rounded-xl bg-brand-surface border border-border">

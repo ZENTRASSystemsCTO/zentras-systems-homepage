@@ -7,16 +7,16 @@ import { ArrowRight, Check, Layers, FileText, Tablet, BarChart3 } from "lucide-r
 
 const platforms = [
   {
-    title: "Dokutool Suite",
-    description: "Webbasierte Click-Through-Dokumentation für interventionelle Eingriffe. Vorkonfigurierte Module für die häufigsten Interventionen.",
-    href: "/platform/dokutool",
+    title: "Documentation Suite",
+    description: "Webbasierte Click-Through-Dokumentation für diverse interventionelle Eingriffe.",
+    href: "/platform/documentation",
     iconPlaceholder: "DS",
     icon: FileText,
     features: ["Befundberichte", "OPS-Codes", "QS-Daten", "Registerdaten (z.B. DeGIR)", "Produktevaluationen"],
   },
   {
-    title: "Hardware",
-    description: "Vorkonfigurierte, desinfizierbare Tablets als Standard-Device im OP / Angiographie-Saal.",
+    title: "Tablets",
+    description: "Vorkonfigurierte, sterile Tablets im abgesicherten Kiosk Modus, an Halterungen für den OP-Saal.",
     href: "/platform/hardware",
     iconPlaceholder: "HW",
     icon: Tablet,
@@ -24,7 +24,7 @@ const platforms = [
   },
   {
     title: "Analytics Platform",
-    description: "Export, Schnittstellen und Reporting für BI-Integration und Datenauswertung.",
+    description: "Export, Schnittstellen und Reporting für BI-Integration. Daten auswerten, Register anbinden und Berichte erstellen.",
     href: "/platform/analytics",
     iconPlaceholder: "AP",
     icon: BarChart3,
@@ -84,9 +84,9 @@ const PlatformOverview = () => {
                       <ArrowRight size={18} />
                     </Button>
                   </Link>
-                  <Link to="/platform/dokutool">
+                  <Link to="/platform/documentation">
                     <Button variant="outline" size="lg" className="rounded-full">
-                      Dokutool Suite entdecken
+                      Documentation Suite entdecken
                     </Button>
                   </Link>
                 </div>

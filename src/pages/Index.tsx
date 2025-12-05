@@ -9,20 +9,20 @@ import { Check, Dna, ArrowRight, Shield, Zap, FileText, BarChart3, Tablet, Datab
 
 const platforms = [
   {
-    title: "Dokutool Suite",
-    description: "Webbasierte Click-Through-Dokumentation für interventionelle Eingriffe. Befundberichte, OPS-Codes, QS-Daten und Registerdaten in einem System.",
-    href: "/platform/dokutool",
+    title: "Documentation Suite",
+    description: "Webbasierte Click-Through-Dokumentation für diverse interventionelle Eingriffe.",
+    href: "/platform/documentation",
     iconPlaceholder: "DS",
   },
   {
-    title: "Hardware",
-    description: "Vorkonfigurierte, desinfizierbare Tablets für den OP-Saal – bruch- und diebstahlgesichert mit KIOSK-Mode.",
+    title: "Tablets",
+    description: "Vorkonfigurierte, sterile Tablets im abgesicherten Kiosk Modus, an Halterungen für den OP-Saal.",
     href: "/platform/hardware",
     iconPlaceholder: "HW",
   },
   {
     title: "Analytics Platform",
-    description: "Export, Schnittstellen und Reporting für BI-Integration. Daten auswerten, Register anbinden, Berichte erstellen.",
+    description: "Export, Schnittstellen und Reporting für BI-Integration. Daten auswerten, Register anbinden und Berichte erstellen.",
     href: "/platform/analytics",
     iconPlaceholder: "AP",
   },
@@ -67,9 +67,8 @@ const Index = () => {
 
               <AnimatedSection delay={200}>
                 <p className="text-lg text-primary-foreground/70 mb-8 max-w-xl">
-                  Statt Befunde, OPS-Codes, QS-Berichte und Registerdaten mehrfach zu erfassen, 
-                  ermöglicht ZENTRAS Systems eine strukturierte Echtzeit-Dokumentation während des Eingriffs – 
-                  direkt am Point-of-Care.
+                  Dokumentieren Sie Ihre Eingriffe in Zukunft einmalig, in Echtzeit, direkt am Point-of-Care. 
+                  Verzichten Sie auf redundante, unpräzise nachgereichte Dokumentation.
                 </p>
               </AnimatedSection>
 
@@ -145,7 +144,7 @@ const Index = () => {
               Dokumentation neu gedacht
             </h2>
             <p className="text-lg text-muted-foreground">
-              Eine Erfassung – alle Anforderungen erfüllt. QS, Register, Studien und Evaluationen aus derselben Datengrundlage.
+              Einmalige Erfassung, die alle Anforderungen erfüllt. QS, Register, Studien und Evaluationen aus derselben Datengrundlage.
             </p>
           </AnimatedSection>
 
@@ -156,11 +155,7 @@ const Index = () => {
                   <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
                     <prop.icon size={24} className="text-accent" />
                   </div>
-                  <h3 className="font-semibold text-foreground mb-2">{prop.label}</h3>
-                  <div className="flex items-center gap-2">
-                    <Check size={16} className="text-accent-green" />
-                    <span className="text-sm text-muted-foreground">Verifiziert</span>
-                  </div>
+                  <h3 className="font-semibold text-foreground">{prop.label}</h3>
                 </div>
               </AnimatedSection>
             ))}
@@ -185,9 +180,7 @@ const Index = () => {
                     eine Lösung
                   </h2>
                   <p className="text-muted-foreground mb-6">
-                    Derselbe Eingriff wurde bisher 5-6x in verschiedenen Systemen dokumentiert. 
-                    ZENTRAS verlagert die Dokumentation dorthin, wo sie fachlich ohnehin stattfindet – 
-                    direkt in den Eingriff.
+                    Unsere Lösung umfasst die Hardware, die Dokumentationsanwendungen und eine Business Intelligence Anbindung.
                   </p>
                   <Link to="/platform">
                     <Button variant="default" size="lg" className="rounded-full">
@@ -232,7 +225,7 @@ const Index = () => {
             {[
               { icon: FileText, title: "Befundberichte", desc: "Strukturierte medizinische Dokumentation direkt am Point-of-Care." },
               { icon: Database, title: "OPS-Codes & QS-Daten", desc: "Automatische Kodierung und Qualitätssicherung in einem Schritt." },
-              { icon: BarChart3, title: "Registerdaten", desc: "Direkte Anbindung an Register wie DeGIR – ohne Mehraufwand." },
+              { icon: BarChart3, title: "Registerdaten", desc: "Direkte Anbindung an Register wie DeGIR, ohne Mehraufwand." },
             ].map((feature, index) => (
               <AnimatedSection key={feature.title} delay={index * 100}>
                 <div className="group p-8 rounded-2xl bg-card border border-border hover:border-accent transition-all duration-300 hover-lift">
