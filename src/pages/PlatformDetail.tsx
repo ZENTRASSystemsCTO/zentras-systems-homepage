@@ -3,108 +3,113 @@ import { Layout } from "@/components/Layout";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { PlaceholderGraphic } from "@/components/PlaceholderGraphic";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Check, ArrowLeft, Monitor } from "lucide-react";
+import { ArrowRight, Check, ArrowLeft, Monitor, FileText, Tablet, BarChart3 } from "lucide-react";
 
-// Sample platform data - in production this would come from an API/CMS
+// Platform data for all three products
 const platformData: Record<string, {
   title: string;
   tagline: string;
   description: string;
+  icon: typeof Monitor;
   features: { title: string; description: string }[];
   benefits: string[];
 }> = {
-  clinical: {
-    title: "Clinical Suite",
-    tagline: "Streamline clinical workflows",
-    description: "The ZENTRAS Clinical Suite provides comprehensive tools for managing patient care, from scheduling and documentation to care coordination and outcomes tracking.",
+  dokutool: {
+    title: "Dokutool Suite",
+    tagline: "Dokumentation am Point-of-Care",
+    icon: FileText,
+    description: "Die Dokutool Suite ist unsere webbasierte Click-Through-Dokumentation für interventionelle Eingriffe. Vorkonfigurierte Module für die häufigsten Interventionen, erweiterbar und remote anpassbar. Beispiel: Die AngioAssist Suite für die interventionelle Radiologie.",
     features: [
       {
-        title: "Intelligent Scheduling",
-        description: "AI-powered scheduling that optimizes provider time and reduces patient wait times while accounting for appointment complexity and resource availability.",
+        title: "Befundberichte",
+        description: "Strukturierte Erfassung medizinischer Befunde direkt während des Eingriffs. Keine nachträgliche Dokumentation mehr nötig.",
       },
       {
-        title: "Clinical Documentation",
-        description: "Streamlined documentation workflows with voice-to-text, smart templates, and automated coding suggestions that reduce administrative burden.",
+        title: "OPS-Codes & QS-Daten",
+        description: "Automatische Generierung von OPS-Codes und Qualitätssicherungsdaten aus der Dokumentation – ohne Mehraufwand.",
       },
       {
-        title: "Care Coordination",
-        description: "Real-time communication tools and task management for seamless handoffs between care team members across departments and facilities.",
+        title: "Registerdaten",
+        description: "Direkte Anbindung an Register wie DeGIR. Die Daten fließen automatisch aus Ihrer Dokumentation in die erforderlichen Register.",
       },
       {
-        title: "Outcomes Tracking",
-        description: "Comprehensive dashboards for monitoring patient outcomes, identifying trends, and driving continuous quality improvement initiatives.",
+        title: "Produktevaluationen",
+        description: "Strukturierte Erfassung von Evaluationsdaten für Medizinproduktehersteller – integriert in Ihren normalen Workflow.",
       },
     ],
     benefits: [
-      "40% reduction in documentation time",
-      "25% improvement in patient throughput",
-      "Real-time care team collaboration",
-      "Automated compliance reporting",
+      "Einmalige Erfassung für alle Zwecke",
+      "Vorkonfigurierte Module für schnellen Start",
+      "Remote-Anpassungen möglich",
+      "Webbasiert – läuft auf jedem Gerät",
+    ],
+  },
+  hardware: {
+    title: "Hardware",
+    tagline: "Vorkonfiguriert für den OP-Saal",
+    icon: Tablet,
+    description: "Unsere Hardware-Lösung bietet desinfizierbare, bruch- und diebstahlgesicherte Tablets als Standard-Device im OP / Angiographie-Saal. Vorkonfiguriert mit Sicherheitslayer und automatischen Updates – Setup in wenigen Minuten.",
+    features: [
+      {
+        title: "KIOSK Mode",
+        description: "Gesicherter Modus, der nur die ZENTRAS-Anwendung zulässt. Keine Ablenkung, keine Sicherheitsrisiken durch andere Apps.",
+      },
+      {
+        title: "Automatische Updates",
+        description: "Software-Updates werden automatisch eingespielt – ohne IT-Aufwand in Ihrer Klinik. Immer auf dem neuesten Stand.",
+      },
+      {
+        title: "Sterile Halterungen",
+        description: "Spezielle Halterungen für OP-Räume ermöglichen die Nutzung auch unter sterilen Bedingungen.",
+      },
+      {
+        title: "Bruch- & Diebstahlschutz",
+        description: "Robuste, gesicherte Geräte, die für den anspruchsvollen Klinikalltag entwickelt wurden.",
+      },
+    ],
+    benefits: [
+      "Setup in wenigen Minuten",
+      "Desinfizierbar für den klinischen Einsatz",
+      "Kein IT-Aufwand für Updates",
+      "Out-of-the-box einsatzbereit",
     ],
   },
   analytics: {
     title: "Analytics Platform",
-    tagline: "Transform data into insights",
-    description: "Harness the power of your healthcare data with AI-driven analytics that surface actionable insights for clinical, operational, and financial decision-making.",
+    tagline: "Daten auswerten und nutzen",
+    icon: BarChart3,
+    description: "Die Analytics Platform ermöglicht Export, Schnittstellen und Reporting für BI-Integration. Nutzen Sie Ihre Dokumentationsdaten für Auswertungen, Register-Anbindungen und individuelle Reports.",
     features: [
       {
-        title: "Predictive Analytics",
-        description: "Machine learning models that identify at-risk patients, predict readmissions, and forecast resource needs with clinical-grade accuracy.",
+        title: "Datenexport",
+        description: "Flexible Exportmöglichkeiten in gängige Formate. Ihre Daten gehören Ihnen – nutzen Sie sie, wie Sie möchten.",
       },
       {
-        title: "Population Health",
-        description: "Comprehensive tools for managing patient populations, identifying care gaps, and measuring performance across quality metrics.",
+        title: "Register-Anbindung",
+        description: "Direkte Schnittstellen zu Registern wie DeGIR. Automatischer Datentransfer ohne manuelle Eingabe.",
       },
       {
-        title: "Financial Intelligence",
-        description: "Real-time visibility into revenue cycle performance, cost drivers, and margin opportunities with drill-down capabilities.",
+        title: "Reporting-Dashboards",
+        description: "Übersichtliche Dashboards für Ihre wichtigsten Kennzahlen. Behalten Sie den Überblick über Eingriffe und Qualität.",
       },
       {
-        title: "Custom Dashboards",
-        description: "Self-service analytics tools that empower stakeholders to build custom reports and visualizations without IT support.",
+        title: "BI-Integration",
+        description: "Anbindung an bestehende Business Intelligence Plattformen. Integrieren Sie ZENTRAS-Daten in Ihre Analyseumgebung.",
       },
     ],
     benefits: [
-      "15% reduction in readmission rates",
-      "Real-time operational visibility",
-      "Self-service reporting capabilities",
-      "Integration with existing BI tools",
-    ],
-  },
-  integration: {
-    title: "Integration Hub",
-    tagline: "Connect your healthcare ecosystem",
-    description: "Seamlessly connect disparate systems with our enterprise integration platform that supports modern standards and legacy protocols alike.",
-    features: [
-      {
-        title: "HL7 FHIR Native",
-        description: "Built from the ground up with FHIR support, enabling modern interoperability with health information exchanges and partner systems.",
-      },
-      {
-        title: "API Gateway",
-        description: "Secure, scalable API management with rate limiting, authentication, and comprehensive logging for all data exchanges.",
-      },
-      {
-        title: "Legacy Connectors",
-        description: "Pre-built adapters for legacy systems including HL7 v2, X12, CCDA, and proprietary vendor interfaces.",
-      },
-      {
-        title: "Data Transformation",
-        description: "Visual mapping tools and transformation engine that normalize data across disparate sources into a unified format.",
-      },
-    ],
-    benefits: [
-      "50+ pre-built connectors",
-      "99.99% message delivery guarantee",
-      "Sub-second data latency",
-      "Complete audit trail",
+      "Flexible Exportformate",
+      "Automatische Register-Übermittlung",
+      "Individuelle Auswertungen",
+      "Integration in bestehende BI-Systeme",
     ],
   },
 };
 
 const PlatformDetail = () => {
-  const { slug = "clinical" } = useParams();
-  const platform = platformData[slug] || platformData.clinical;
+  const { slug = "dokutool" } = useParams();
+  const platform = platformData[slug] || platformData.dokutool;
+  const IconComponent = platform.icon;
 
   return (
     <Layout>
@@ -117,7 +122,7 @@ const PlatformDetail = () => {
               className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
             >
               <ArrowLeft size={16} />
-              Back to Platform Overview
+              Zurück zur Übersicht
             </Link>
           </AnimatedSection>
 
@@ -144,13 +149,10 @@ const PlatformDetail = () => {
                 <div className="flex flex-wrap gap-4">
                   <Link to="/demo">
                     <Button variant="default" size="lg" className="rounded-full">
-                      Request Demo
+                      Demo anfragen
                       <ArrowRight size={18} />
                     </Button>
                   </Link>
-                  <Button variant="outline" size="lg" className="rounded-full">
-                    View Documentation
-                  </Button>
                 </div>
               </AnimatedSection>
             </div>
@@ -159,11 +161,11 @@ const PlatformDetail = () => {
             <AnimatedSection delay={400}>
               {/* GRAPHIC PLACEHOLDER: product-focused visual (for example detailed dashboard mockup, module diagram) in zentras colors. */}
               <PlaceholderGraphic
-                label={`${platform.title} Dashboard`}
-                description="Detailed product mockup or module diagram (PNG, SVG, or interactive demo)"
+                label={`${platform.title} Ansicht`}
+                description="Detailliertes Produkt-Mockup oder Modul-Diagramm (PNG, SVG oder interaktive Demo)"
                 aspectRatio="video"
                 variant="gradient"
-                icon={<Monitor size={48} />}
+                icon={<IconComponent size={48} />}
                 className="min-h-[350px]"
               />
             </AnimatedSection>
@@ -176,10 +178,10 @@ const PlatformDetail = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <AnimatedSection className="max-w-3xl mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-              Key capabilities
+              Funktionen
             </h2>
             <p className="text-lg text-muted-foreground">
-              Explore the features that make {platform.title} the preferred choice for healthcare organizations.
+              Entdecken Sie die Funktionen, die {platform.title} zur bevorzugten Wahl für Kliniken machen.
             </p>
           </AnimatedSection>
 
@@ -193,15 +195,15 @@ const PlatformDetail = () => {
                     <p className="text-muted-foreground mb-6">{feature.description}</p>
                     <div className="flex items-center gap-2 text-sm font-medium text-secondary">
                       <Check size={16} className="text-accent-green" />
-                      Included in {platform.title}
+                      Enthalten in {platform.title}
                     </div>
                   </div>
 
                   {/* GRAPHIC PLACEHOLDER: small supporting illustration or cropped screenshot. */}
                   <div className={index % 2 === 1 ? "lg:order-1" : ""}>
                     <PlaceholderGraphic
-                      label={`${feature.title} Visual`}
-                      description="Supporting illustration or screenshot"
+                      label={`${feature.title} Ansicht`}
+                      description="Screenshot oder Illustration"
                       aspectRatio="video"
                       variant="outline"
                       className="min-h-[250px]"
@@ -224,14 +226,14 @@ const PlatformDetail = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <AnimatedSection>
               <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
-                Measurable impact
+                Ihre Vorteile
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
-                Organizations using {platform.title} report significant improvements across key metrics.
+                Kliniken, die {platform.title} nutzen, profitieren von messbaren Verbesserungen.
               </p>
 
               <ul className="space-y-4">
-                {platform.benefits.map((benefit, index) => (
+                {platform.benefits.map((benefit) => (
                   <li key={benefit} className="flex items-center gap-3">
                     <div className="w-6 h-6 rounded-full bg-accent-green/20 flex items-center justify-center">
                       <Check size={14} className="text-accent-green" />
@@ -244,8 +246,8 @@ const PlatformDetail = () => {
 
             <AnimatedSection delay={200}>
               <PlaceholderGraphic
-                label="Impact Metrics Visualization"
-                description="Chart or infographic showing ROI and outcomes"
+                label="Vorteile-Visualisierung"
+                description="Diagramm oder Infografik zu den Vorteilen"
                 aspectRatio="square"
                 variant="default"
                 className="min-h-[350px]"
@@ -260,14 +262,14 @@ const PlatformDetail = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <AnimatedSection className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl lg:text-4xl font-bold text-primary-foreground mb-6">
-              See {platform.title} in action
+              {platform.title} in Aktion erleben
             </h2>
             <p className="text-lg text-primary-foreground/70 mb-8">
-              Schedule a personalized demo to explore how {platform.title} can transform your organization.
+              Vereinbaren Sie eine individuelle Demo und erfahren Sie, wie {platform.title} Ihre Dokumentation vereinfacht.
             </p>
             <Link to="/demo">
               <Button variant="hero" size="xl" className="rounded-full">
-                Request a Demo
+                Demo anfragen
                 <ArrowRight size={20} />
               </Button>
             </Link>

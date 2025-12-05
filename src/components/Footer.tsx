@@ -1,25 +1,21 @@
 import { Link } from "react-router-dom";
 import { ZentrasLogo } from "./ZentrasLogo";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 
 const footerLinks = {
-  platform: [
-    { label: "Overview", href: "/platform" },
-    { label: "Clinical Suite", href: "/platform/clinical" },
+  produkte: [
+    { label: "Übersicht", href: "/platform" },
+    { label: "Dokutool Suite", href: "/platform/dokutool" },
+    { label: "Hardware", href: "/platform/hardware" },
     { label: "Analytics", href: "/platform/analytics" },
-    { label: "Integration", href: "/platform/integration" },
   ],
-  company: [
-    { label: "About Us", href: "/team" },
-    { label: "Careers", href: "/team#careers" },
-    { label: "News", href: "/news" },
-    { label: "Contact", href: "/demo" },
+  unternehmen: [
+    { label: "Team", href: "/team" },
+    { label: "Kontakt", href: "/demo" },
   ],
-  resources: [
-    { label: "Documentation", href: "/docs" },
-    { label: "Support", href: "/support" },
-    { label: "Privacy Policy", href: "/privacy" },
-    { label: "Terms of Service", href: "/terms" },
+  rechtliches: [
+    { label: "Datenschutz", href: "/datenschutz" },
+    { label: "Impressum", href: "/impressum" },
   ],
 };
 
@@ -33,30 +29,26 @@ export const Footer = () => {
             {/* GRAPHIC PLACEHOLDER: official zentras logo (SVG) in brand colors. */}
             <ZentrasLogo variant="light" className="mb-6" />
             <p className="text-primary-foreground/70 text-sm max-w-sm mb-6">
-              Transforming healthcare through innovative IT solutions. 
-              Empowering medical organizations to deliver better patient outcomes.
+              ZENTRAS Systems unterstützt die digitale Dokumentation in der interventionellen Medizin 
+              direkt am Point-of-Care. Eine Erfassung – alle Anforderungen erfüllt.
             </p>
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-sm text-primary-foreground/70">
                 <Mail size={16} className="text-accent" />
-                <span>contact@zentras.systems</span>
-              </div>
-              <div className="flex items-center gap-3 text-sm text-primary-foreground/70">
-                <Phone size={16} className="text-accent" />
-                <span>+1 (555) 123-4567</span>
+                <span>kontakt@zentras.systems</span>
               </div>
               <div className="flex items-center gap-3 text-sm text-primary-foreground/70">
                 <MapPin size={16} className="text-accent" />
-                <span>San Francisco, CA</span>
+                <span>Deutschland</span>
               </div>
             </div>
           </div>
 
-          {/* Platform Links */}
+          {/* Produkte Links */}
           <div>
-            <h4 className="font-semibold mb-4">Platform</h4>
+            <h4 className="font-semibold mb-4">Produkte</h4>
             <ul className="space-y-3">
-              {footerLinks.platform.map((link) => (
+              {footerLinks.produkte.map((link) => (
                 <li key={link.href}>
                   <Link
                     to={link.href}
@@ -69,11 +61,11 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Company Links */}
+          {/* Unternehmen Links */}
           <div>
-            <h4 className="font-semibold mb-4">Company</h4>
+            <h4 className="font-semibold mb-4">Unternehmen</h4>
             <ul className="space-y-3">
-              {footerLinks.company.map((link) => (
+              {footerLinks.unternehmen.map((link) => (
                 <li key={link.href}>
                   <Link
                     to={link.href}
@@ -86,11 +78,11 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Resources Links */}
+          {/* Rechtliches Links */}
           <div>
-            <h4 className="font-semibold mb-4">Resources</h4>
+            <h4 className="font-semibold mb-4">Rechtliches</h4>
             <ul className="space-y-3">
-              {footerLinks.resources.map((link) => (
+              {footerLinks.rechtliches.map((link) => (
                 <li key={link.href}>
                   <Link
                     to={link.href}
@@ -107,17 +99,14 @@ export const Footer = () => {
         {/* Bottom Bar */}
         <div className="mt-16 pt-8 border-t border-primary-foreground/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-primary-foreground/50">
-            © {new Date().getFullYear()} ZENTRAS Systems. All rights reserved.
+            © {new Date().getFullYear()} ZENTRAS Systems UG. Alle Rechte vorbehalten.
           </p>
           <div className="flex items-center gap-6">
-            <Link to="/privacy" className="text-sm text-primary-foreground/50 hover:text-accent transition-colors">
-              Privacy
+            <Link to="/datenschutz" className="text-sm text-primary-foreground/50 hover:text-accent transition-colors">
+              Datenschutz
             </Link>
-            <Link to="/terms" className="text-sm text-primary-foreground/50 hover:text-accent transition-colors">
-              Terms
-            </Link>
-            <Link to="/cookies" className="text-sm text-primary-foreground/50 hover:text-accent transition-colors">
-              Cookies
+            <Link to="/impressum" className="text-sm text-primary-foreground/50 hover:text-accent transition-colors">
+              Impressum
             </Link>
           </div>
         </div>
