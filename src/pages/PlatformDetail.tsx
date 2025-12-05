@@ -122,32 +122,38 @@ const platformData: Record<string, {
 // Layered Screenshots Component for Documentation Suite Hero
 const LayeredScreenshots = () => {
   return (
-    <div className="relative w-full aspect-video">
+    <div className="relative w-full h-[400px] lg:h-[450px]">
       {/* Background screenshot - Allgemeinradiologische Eingriffe */}
-      <div className="absolute top-0 right-0 w-[70%] h-auto z-10 rounded-lg shadow-xl overflow-hidden border border-border/50 bg-white">
-        <img 
-          src={allgemeinEingriffeImg} 
-          alt="Allgemeinradiologische Eingriffe" 
-          className="w-full h-full object-cover"
-        />
+      <div className="absolute top-0 right-0 w-[220px] h-[280px] z-10 rounded-xl shadow-lg overflow-hidden border border-border/30 bg-white rotate-3 hover:rotate-0 transition-transform duration-300">
+        <div className="p-4 h-full overflow-hidden">
+          <img 
+            src={allgemeinEingriffeImg} 
+            alt="Allgemeinradiologische Eingriffe" 
+            className="w-full h-full object-contain object-top"
+          />
+        </div>
       </div>
       
       {/* Middle screenshot - CT-gesteuerte Eingriffe */}
-      <div className="absolute top-12 left-[10%] w-[60%] h-auto z-20 rounded-lg shadow-xl overflow-hidden border border-border/50 bg-white">
-        <img 
-          src={ctEingriffeImg} 
-          alt="CT-gesteuerte Eingriffe" 
-          className="w-full h-full object-cover"
-        />
+      <div className="absolute top-8 left-[15%] w-[200px] h-[220px] z-20 rounded-xl shadow-xl overflow-hidden border border-border/30 bg-white -rotate-2 hover:rotate-0 transition-transform duration-300">
+        <div className="p-4 h-full overflow-hidden">
+          <img 
+            src={ctEingriffeImg} 
+            alt="CT-gesteuerte Eingriffe" 
+            className="w-full h-full object-contain object-top"
+          />
+        </div>
       </div>
       
       {/* Front screenshot - Neuro Eingriffe */}
-      <div className="absolute bottom-0 left-0 w-[65%] h-auto z-30 rounded-lg shadow-2xl overflow-hidden border border-border/50 bg-white">
-        <img 
-          src={neuroEingriffeImg} 
-          alt="Neuroradiologische Eingriffe" 
-          className="w-full h-full object-cover"
-        />
+      <div className="absolute bottom-0 left-0 w-[220px] h-[260px] z-30 rounded-xl shadow-2xl overflow-hidden border border-border/30 bg-white rotate-1 hover:rotate-0 transition-transform duration-300">
+        <div className="p-4 h-full overflow-hidden">
+          <img 
+            src={neuroEingriffeImg} 
+            alt="Neuroradiologische Eingriffe" 
+            className="w-full h-full object-contain object-top"
+          />
+        </div>
       </div>
     </div>
   );
@@ -284,37 +290,25 @@ const PlatformDetail = () => {
       {/* Benefits Section */}
       <section className="py-20 lg:py-28 bg-brand-surface">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <AnimatedSection>
-              <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
-                Ihre Vorteile
-              </h2>
-              <p className="text-lg text-muted-foreground mb-8">
-                Kliniken, die {platform.title} nutzen, profitieren von messbaren Verbesserungen.
-              </p>
+          <AnimatedSection className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
+              Ihre Vorteile
+            </h2>
+            <p className="text-lg text-muted-foreground mb-12">
+              Kliniken, die {platform.title} nutzen, profitieren von messbaren Verbesserungen.
+            </p>
 
-              <ul className="space-y-4">
-                {platform.benefits.map((benefit) => (
-                  <li key={benefit} className="flex items-center gap-3">
-                    <div className="w-6 h-6 rounded-full bg-accent-green/20 flex items-center justify-center">
-                      <Check size={14} className="text-accent-green" />
-                    </div>
-                    <span className="text-foreground font-medium">{benefit}</span>
-                  </li>
-                ))}
-              </ul>
-            </AnimatedSection>
-
-            <AnimatedSection delay={200}>
-              <PlaceholderGraphic
-                label="Vorteile-Visualisierung"
-                description="Diagramm oder Infografik zu den Vorteilen"
-                aspectRatio="square"
-                variant="default"
-                className="min-h-[350px]"
-              />
-            </AnimatedSection>
-          </div>
+            <div className="grid sm:grid-cols-2 gap-6">
+              {platform.benefits.map((benefit, index) => (
+                <div key={benefit} className="flex items-center gap-3 text-left bg-background rounded-xl p-4 shadow-sm border border-border/50">
+                  <div className="w-8 h-8 rounded-full bg-accent-green/20 flex items-center justify-center flex-shrink-0">
+                    <Check size={16} className="text-accent-green" />
+                  </div>
+                  <span className="text-foreground font-medium">{benefit}</span>
+                </div>
+              ))}
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
