@@ -14,11 +14,11 @@ const platformData: Record<string, {
   features: { title: string; description: string }[];
   benefits: string[];
 }> = {
-  dokutool: {
-    title: "Dokutool Suite",
+  documentation: {
+    title: "Documentation Suite",
     tagline: "Dokumentation am Point-of-Care",
     icon: FileText,
-    description: "Die Dokutool Suite ist unsere webbasierte Click-Through-Dokumentation für interventionelle Eingriffe. Vorkonfigurierte Module für die häufigsten Interventionen, erweiterbar und remote anpassbar. Beispiel: Die AngioAssist Suite für die interventionelle Radiologie.",
+    description: "Die Documentation Suite ist unsere webbasierte Click-Through-Dokumentation für diverse interventionelle Eingriffe. Vorkonfigurierte Module für die häufigsten Interventionen, erweiterbar und remote anpassbar. Beispiel: Die AngioAssist Suite für die interventionelle Radiologie.",
     features: [
       {
         title: "Befundberichte",
@@ -26,7 +26,7 @@ const platformData: Record<string, {
       },
       {
         title: "OPS-Codes & QS-Daten",
-        description: "Automatische Generierung von OPS-Codes und Qualitätssicherungsdaten aus der Dokumentation – ohne Mehraufwand.",
+        description: "Automatische Generierung von OPS-Codes und Qualitätssicherungsdaten aus der Dokumentation, ohne Mehraufwand.",
       },
       {
         title: "Registerdaten",
@@ -34,21 +34,21 @@ const platformData: Record<string, {
       },
       {
         title: "Produktevaluationen",
-        description: "Strukturierte Erfassung von Evaluationsdaten für Medizinproduktehersteller – integriert in Ihren normalen Workflow.",
+        description: "Strukturierte Erfassung von Evaluationsdaten für Medizinproduktehersteller, integriert in Ihren normalen Workflow.",
       },
     ],
     benefits: [
       "Einmalige Erfassung für alle Zwecke",
       "Vorkonfigurierte Module für schnellen Start",
       "Remote-Anpassungen möglich",
-      "Webbasiert – läuft auf jedem Gerät",
+      "Webbasiert, läuft auf jedem Gerät",
     ],
   },
   hardware: {
-    title: "Hardware",
+    title: "Tablets",
     tagline: "Vorkonfiguriert für den OP-Saal",
     icon: Tablet,
-    description: "Unsere Hardware-Lösung bietet desinfizierbare, bruch- und diebstahlgesicherte Tablets als Standard-Device im OP / Angiographie-Saal. Vorkonfiguriert mit Sicherheitslayer und automatischen Updates – Setup in wenigen Minuten.",
+    description: "Vorkonfigurierte, sterile Tablets im abgesicherten Kiosk Modus, an Halterungen für den OP-Saal. Desinfizierbar, bruch- und diebstahlgesichert mit automatischen Updates.",
     features: [
       {
         title: "KIOSK Mode",
@@ -56,7 +56,7 @@ const platformData: Record<string, {
       },
       {
         title: "Automatische Updates",
-        description: "Software-Updates werden automatisch eingespielt – ohne IT-Aufwand in Ihrer Klinik. Immer auf dem neuesten Stand.",
+        description: "Software-Updates werden automatisch eingespielt, ohne IT-Aufwand in Ihrer Klinik. Immer auf dem neuesten Stand.",
       },
       {
         title: "Sterile Halterungen",
@@ -107,8 +107,8 @@ const platformData: Record<string, {
 };
 
 const PlatformDetail = () => {
-  const { slug = "dokutool" } = useParams();
-  const platform = platformData[slug] || platformData.dokutool;
+  const { slug = "documentation" } = useParams();
+  const platform = platformData[slug] || platformData.documentation;
   const IconComponent = platform.icon;
 
   return (
