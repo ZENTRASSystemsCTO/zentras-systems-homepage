@@ -6,28 +6,28 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
-import { ArrowRight, Check, Users, Calendar, MessageCircle, Headphones } from "lucide-react";
+import { ArrowRight, Check, Users, Calendar, MessageCircle, Headphones, Rocket } from "lucide-react";
 
 const steps = [
   {
     icon: Calendar,
-    title: "Schedule",
-    description: "Pick a time that works for your team",
+    title: "Kontakt",
+    description: "Sie füllen das Formular aus",
   },
   {
     icon: MessageCircle,
-    title: "Discover",
-    description: "Share your challenges and goals",
+    title: "Bedarfsanalyse",
+    description: "Wir besprechen Ihre Anforderungen",
   },
   {
     icon: Users,
     title: "Demo",
-    description: "See ZENTRAS tailored to your needs",
+    description: "Live-Vorführung der ZENTRAS Suite",
   },
   {
-    icon: Headphones,
-    title: "Support",
-    description: "Get answers to all your questions",
+    icon: Rocket,
+    title: "Pilotprojekt",
+    description: "Testphase in Ihrer Klinik",
   },
 ];
 
@@ -49,8 +49,8 @@ const RequestDemo = () => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     toast({
-      title: "Demo request received!",
-      description: "Our team will contact you within 24 hours.",
+      title: "Anfrage erhalten!",
+      description: "Wir melden uns innerhalb von 24 Stunden bei Ihnen.",
     });
 
     setFormData({ name: "", company: "", email: "", phone: "", message: "" });
@@ -71,30 +71,30 @@ const RequestDemo = () => {
             <div>
               <AnimatedSection>
                 <span className="inline-block px-3 py-1 rounded-full bg-accent/10 text-accent text-sm font-medium mb-4">
-                  Get Started
+                  Kontakt
                 </span>
               </AnimatedSection>
 
               <AnimatedSection delay={100}>
                 <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-tight mb-6">
-                  Request a
-                  <span className="text-secondary"> personalized demo</span>
+                  Lernen Sie
+                  <span className="text-secondary"> ZENTRAS kennen</span>
                 </h1>
               </AnimatedSection>
 
               <AnimatedSection delay={200}>
                 <p className="text-lg text-muted-foreground mb-8 max-w-xl">
-                  See how ZENTRAS can transform your healthcare organization. Our team will walk you through 
-                  the platform and answer all your questions.
+                  Vereinbaren Sie ein individuelles Beratungsgespräch. Wir zeigen Ihnen, wie ZENTRAS 
+                  Ihre Dokumentation vereinfacht.
                 </p>
               </AnimatedSection>
 
               <AnimatedSection delay={300}>
                 <ul className="space-y-3">
                   {[
-                    "30-minute personalized walkthrough",
-                    "Custom solutions for your organization",
-                    "No commitment required",
+                    "Individuelles Beratungsgespräch",
+                    "Live-Demo der ZENTRAS Suite",
+                    "Keine Verpflichtung",
                   ].map((item) => (
                     <li key={item} className="flex items-center gap-3 text-foreground">
                       <div className="w-5 h-5 rounded-full bg-accent-green/20 flex items-center justify-center">
@@ -111,8 +111,8 @@ const RequestDemo = () => {
             <AnimatedSection delay={400}>
               {/* GRAPHIC PLACEHOLDER: illustration or photo representing a live demo or meeting (people collaborating), color graded with zentras palette. */}
               <PlaceholderGraphic
-                label="Demo Meeting Visual"
-                description="Illustration or photo of people in a demo meeting, color graded with zentras palette"
+                label="Demo-Illustration"
+                description="Illustration oder Foto eines Demo-Meetings, farblich abgestimmt auf ZENTRAS Palette"
                 aspectRatio="square"
                 variant="gradient"
                 icon={<Users size={48} />}
@@ -130,26 +130,27 @@ const RequestDemo = () => {
             {/* Left: About ZENTRAS */}
             <AnimatedSection>
               <h2 className="text-2xl lg:text-3xl font-bold text-foreground mb-6">
-                About ZENTRAS
+                Über ZENTRAS Systems
               </h2>
               <p className="text-muted-foreground mb-6">
-                ZENTRAS Systems is a leading provider of healthcare IT solutions, serving over 500 
-                healthcare organizations worldwide. Our mission is to empower healthcare providers 
-                with technology that improves patient outcomes and operational efficiency.
+                ZENTRAS Systems unterstützt die digitale Dokumentation in der interventionellen Medizin 
+                direkt am Point-of-Care. Statt Befunde, OPS-Codes, QS-Berichte und Registerdaten mehrfach 
+                zu erfassen, ermöglicht unsere Tool Suite eine strukturierte Echtzeit-Dokumentation 
+                während des Eingriffs.
               </p>
               <p className="text-muted-foreground mb-8">
-                Founded by healthcare and technology veterans, we understand the unique challenges 
-                facing modern healthcare organizations. Our platform is built from the ground up 
-                to address these challenges with innovative, user-friendly solutions.
+                Gegründet von Klinikern, die die Frustration der Mehrfachdokumentation selbst erlebt haben. 
+                Unser Ziel: Echtzeit-Dokumentation am Point-of-Care zum Standard in der interventionellen 
+                Medizin machen.
               </p>
 
               {/* Trust indicators */}
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { value: "500+", label: "Organizations" },
-                  { value: "15M+", label: "Patients Served" },
-                  { value: "50+", label: "Integrations" },
-                  { value: "24/7", label: "Support" },
+                  { value: "2", label: "Pilotkliniken" },
+                  { value: "ISO 27001", label: "orientiert" },
+                  { value: "Setup", label: "in Minuten" },
+                  { value: "Made in", label: "Germany" },
                 ].map((stat) => (
                   <div key={stat.label} className="p-4 rounded-xl bg-card border border-border">
                     <p className="text-2xl font-bold text-secondary">{stat.value}</p>
@@ -163,14 +164,14 @@ const RequestDemo = () => {
             <AnimatedSection delay={200}>
               <div className="p-8 rounded-2xl bg-card border border-border shadow-brand">
                 <h3 className="text-xl font-semibold text-foreground mb-6">
-                  Request your demo
+                  Demo anfragen
                 </h3>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                        Full Name *
+                        Name *
                       </label>
                       <Input
                         id="name"
@@ -178,13 +179,13 @@ const RequestDemo = () => {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        placeholder="John Smith"
+                        placeholder="Dr. Max Mustermann"
                         className="rounded-lg"
                       />
                     </div>
                     <div>
                       <label htmlFor="company" className="block text-sm font-medium text-foreground mb-2">
-                        Organization *
+                        Klinik / Organisation *
                       </label>
                       <Input
                         id="company"
@@ -192,7 +193,7 @@ const RequestDemo = () => {
                         value={formData.company}
                         onChange={handleChange}
                         required
-                        placeholder="Healthcare Corp"
+                        placeholder="Universitätsklinikum"
                         className="rounded-lg"
                       />
                     </div>
@@ -201,7 +202,7 @@ const RequestDemo = () => {
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                        Work Email *
+                        E-Mail *
                       </label>
                       <Input
                         id="email"
@@ -210,13 +211,13 @@ const RequestDemo = () => {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        placeholder="john@healthcare.com"
+                        placeholder="max.mustermann@klinik.de"
                         className="rounded-lg"
                       />
                     </div>
                     <div>
                       <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
-                        Phone Number
+                        Telefon
                       </label>
                       <Input
                         id="phone"
@@ -224,7 +225,7 @@ const RequestDemo = () => {
                         type="tel"
                         value={formData.phone}
                         onChange={handleChange}
-                        placeholder="+1 (555) 000-0000"
+                        placeholder="+49 123 456789"
                         className="rounded-lg"
                       />
                     </div>
@@ -232,14 +233,14 @@ const RequestDemo = () => {
 
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                      How can we help?
+                      Ihre Nachricht
                     </label>
                     <Textarea
                       id="message"
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
-                      placeholder="Tell us about your organization and what you're looking for..."
+                      placeholder="Erzählen Sie uns von Ihrer Klinik und Ihren Anforderungen..."
                       rows={4}
                       className="rounded-lg resize-none"
                     />
@@ -252,12 +253,12 @@ const RequestDemo = () => {
                     className="w-full rounded-full"
                     disabled={isSubmitting}
                   >
-                    {isSubmitting ? "Submitting..." : "Request Demo"}
+                    {isSubmitting ? "Wird gesendet..." : "Demo anfragen"}
                     <ArrowRight size={18} />
                   </Button>
 
                   <p className="text-xs text-muted-foreground text-center">
-                    By submitting, you agree to our Privacy Policy and Terms of Service.
+                    Mit dem Absenden stimmen Sie unserer Datenschutzerklärung zu.
                   </p>
                 </form>
               </div>
@@ -271,10 +272,10 @@ const RequestDemo = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-              How it works
+              So funktioniert es
             </h2>
             <p className="text-lg text-muted-foreground">
-              From initial contact to implementation, we're with you every step of the way.
+              Von der ersten Kontaktaufnahme bis zum Pilotprojekt begleiten wir Sie.
             </p>
           </AnimatedSection>
 
@@ -286,7 +287,7 @@ const RequestDemo = () => {
                   <div className="w-16 h-16 rounded-2xl gradient-brand flex items-center justify-center mx-auto mb-4 shadow-brand">
                     <step.icon size={28} className="text-primary-foreground" />
                   </div>
-                  <div className="text-sm font-medium text-secondary mb-2">Step {index + 1}</div>
+                  <div className="text-sm font-medium text-secondary mb-2">Schritt {index + 1}</div>
                   <h3 className="text-lg font-semibold text-foreground mb-2">{step.title}</h3>
                   <p className="text-sm text-muted-foreground">{step.description}</p>
                 </div>
@@ -301,10 +302,10 @@ const RequestDemo = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <AnimatedSection className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl lg:text-4xl font-bold text-primary-foreground mb-6">
-              Ready to get started?
+              Bereit für effizientere Dokumentation?
             </h2>
             <p className="text-lg text-primary-foreground/70 mb-8">
-              Join 500+ healthcare organizations already transforming their operations with ZENTRAS.
+              Vereinbaren Sie jetzt Ihr individuelles Beratungsgespräch mit dem ZENTRAS Team.
             </p>
             <Button
               variant="hero"
@@ -312,7 +313,7 @@ const RequestDemo = () => {
               className="rounded-full"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             >
-              Request Demo Now
+              Jetzt Demo anfragen
               <ArrowRight size={20} />
             </Button>
           </AnimatedSection>

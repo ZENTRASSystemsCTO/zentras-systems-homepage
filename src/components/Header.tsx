@@ -7,9 +7,9 @@ import { cn } from "@/lib/utils";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/platform", label: "Platform" },
+  { href: "/platform", label: "Produkte" },
   { href: "/team", label: "Team" },
-  { href: "/demo", label: "Contact" },
+  { href: "/demo", label: "Kontakt" },
 ];
 
 export const Header = () => {
@@ -68,7 +68,7 @@ export const Header = () => {
           <div className="hidden md:flex items-center gap-4">
             <Link to="/demo">
               <Button className="btn-hero rounded-full px-6">
-                Request Demo
+                Demo anfragen
               </Button>
             </Link>
           </div>
@@ -77,7 +77,7 @@ export const Header = () => {
           <button
             className="md:hidden text-primary-foreground p-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
+            aria-label="Menü umschalten"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -103,7 +103,7 @@ export const Header = () => {
               ))}
               <Link to="/demo" className="mt-2">
                 <Button className="btn-hero rounded-full w-full">
-                  Request Demo
+                  Demo anfragen
                 </Button>
               </Link>
             </nav>
