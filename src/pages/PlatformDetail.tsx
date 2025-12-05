@@ -279,11 +279,19 @@ const PlatformDetail = () => {
                   {/* Feature image or placeholder */}
                   <div className={index % 2 === 1 ? "lg:order-1" : ""}>
                     {feature.image ? (
-                      <div className="rounded-xl overflow-hidden shadow-lg border border-border/50 bg-white">
+                      <div className={`rounded-xl overflow-hidden shadow-lg border border-border/50 bg-white ${
+                        feature.image === securedByKnoxImg || feature.image === autoUpdateImg 
+                          ? 'p-12 flex items-center justify-center' 
+                          : ''
+                      }`}>
                         <img 
                           src={feature.image} 
                           alt={feature.title}
-                          className="w-full h-auto object-contain"
+                          className={`object-contain ${
+                            feature.image === securedByKnoxImg || feature.image === autoUpdateImg 
+                              ? 'max-w-[200px] h-auto' 
+                              : 'w-full h-auto'
+                          }`}
                         />
                       </div>
                     ) : (
