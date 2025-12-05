@@ -5,13 +5,22 @@ import { PlaceholderGraphic } from "@/components/PlaceholderGraphic";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check, ArrowLeft, Monitor, FileText, Tablet, BarChart3 } from "lucide-react";
 
+// Import images for Documentation Suite
+import befundBerichtImg from "@/assets/befund-bericht.jpg";
+import opsCodesImg from "@/assets/ops-codes.jpg";
+import degirImg from "@/assets/degir-dokumentation.jpg";
+import produktevaluationenImg from "@/assets/produktevaluationen.jpg";
+import neuroEingriffeImg from "@/assets/neuro-eingriffe.jpg";
+import ctEingriffeImg from "@/assets/ct-eingriffe.jpg";
+import allgemeinEingriffeImg from "@/assets/allgemein-eingriffe.jpg";
+
 // Platform data for all three products
 const platformData: Record<string, {
   title: string;
   tagline: string;
   description: string;
   icon: typeof Monitor;
-  features: { title: string; description: string }[];
+  features: { title: string; description: string; image?: string }[];
   benefits: string[];
 }> = {
   documentation: {
@@ -23,18 +32,22 @@ const platformData: Record<string, {
       {
         title: "Befundberichte",
         description: "Strukturierte Erfassung medizinischer Befunde direkt während des Eingriffs. Keine nachträgliche Dokumentation mehr nötig.",
+        image: befundBerichtImg,
       },
       {
         title: "OPS-Codes & QS-Daten",
         description: "Automatische Generierung von OPS-Codes und Qualitätssicherungsdaten aus der Dokumentation, ohne Mehraufwand.",
+        image: opsCodesImg,
       },
       {
         title: "Registerdaten",
         description: "Direkte Anbindung an Register wie DeGIR. Die Daten fließen automatisch aus Ihrer Dokumentation in die erforderlichen Register.",
+        image: degirImg,
       },
       {
         title: "Produktevaluationen",
         description: "Strukturierte Erfassung von Evaluationsdaten für Medizinproduktehersteller, integriert in Ihren normalen Workflow.",
+        image: produktevaluationenImg,
       },
     ],
     benefits: [
@@ -106,10 +119,45 @@ const platformData: Record<string, {
   },
 };
 
+// Layered Screenshots Component for Documentation Suite Hero
+const LayeredScreenshots = () => {
+  return (
+    <div className="relative w-full aspect-video">
+      {/* Background screenshot - Allgemeinradiologische Eingriffe */}
+      <div className="absolute top-0 right-0 w-[70%] h-auto z-10 rounded-lg shadow-xl overflow-hidden border border-border/50 bg-white">
+        <img 
+          src={allgemeinEingriffeImg} 
+          alt="Allgemeinradiologische Eingriffe" 
+          className="w-full h-full object-cover"
+        />
+      </div>
+      
+      {/* Middle screenshot - CT-gesteuerte Eingriffe */}
+      <div className="absolute top-12 left-[10%] w-[60%] h-auto z-20 rounded-lg shadow-xl overflow-hidden border border-border/50 bg-white">
+        <img 
+          src={ctEingriffeImg} 
+          alt="CT-gesteuerte Eingriffe" 
+          className="w-full h-full object-cover"
+        />
+      </div>
+      
+      {/* Front screenshot - Neuro Eingriffe */}
+      <div className="absolute bottom-0 left-0 w-[65%] h-auto z-30 rounded-lg shadow-2xl overflow-hidden border border-border/50 bg-white">
+        <img 
+          src={neuroEingriffeImg} 
+          alt="Neuroradiologische Eingriffe" 
+          className="w-full h-full object-cover"
+        />
+      </div>
+    </div>
+  );
+};
+
 const PlatformDetail = () => {
   const { slug = "documentation" } = useParams();
   const platform = platformData[slug] || platformData.documentation;
   const IconComponent = platform.icon;
+  const isDocumentation = slug === "documentation";
 
   return (
     <Layout>
@@ -157,17 +205,20 @@ const PlatformDetail = () => {
               </AnimatedSection>
             </div>
 
-            {/* Right: Product Visual Placeholder */}
+            {/* Right: Product Visual */}
             <AnimatedSection delay={400}>
-              {/* GRAPHIC PLACEHOLDER: product-focused visual (for example detailed dashboard mockup, module diagram) in zentras colors. */}
-              <PlaceholderGraphic
-                label={`${platform.title} Ansicht`}
-                description="Detailliertes Produkt-Mockup oder Modul-Diagramm (PNG, SVG oder interaktive Demo)"
-                aspectRatio="video"
-                variant="gradient"
-                icon={<IconComponent size={48} />}
-                className="min-h-[350px]"
-              />
+              {isDocumentation ? (
+                <LayeredScreenshots />
+              ) : (
+                <PlaceholderGraphic
+                  label={`${platform.title} Ansicht`}
+                  description="Detailliertes Produkt-Mockup oder Modul-Diagramm (PNG, SVG oder interaktive Demo)"
+                  aspectRatio="video"
+                  variant="gradient"
+                  icon={<IconComponent size={48} />}
+                  className="min-h-[350px]"
+                />
+              )}
             </AnimatedSection>
           </div>
         </div>
@@ -199,15 +250,25 @@ const PlatformDetail = () => {
                     </div>
                   </div>
 
-                  {/* GRAPHIC PLACEHOLDER: small supporting illustration or cropped screenshot. */}
+                  {/* Feature image or placeholder */}
                   <div className={index % 2 === 1 ? "lg:order-1" : ""}>
-                    <PlaceholderGraphic
-                      label={`${feature.title} Ansicht`}
-                      description="Screenshot oder Illustration"
-                      aspectRatio="video"
-                      variant="outline"
-                      className="min-h-[250px]"
-                    />
+                    {feature.image ? (
+                      <div className="rounded-xl overflow-hidden shadow-lg border border-border/50 bg-white">
+                        <img 
+                          src={feature.image} 
+                          alt={feature.title}
+                          className="w-full h-auto object-contain"
+                        />
+                      </div>
+                    ) : (
+                      <PlaceholderGraphic
+                        label={`${feature.title} Ansicht`}
+                        description="Screenshot oder Illustration"
+                        aspectRatio="video"
+                        variant="outline"
+                        className="min-h-[250px]"
+                      />
+                    )}
                   </div>
                 </div>
 
