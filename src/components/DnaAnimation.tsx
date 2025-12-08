@@ -30,8 +30,8 @@ export const DnaAnimation = ({ className = "" }: DnaAnimationProps) => {
   // Set animation speed after it loads
   useEffect(() => {
     if (lottieRef.current && animationData) {
-      // Reduce speed to 0.12x (very slow)
-      lottieRef.current.setSpeed(0.12);
+      // Reduce speed to 0.1x (very slow)
+      lottieRef.current.setSpeed(0.1);
     }
   }, [animationData]);
 
@@ -57,7 +57,7 @@ export const DnaAnimation = ({ className = "" }: DnaAnimationProps) => {
       style={{
         transform: "rotate(-45deg) scale(1.2)",
         transformOrigin: "center center",
-        opacity: 0.7,
+        opacity: 0.5,
       }}
     >
       <Lottie
