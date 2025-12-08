@@ -27,6 +27,14 @@ export const DnaAnimation = ({ className = "" }: DnaAnimationProps) => {
       });
   }, []);
 
+  // Set animation speed after it loads
+  useEffect(() => {
+    if (lottieRef.current && animationData) {
+      // Reduce speed to 0.15x (very slow)
+      lottieRef.current.setSpeed(0.15);
+    }
+  }, [animationData]);
+
   if (error) {
     return (
       <div className={`flex items-center justify-center ${className}`}>
@@ -45,9 +53,9 @@ export const DnaAnimation = ({ className = "" }: DnaAnimationProps) => {
 
   return (
     <div 
-      className={`relative overflow-visible ${className}`}
+      className={`relative overflow-hidden ${className}`}
       style={{
-        transform: "rotate(-45deg) scale(2.5)",
+        transform: "rotate(-45deg) scale(1.5)",
         transformOrigin: "center center",
       }}
     >
@@ -59,7 +67,7 @@ export const DnaAnimation = ({ className = "" }: DnaAnimationProps) => {
         className="w-full h-full"
         style={{
           // Shift to ZENTRAS teal/cyan colors
-          filter: "hue-rotate(140deg) saturate(1.3) brightness(1.1)",
+          filter: "hue-rotate(140deg) saturate(1.2) brightness(1.1)",
         }}
       />
     </div>
