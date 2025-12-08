@@ -70,9 +70,9 @@ export const DnaAnimation = ({ className = "" }: DnaAnimationProps) => {
   return (
     <div 
       ref={containerRef}
-      className={`relative ${className}`}
+      className={`relative overflow-visible ${className}`}
       style={{
-        transform: "rotate(-45deg) scale(1.8)",
+        transform: "rotate(-45deg) scale(2.5)",
         transformOrigin: "center center",
       }}
     >
@@ -83,8 +83,8 @@ export const DnaAnimation = ({ className = "" }: DnaAnimationProps) => {
         autoplay={false}
         className="w-full h-full"
         style={{
-          // Shift to ZENTRAS teal/cyan colors (original is purple/blue)
-          filter: "hue-rotate(-40deg) saturate(1.2) brightness(1.15)",
+          // Shift to ZENTRAS teal/cyan colors (hue-rotate from purple towards teal)
+          filter: "hue-rotate(140deg) saturate(1.3) brightness(1.1)",
         }}
       />
     </div>

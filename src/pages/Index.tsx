@@ -101,14 +101,12 @@ const Index = () => {
             </div>
 
             {/* Right: Hero Visual - DNA Helix Animation */}
-            <AnimatedSection delay={400} className="relative">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-brand-light-teal/10 to-accent-green/10 rounded-3xl blur-3xl" />
-                <div className="relative gradient-card rounded-3xl overflow-hidden min-h-[400px] flex items-center justify-center">
-                  <DnaAnimation className="w-full h-full min-h-[400px]" />
-                </div>
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-brand-light-teal/10 to-accent-green/10 rounded-3xl blur-3xl" />
+              <div className="relative gradient-card rounded-3xl overflow-hidden min-h-[500px] flex items-center justify-center">
+                <DnaAnimation className="w-full h-full min-h-[500px]" />
               </div>
-            </AnimatedSection>
+            </div>
           </div>
         </div>
 
