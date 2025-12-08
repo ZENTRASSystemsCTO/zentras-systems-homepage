@@ -64,14 +64,12 @@ const Index = () => {
           <div className="absolute top-1/2 -translate-y-1/2 right-0 w-[120%] lg:w-[80%] h-[140%] -translate-x-[5%] lg:translate-x-[15%]">
             <DnaAnimation className="w-full h-full" />
           </div>
-          {/* Blur overlay for text readability */}
-          <div className="absolute inset-0 bg-primary/40 backdrop-blur-[2px]" />
           {/* Fade top */}
           <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-primary to-transparent" />
           {/* Fade bottom */}
           <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-primary via-primary/80 to-transparent" />
-          {/* Fade left for text area */}
-          <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-primary via-primary/60 to-transparent" />
+          {/* Fade left for text area - stronger gradient, no blur */}
+          <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-primary via-primary/80 to-transparent" />
         </div>
 
         <div className="container mx-auto px-4 lg:px-8 py-20 lg:py-32 relative z-10">
