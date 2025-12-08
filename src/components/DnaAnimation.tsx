@@ -65,10 +65,6 @@ export const DnaAnimation = ({ className = "" }: DnaAnimationProps) => {
         loop={true}
         autoplay={true}
         className="w-full h-full"
-        style={{
-          // Shift to ZENTRAS teal/cyan colors (from pink/magenta)
-          filter: "hue-rotate(180deg) saturate(0.8) brightness(1.2) contrast(0.9)",
-        }}
       />
     </div>
   );
