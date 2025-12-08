@@ -57,10 +57,26 @@ const Index = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative bg-primary overflow-hidden">
-        <div className="container mx-auto px-4 lg:px-8 py-20 lg:py-32">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Left: Content */}
+      <section className="relative bg-primary overflow-hidden min-h-[90vh]">
+        {/* DNA Animation - Background layer, full width */}
+        <div className="absolute inset-0 overflow-hidden">
+          {/* Positioning: right-aligned, extends beyond viewport */}
+          <div className="absolute top-1/2 -translate-y-1/2 right-0 w-[120%] lg:w-[80%] h-[140%] -translate-x-[5%] lg:translate-x-[15%]">
+            <DnaAnimation className="w-full h-full" />
+          </div>
+          {/* Blur overlay for text readability */}
+          <div className="absolute inset-0 bg-primary/40 backdrop-blur-[2px]" />
+          {/* Fade top */}
+          <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-primary to-transparent" />
+          {/* Fade bottom */}
+          <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-primary via-primary/80 to-transparent" />
+          {/* Fade left for text area */}
+          <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-primary via-primary/60 to-transparent" />
+        </div>
+
+        <div className="container mx-auto px-4 lg:px-8 py-20 lg:py-32 relative z-10">
+          <div className="max-w-2xl">
+            {/* Content */}
             <div className="relative z-10">
               <AnimatedSection>
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 mb-6">
@@ -99,20 +115,11 @@ const Index = () => {
                 </div>
               </AnimatedSection>
             </div>
-
-            {/* Right: Hero Visual - DNA Helix Animation */}
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-brand-light-teal/10 to-accent-green/10 rounded-3xl blur-3xl" />
-              <div className="relative gradient-card rounded-3xl overflow-hidden min-h-[500px] flex items-center justify-center">
-                <DnaAnimation className="w-full h-full min-h-[500px]" />
-              </div>
-            </div>
           </div>
         </div>
 
-        {/* Decorative elements */}
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-accent/5 to-transparent pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent" />
+        {/* Bottom fade to next section */}
+        <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent z-20" />
       </section>
 
       {/* Backed By Section */}
