@@ -30,7 +30,7 @@ export const Footer = () => {
             <ZentrasLogo variant="light" className="mb-6" />
             <p className="text-primary-foreground/70 text-sm max-w-sm mb-6">
               ZENTRAS Systems unterstützt die digitale Dokumentation in der interventionellen Medizin 
-              direkt am Point-of-Care. Eine Erfassung – alle Anforderungen erfüllt.
+              direkt am Point-of-Care. Eine Erfassung, die alle Anforderungen erfüllt.
             </p>
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-sm text-primary-foreground/70">

@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import { AnimatedSection } from "@/components/AnimatedSection";
-import { PlaceholderGraphic } from "@/components/PlaceholderGraphic";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Check, Layers, FileText, Tablet, BarChart3 } from "lucide-react";
+import { ArrowRight, Check, FileText, Tablet, BarChart3 } from "lucide-react";
+import plattformVisualisierung from "@/assets/plattform-visualisierung.png";
 
 const platforms = [
   {
@@ -93,17 +93,15 @@ const PlatformOverview = () => {
               </AnimatedSection>
             </div>
 
-            {/* Right: Platform Visualization Placeholder */}
+            {/* Right: Platform Visualization */}
             <AnimatedSection delay={400}>
-              {/* GRAPHIC PLACEHOLDER: abstract visualization of the zentras platform suite (dashboard mockup, nodes and connections) in brand colors. */}
-              <PlaceholderGraphic
-                label="Plattform-Visualisierung"
-                description="Dashboard-Mockup mit den drei verbundenen Modulen (SVG oder Lottie)"
-                aspectRatio="square"
-                variant="gradient"
-                icon={<Layers size={48} />}
-                className="min-h-[400px]"
-              />
+              <div className="relative rounded-2xl overflow-hidden">
+                <img 
+                  src={plattformVisualisierung} 
+                  alt="ZENTRAS Plattform Visualisierung - Die drei Bausteine der ZENTRAS Suite" 
+                  className="w-full h-auto object-cover"
+                />
+              </div>
             </AnimatedSection>
           </div>
         </div>

@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { Layout } from "@/components/Layout";
 import { AnimatedSection } from "@/components/AnimatedSection";
-import { PlaceholderGraphic } from "@/components/PlaceholderGraphic";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
-import { ArrowRight, Check, Users, Calendar, MessageCircle, Headphones, Rocket } from "lucide-react";
+import { ArrowRight, Check, Users, Calendar, MessageCircle, Rocket } from "lucide-react";
+import demoVisualisierung from "@/assets/demo-visualisierung.png";
 
 const steps = [
   {
@@ -107,17 +107,15 @@ const RequestDemo = () => {
               </AnimatedSection>
             </div>
 
-            {/* Right: Visual Placeholder */}
+            {/* Right: Demo Visual */}
             <AnimatedSection delay={400}>
-              {/* GRAPHIC PLACEHOLDER: illustration or photo representing a live demo or meeting (people collaborating), color graded with zentras palette. */}
-              <PlaceholderGraphic
-                label="Demo-Illustration"
-                description="Illustration oder Foto eines Demo-Meetings, farblich abgestimmt auf ZENTRAS Palette"
-                aspectRatio="square"
-                variant="gradient"
-                icon={<Users size={48} />}
-                className="min-h-[400px]"
-              />
+              <div className="relative rounded-2xl overflow-hidden">
+                <img 
+                  src={demoVisualisierung} 
+                  alt="ZENTRAS Demo Visualisierung - Interaktive Präsentation der Dokumentationssoftware" 
+                  className="w-full h-auto object-cover"
+                />
+              </div>
             </AnimatedSection>
           </div>
         </div>
