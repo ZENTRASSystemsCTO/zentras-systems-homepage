@@ -7,7 +7,6 @@ interface DnaAnimationProps {
 
 export const DnaAnimation = ({ className = "" }: DnaAnimationProps) => {
   const lottieRef = useRef<LottieRefCurrentProps>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
   const [animationData, setAnimationData] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -19,6 +18,7 @@ export const DnaAnimation = ({ className = "" }: DnaAnimationProps) => {
         return res.json();
       })
       .then((data) => {
+        console.log("DNA animation loaded successfully");
         setAnimationData(data);
       })
       .catch((err) => {
@@ -26,30 +26,6 @@ export const DnaAnimation = ({ className = "" }: DnaAnimationProps) => {
         setError(err.message);
       });
   }, []);
-
-  // Scroll-coupled animation
-  useEffect(() => {
-    if (!lottieRef.current || !animationData) return;
-
-    const lottie = lottieRef.current;
-    lottie.stop();
-
-    const totalFrames = lottie.getDuration(true) || 100;
-
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      // Use 2500px of scroll for animation (much slower progression)
-      const scrollProgress = Math.min(scrollY / 2500, 1);
-      const frame = scrollProgress * totalFrames;
-      lottie.goToAndStop(frame, true);
-    };
-
-    // Initial frame
-    handleScroll();
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [animationData]);
 
   if (error) {
     return (
@@ -69,7 +45,6 @@ export const DnaAnimation = ({ className = "" }: DnaAnimationProps) => {
 
   return (
     <div 
-      ref={containerRef}
       className={`relative overflow-visible ${className}`}
       style={{
         transform: "rotate(-45deg) scale(2.5)",
@@ -79,11 +54,11 @@ export const DnaAnimation = ({ className = "" }: DnaAnimationProps) => {
       <Lottie
         lottieRef={lottieRef}
         animationData={animationData}
-        loop={false}
-        autoplay={false}
+        loop={true}
+        autoplay={true}
         className="w-full h-full"
         style={{
-          // Shift to ZENTRAS teal/cyan colors (hue-rotate from purple towards teal)
+          // Shift to ZENTRAS teal/cyan colors
           filter: "hue-rotate(140deg) saturate(1.3) brightness(1.1)",
         }}
       />
