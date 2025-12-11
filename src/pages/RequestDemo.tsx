@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
 import { ArrowRight, Check, Users, Calendar, MessageCircle, Rocket } from "lucide-react";
-import demoVisualisierung from "@/assets/demo-visualisierung.png";
+import demoVisualisierung from "@/assets/demo-visualisierung.webp";
 
 const steps = [
   {

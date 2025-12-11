@@ -21,7 +21,7 @@ export const PlatformCard = ({
     <Link
       to={href}
       className={cn(
-        "group block p-6 rounded-2xl transition-all duration-300 hover-lift h-full flex flex-col",
+        "group block p-6 rounded-2xl transition-all duration-500 ease-out hover-lift h-full flex flex-col",
         "bg-card border border-border hover:bg-primary hover:border-primary",
         className
       )}
@@ -30,7 +30,7 @@ export const PlatformCard = ({
       {/* GRAPHIC PLACEHOLDER: platform-specific icon or pictogram for this SKU. */}
       <div
         className={cn(
-          "w-12 h-12 rounded-xl mb-4 flex items-center justify-center text-xs font-medium transition-colors duration-300",
+          "w-12 h-12 rounded-xl mb-4 flex items-center justify-center text-xs font-medium transition-colors duration-500 ease-out",
           "gradient-placeholder text-muted-foreground group-hover:bg-accent/20 group-hover:text-accent"
         )}
       >
@@ -39,7 +39,7 @@ export const PlatformCard = ({
 
       <h3
         className={cn(
-          "text-lg font-semibold mb-2 transition-colors duration-300",
+          "text-lg font-semibold mb-2 transition-colors duration-500 ease-out",
           "text-foreground group-hover:text-primary-foreground"
         )}
       >
@@ -48,7 +48,7 @@ export const PlatformCard = ({
 
       <p
         className={cn(
-          "text-sm mb-4 flex-1 transition-colors duration-300",
+          "text-sm mb-4 flex-1 transition-colors duration-500 ease-out",
           "text-muted-foreground group-hover:text-primary-foreground/70"
         )}
       >
@@ -57,7 +57,7 @@ export const PlatformCard = ({
 
       <div
         className={cn(
-          "flex items-center gap-2 text-sm font-medium transition-colors duration-300",
+          "flex items-center gap-2 text-sm font-medium transition-colors duration-500 ease-out",
           "text-secondary group-hover:text-accent"
         )}
       >
