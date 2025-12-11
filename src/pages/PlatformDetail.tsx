@@ -36,10 +36,10 @@ const platformData: Record<string, {
   benefits: string[];
 }> = {
   documentation: {
-    title: "Documentation Suite",
+    title: "AngioAssist Suite",
     tagline: "Dokumentation am Point-of-Care",
     icon: FileText,
-    description: "Die Documentation Suite ist unsere webbasierte Click-Through-Dokumentation für diverse interventionelle Eingriffe. Vorkonfigurierte Module für die häufigsten Interventionen, erweiterbar und remote anpassbar. Beispiel: Die AngioAssist Suite für die interventionelle Radiologie.",
+    description: "Die AngioAssist Suite ist unsere webbasierte Click-Through-Dokumentation für diverse interventionelle Eingriffe. Vorkonfigurierte Module für die häufigsten Interventionen, erweiterbar und remote anpassbar.",
     features: [
       {
         title: "Befundberichte",
@@ -55,11 +55,6 @@ const platformData: Record<string, {
         title: "Registerdaten",
         description: "Direkte Anbindung an Register wie DeGIR. Die Daten fließen automatisch aus Ihrer Dokumentation in die erforderlichen Register.",
         image: degirImg,
-      },
-      {
-        title: "Produktevaluationen",
-        description: "Strukturierte Erfassung von Evaluationsdaten für Medizinproduktehersteller, integriert in Ihren normalen Workflow.",
-        image: produktevaluationenImg,
       },
     ],
     benefits: [
@@ -138,7 +133,7 @@ const platformData: Record<string, {
   },
 };
 
-// Layered Screenshots Component for Documentation Suite Hero
+// Layered Screenshots Component for AngioAssist Suite Hero
 const LayeredScreenshots = () => {
   return (
     <div className="relative w-full h-[400px] lg:h-[450px]">
@@ -356,6 +351,43 @@ const PlatformDetail = () => {
               ))}
             </div>
           </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Cross-Navigation to Other Products */}
+      <section className="py-16 lg:py-20 bg-background border-t border-border">
+        <div className="container mx-auto px-4 lg:px-8">
+          <AnimatedSection className="text-center mb-10">
+            <h3 className="text-xl font-semibold text-foreground mb-2">Weitere Produkte entdecken</h3>
+            <p className="text-muted-foreground">Die ZENTRAS Suite im Überblick</p>
+          </AnimatedSection>
+
+          <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            {Object.entries(platformData)
+              .filter(([key]) => key !== slug)
+              .map(([key, product], index) => {
+                const ProductIcon = product.icon;
+                return (
+                  <AnimatedSection key={key} delay={index * 100}>
+                    <Link
+                      to={`/platform/${key === 'hardware' ? 'hardware' : key}`}
+                      className="group flex items-center gap-4 p-5 rounded-xl bg-card border border-border hover:border-secondary transition-all duration-300 hover-lift"
+                    >
+                      <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0">
+                        <ProductIcon size={24} className="text-secondary" />
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-semibold text-foreground group-hover:text-secondary transition-colors">
+                          {product.title}
+                        </h4>
+                        <p className="text-sm text-muted-foreground line-clamp-1">{product.tagline}</p>
+                      </div>
+                      <ArrowRight size={18} className="text-muted-foreground group-hover:text-secondary transition-all group-hover:translate-x-1" />
+                    </Link>
+                  </AnimatedSection>
+                );
+              })}
+          </div>
         </div>
       </section>
 
