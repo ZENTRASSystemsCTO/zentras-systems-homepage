@@ -67,11 +67,11 @@ const Index = () => {
             <img 
               src={heroMockup} 
               alt="" 
-              className="w-full h-auto object-contain opacity-60"
+              className="w-full h-auto object-contain"
             />
           </div>
           {/* Fade top */}
-          <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-primary to-transparent" />
+          <div className="absolute top-0 left-0 right-0 h-56 bg-gradient-to-b from-primary to-transparent" />
           {/* Fade bottom */}
           <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-primary via-primary/80 to-transparent" />
           {/* Fade left for text area - stronger gradient */}
