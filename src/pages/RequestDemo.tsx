@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Button } from "@/components/ui/button";
@@ -295,25 +296,40 @@ const RequestDemo = () => {
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="py-20 lg:py-28 bg-primary">
-        <div className="container mx-auto px-4 lg:px-8">
+      {/* Final CTA Block */}
+      <section className="py-20 lg:py-28 bg-primary relative overflow-hidden">
+        {/* Decorative squares */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-20 left-20 w-32 h-32 rounded-2xl bg-accent rotate-12" />
+          <div className="absolute bottom-20 right-20 w-40 h-40 rounded-2xl bg-secondary -rotate-12" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-3xl bg-accent-green rotate-45" />
+        </div>
+
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <AnimatedSection className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl lg:text-4xl font-bold text-primary-foreground mb-6">
+            <h2 className="text-3xl lg:text-5xl font-bold text-primary-foreground mb-6">
               Bereit für effizientere Dokumentation?
             </h2>
             <p className="text-lg text-primary-foreground/70 mb-8">
-              Vereinbaren Sie jetzt Ihr individuelles Beratungsgespräch mit dem ZENTRAS Team.
+              Lernen Sie Zentras Systems kennen und erfahren Sie, wie Sie Dokumentationsaufwand reduzieren 
+              und Datenqualität verbessern können.
             </p>
-            <Button
-              variant="hero"
-              size="xl"
-              className="rounded-full"
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            >
-              Jetzt Demo anfragen
-              <ArrowRight size={20} />
-            </Button>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Button
+                variant="hero"
+                size="xl"
+                className="rounded-full"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              >
+                Demo anfragen
+                <ArrowRight size={20} />
+              </Button>
+              <Link to="/platform">
+                <Button variant="heroOutline" size="xl" className="rounded-full text-primary-foreground border-primary-foreground/30 hover:bg-primary-foreground/10">
+                  Mehr erfahren
+                </Button>
+              </Link>
+            </div>
           </AnimatedSection>
         </div>
       </section>
