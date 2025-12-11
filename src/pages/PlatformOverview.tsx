@@ -71,8 +71,8 @@ const PlatformOverview = () => {
 
               <AnimatedSection delay={200}>
                 <p className="text-lg text-muted-foreground mb-8 max-w-xl">
-                  ZENTRAS Systems bietet eine modulare Suite für die digitale Dokumentation 
-                  in der interventionellen Medizin – direkt am Point-of-Care.
+                  ZENTRAS Systems bietet eine Lösung für die digitale Dokumentation in der interventionellen Medizin. 
+                  Unser Angebot umfasst die Hardware (OP-geeignete Tablets), Software (Dokumentationsinterfaces zum Durchklicken) und Schnittstellen für Analysen.
                 </p>
               </AnimatedSection>
 
@@ -131,7 +131,7 @@ const PlatformOverview = () => {
               Unsere Produkte
             </h2>
             <p className="text-lg text-muted-foreground">
-              Jedes Modul funktioniert eigenständig oder nahtlos integriert mit Ihren bestehenden Systemen.
+              Wählen Sie die Kombination, die zu Ihnen passt: Software allein oder als Komplettlösung mit Hardware und Analytics.
             </p>
           </AnimatedSection>
 

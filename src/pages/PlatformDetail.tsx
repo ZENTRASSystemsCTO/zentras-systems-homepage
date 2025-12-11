@@ -39,7 +39,7 @@ const platformData: Record<string, {
     title: "AngioAssist Suite",
     tagline: "Dokumentation am Point-of-Care",
     icon: FileText,
-    description: "Die AngioAssist Suite ist unsere webbasierte Click-Through-Dokumentation für diverse interventionelle Eingriffe. Vorkonfigurierte Module für die häufigsten Interventionen, erweiterbar und remote anpassbar.",
+    description: "Die AngioAssist Suite ist unsere Click-Through-Dokumentation für diverse interventionelle Eingriffe. Mit vorkonfigurierten Modulen für die häufigsten Interventionen, erweiterbar und remote anpassbar.",
     features: [
       {
         title: "Befundberichte",
@@ -79,7 +79,7 @@ const platformData: Record<string, {
       },
       {
         title: "Automatische Updates",
-        description: "Software-Updates werden automatisch eingespielt, ohne IT-Aufwand in Ihrer Klinik. Immer auf dem neuesten Stand.",
+        description: "Software-Updates werden automatisch eingespielt, ohne IT-Aufwand in Ihrer Klinik. So sind Sie immer auf dem neuesten Stand.",
         image: autoUpdateImg,
       },
       {
@@ -270,8 +270,10 @@ const PlatformDetail = () => {
             <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
               Funktionen
             </h2>
-            <p className="text-lg text-muted-foreground">
-              Entdecken Sie die Funktionen, die {platform.title} zur bevorzugten Wahl für Kliniken machen.
+            <p className="text-lg text-muted-foreground max-w-2xl">
+              {slug === 'hardware' 
+                ? "In enger Zusammenarbeit mit Kliniken haben wir ein Konzept entwickelt, das den Einsatz unserer Tablets im OP ermöglicht – sicher, steril und praxistauglich."
+                : `Entdecken Sie die Funktionen, die ${platform.title} zur bevorzugten Wahl für Kliniken machen.`}
             </p>
           </AnimatedSection>
 
@@ -337,7 +339,9 @@ const PlatformDetail = () => {
               Ihre Vorteile
             </h2>
             <p className="text-lg text-muted-foreground mb-12">
-              Kliniken, die {platform.title} nutzen, profitieren von messbaren Verbesserungen.
+              {slug === 'analytics' 
+                ? "Kliniken, die unsere Analytics Platform nutzen, profitieren von messbaren Verbesserungen. Medizinprodukthersteller sammeln schneller und vollständigere Daten ein."
+                : `Kliniken, die unsere ${platform.title} nutzen, profitieren von messbaren Verbesserungen.`}
             </p>
 
             <div className="grid sm:grid-cols-2 gap-6">
@@ -359,7 +363,7 @@ const PlatformDetail = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <AnimatedSection className="text-center mb-10">
             <h3 className="text-xl font-semibold text-foreground mb-2">Weitere Produkte entdecken</h3>
-            <p className="text-muted-foreground">Die ZENTRAS Suite im Überblick</p>
+            <p className="text-muted-foreground">Das Angebot von ZENTRAS Systems im Überblick</p>
           </AnimatedSection>
 
           <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
@@ -396,10 +400,10 @@ const PlatformDetail = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <AnimatedSection className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl lg:text-4xl font-bold text-primary-foreground mb-6">
-              {platform.title} in Aktion erleben
+              {slug === 'hardware' ? 'Unsere Tablets' : platform.title} in Aktion erleben
             </h2>
             <p className="text-lg text-primary-foreground/70 mb-8">
-              Vereinbaren Sie eine individuelle Demo und erfahren Sie, wie {platform.title} Ihre Dokumentation vereinfacht.
+              Vereinbaren Sie eine individuelle Demo und erfahren Sie, wie {slug === 'hardware' ? 'unsere Tablets' : slug === 'analytics' ? 'die Analytics Platform' : 'die AngioAssist Suite'} Ihre Dokumentation vereinfacht.
             </p>
             <Link to="/demo">
               <Button variant="hero" size="xl" className="rounded-full">
