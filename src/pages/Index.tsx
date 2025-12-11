@@ -64,14 +64,20 @@ const Index = () => {
             </AnimatedSection>
             
             <AnimatedSection delay={100}>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-primary-foreground leading-tight mb-6">
+              <h1 
+                className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-primary-foreground leading-tight mb-6"
+                style={{ textShadow: "0 2px 20px rgba(0, 0, 0, 0.3)" }}
+              >
                 Dokumentation.
                 <span className="text-accent"> Einmal. Richtig.</span>
               </h1>
             </AnimatedSection>
 
             <AnimatedSection delay={200}>
-              <p className="text-base lg:text-lg text-primary-foreground/80 mb-8">
+              <p 
+                className="text-base lg:text-lg text-primary-foreground/80 mb-8"
+                style={{ textShadow: "0 1px 12px rgba(0, 0, 0, 0.25)" }}
+              >
                 Dokumentieren Sie Ihre Eingriffe in Zukunft einmalig, in Echtzeit, direkt am Point-of-Care. 
                 Verzichten Sie auf redundante, unpräzise nachgereichte Dokumentation.
               </p>
