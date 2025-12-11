@@ -6,8 +6,8 @@ import { TestimonialCarousel } from "@/components/TestimonialCarousel";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Zap, FileText, BarChart3, Database } from "lucide-react";
 
-// Hero mockup image (cropped version)
-import heroMockup from "@/assets/hero-mockup-cropped.png";
+// Hero background image (OR scene with tablet)
+import heroBackground from "@/assets/hero-background.png";
 
 const platforms = [
   {
@@ -40,24 +40,26 @@ const valueProps = [
 const Index = () => {
   return (
     <Layout>
-      {/* Hero Section - Desktop: Side-by-Side, Mobile: Text only */}
-      <section className="relative bg-primary overflow-hidden min-h-[60vh] lg:min-h-[80vh] -mt-16 lg:-mt-20 pt-16 lg:pt-20">
-        {/* Tablet Mockup - Desktop only, positioned at right edge */}
-        <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-[38%] xl:w-[35%] max-w-[828px] h-auto">
+      {/* Hero Section - Full background image with text overlay */}
+      <section className="relative overflow-hidden min-h-[70vh] lg:min-h-[85vh] -mt-16 lg:-mt-20 pt-16 lg:pt-20">
+        {/* Background Image */}
+        <div className="absolute inset-0">
           <img 
-            src={heroMockup} 
-            alt="ZENTRAS Tablet mit Documentation Suite" 
-            className="w-full h-auto object-contain object-right"
+            src={heroBackground} 
+            alt="ZENTRAS Tablet im OP-Saal" 
+            className="w-full h-full object-cover object-center"
           />
+          {/* Dark overlay for text readability - stronger on left */}
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/70 to-primary/30" />
         </div>
 
-        {/* Text Content */}
-        <div className="container mx-auto px-4 lg:px-8 py-16 lg:py-28 relative z-10">
+        {/* Text Content - Left aligned */}
+        <div className="container mx-auto px-4 lg:px-8 py-20 lg:py-32 relative z-10">
           <div className="max-w-xl lg:max-w-lg xl:max-w-xl">
             <AnimatedSection>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 mb-6">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 mb-6 backdrop-blur-sm">
                 <span className="w-2 h-2 rounded-full bg-accent-green animate-pulse-soft" />
-                <span className="text-sm text-primary-foreground/80">Pilotprojekte aktiv</span>
+                <span className="text-sm text-primary-foreground/90">Pilotprojekte aktiv</span>
               </div>
             </AnimatedSection>
             
@@ -69,7 +71,7 @@ const Index = () => {
             </AnimatedSection>
 
             <AnimatedSection delay={200}>
-              <p className="text-base lg:text-lg text-primary-foreground/70 mb-8">
+              <p className="text-base lg:text-lg text-primary-foreground/80 mb-8">
                 Dokumentieren Sie Ihre Eingriffe in Zukunft einmalig, in Echtzeit, direkt am Point-of-Care. 
                 Verzichten Sie auf redundante, unpräzise nachgereichte Dokumentation.
               </p>
@@ -94,7 +96,7 @@ const Index = () => {
         </div>
         
         {/* Bottom fade to next section */}
-        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background to-transparent z-20" />
+        <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-background to-transparent z-20" />
       </section>
 
 
