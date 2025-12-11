@@ -10,7 +10,6 @@ const footerLinks = {
     { label: "Analytics", href: "/platform/analytics" },
   ],
   unternehmen: [
-    { label: "Team", href: "/team" },
     { label: "Kontakt", href: "/demo" },
   ],
   rechtliches: [
