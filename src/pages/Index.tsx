@@ -58,30 +58,12 @@ const valueProps = [
 const Index = () => {
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="relative bg-primary overflow-hidden min-h-[90vh]">
-        {/* Hero Mockup Image - Background layer */}
-        <div className="absolute inset-0 overflow-hidden">
-          {/* Positioning: right-aligned, vertically centered */}
-          <div className="absolute top-[45%] -translate-y-1/2 right-0 w-[60%] lg:w-[38%] h-auto translate-x-[10%] lg:translate-x-[5%]">
-            <img 
-              src={heroMockup} 
-              alt="" 
-              className="w-full h-auto object-contain"
-            />
-          </div>
-          {/* Fade top */}
-          <div className="absolute top-0 left-0 right-0 h-56 bg-gradient-to-b from-primary to-transparent" />
-          {/* Fade bottom */}
-          <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-primary via-primary/80 to-transparent" />
-          {/* Fade left for text area - stronger gradient */}
-          <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-primary via-primary/80 to-transparent" />
-        </div>
-
-        <div className="container mx-auto px-4 lg:px-8 py-20 lg:py-32 relative z-10">
-          <div className="max-w-2xl">
-            {/* Content */}
-            <div className="relative z-10">
+      {/* Hero Section - Side-by-Side Layout */}
+      <section className="relative bg-primary overflow-hidden">
+        <div className="container mx-auto px-4 lg:px-8 py-16 lg:py-24">
+          <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+            {/* Left Column - Text Content */}
+            <div className="w-full lg:w-1/2 text-center lg:text-left">
               <AnimatedSection>
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 mb-6">
                   <span className="w-2 h-2 rounded-full bg-accent-green animate-pulse-soft" />
@@ -90,21 +72,21 @@ const Index = () => {
               </AnimatedSection>
               
               <AnimatedSection delay={100}>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight mb-6">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-primary-foreground leading-tight mb-6">
                   Dokumentation.
                   <span className="text-accent"> Einmal. Richtig.</span>
                 </h1>
               </AnimatedSection>
 
               <AnimatedSection delay={200}>
-                <p className="text-lg text-primary-foreground/70 mb-8 max-w-xl">
+                <p className="text-base lg:text-lg text-primary-foreground/70 mb-8 max-w-xl mx-auto lg:mx-0">
                   Dokumentieren Sie Ihre Eingriffe in Zukunft einmalig, in Echtzeit, direkt am Point-of-Care. 
                   Verzichten Sie auf redundante, unpräzise nachgereichte Dokumentation.
                 </p>
               </AnimatedSection>
 
               <AnimatedSection delay={300}>
-                <div className="flex flex-wrap gap-4">
+                <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
                   <Link to="/demo">
                     <Button variant="hero" size="lg" className="rounded-full">
                       Demo anfragen
@@ -119,11 +101,22 @@ const Index = () => {
                 </div>
               </AnimatedSection>
             </div>
+
+            {/* Right Column - Tablet Mockup */}
+            <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
+              <AnimatedSection delay={400}>
+                <img 
+                  src={heroMockup} 
+                  alt="ZENTRAS Tablet mit Documentation Suite" 
+                  className="w-full max-w-md lg:max-w-lg xl:max-w-xl h-auto object-contain"
+                />
+              </AnimatedSection>
+            </div>
           </div>
         </div>
-
+        
         {/* Bottom fade to next section */}
-        <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent z-20" />
+        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background to-transparent" />
       </section>
 
       {/* Backed By Section */}
