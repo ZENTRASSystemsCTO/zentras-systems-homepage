@@ -41,7 +41,7 @@ const Index = () => {
   return (
     <Layout>
       {/* Hero Section - Desktop: Side-by-Side, Mobile: Text only */}
-      <section className="relative bg-primary overflow-hidden min-h-[60vh] lg:min-h-[80vh]">
+      <section className="relative bg-primary overflow-hidden min-h-[60vh] lg:min-h-[80vh] -mt-16 lg:-mt-20 pt-16 lg:pt-20">
         {/* Tablet Mockup - Desktop only, positioned at right edge */}
         <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-[38%] xl:w-[35%] max-w-[828px] h-auto">
           <img 
