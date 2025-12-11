@@ -61,7 +61,7 @@ const Index = () => {
       {/* Hero Section - Desktop: Side-by-Side, Mobile: Text only */}
       <section className="relative bg-primary overflow-hidden min-h-[60vh] lg:min-h-[80vh]">
         {/* Tablet Mockup - Desktop only, positioned at right edge */}
-        <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-[45%] xl:w-[40%] h-auto">
+        <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-[38%] xl:w-[35%] h-auto">
           <img 
             src={heroMockup} 
             alt="ZENTRAS Tablet mit Documentation Suite" 
