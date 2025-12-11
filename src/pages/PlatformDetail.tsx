@@ -15,8 +15,9 @@ import ctEingriffeImg from "@/assets/ct-eingriffe.jpg";
 import allgemeinEingriffeImg from "@/assets/allgemein-eingriffe.jpg";
 
 // Import images for Tablets
-import tabletBild03Img from "@/assets/tablet-bild-03.jpg";
-import tabletBild04Img from "@/assets/tablet-bild-04.jpg";
+import tabletHeroImg from "@/assets/tablet-hero-transparent.png";
+import tabletHangingOrImg from "@/assets/tablet-hanging-or.png";
+import tabletCaseOpTableImg from "@/assets/tablet-case-op-table.png";
 import autoUpdateImg from "@/assets/auto-update.png";
 import securedByKnoxImg from "@/assets/secured-by-knox.png";
 
@@ -30,6 +31,7 @@ const platformData: Record<string, {
   description: string;
   icon: typeof Monitor;
   heroImage?: string;
+  heroTransparent?: boolean;
   features: { title: string; description: string; image?: string }[];
   benefits: string[];
 }> = {
@@ -71,7 +73,8 @@ const platformData: Record<string, {
     title: "Tablets",
     tagline: "Vorkonfiguriert für den OP-Saal",
     icon: Tablet,
-    heroImage: tabletBild04Img,
+    heroImage: tabletHeroImg,
+    heroTransparent: true,
     description: "Vorkonfigurierte, sterile Tablets im abgesicherten Kiosk Modus, an Halterungen für den OP-Saal. Desinfizierbar, bruch- und diebstahlgesichert mit automatischen Updates.",
     features: [
       {
@@ -87,12 +90,12 @@ const platformData: Record<string, {
       {
         title: "Sterile Halterungen",
         description: "Spezielle Halterungen für OP-Räume ermöglichen die Nutzung auch unter sterilen Bedingungen. Desinfizierbar für den klinischen Einsatz.",
-        image: tabletBild03Img,
+        image: tabletHangingOrImg,
       },
       {
         title: "Bruch- & Diebstahlschutz",
         description: "Robuste, gesicherte Geräte, die für den anspruchsvollen Klinikalltag entwickelt wurden.",
-        image: tabletBild04Img,
+        image: tabletCaseOpTableImg,
       },
     ],
     benefits: [
@@ -232,13 +235,23 @@ const PlatformDetail = () => {
               {isDocumentation ? (
                 <LayeredScreenshots />
               ) : platform.heroImage ? (
-                <div className="rounded-xl overflow-hidden shadow-lg border border-border/50">
-                  <img 
-                    src={platform.heroImage} 
-                    alt={`${platform.title} Ansicht`}
-                    className="w-full h-auto object-cover"
-                  />
-                </div>
+                platform.heroTransparent ? (
+                  <div className="flex items-center justify-center">
+                    <img 
+                      src={platform.heroImage} 
+                      alt={`${platform.title} Ansicht`}
+                      className="w-full h-auto object-contain max-h-[500px]"
+                    />
+                  </div>
+                ) : (
+                  <div className="rounded-xl overflow-hidden shadow-lg border border-border/50">
+                    <img 
+                      src={platform.heroImage} 
+                      alt={`${platform.title} Ansicht`}
+                      className="w-full h-auto object-cover"
+                    />
+                  </div>
+                )
               ) : (
                 <PlaceholderGraphic
                   label={`${platform.title} Ansicht`}
