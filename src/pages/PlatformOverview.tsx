@@ -7,12 +7,12 @@ import plattformVisualisierung from "@/assets/plattform-visualisierung.png";
 
 const platforms = [
   {
-    title: "Documentation Suite",
+    title: "AngioAssist Suite",
     description: "Webbasierte Click-Through-Dokumentation für diverse interventionelle Eingriffe.",
     href: "/platform/documentation",
-    iconPlaceholder: "DS",
+    iconPlaceholder: "AS",
     icon: FileText,
-    features: ["Befundberichte", "OPS-Codes", "QS-Daten", "Registerdaten (z.B. DeGIR)", "Produktevaluationen"],
+    features: ["Befundberichte", "OPS-Codes", "QS-Daten", "Registerdaten (z.B. DeGIR)"],
   },
   {
     title: "Tablets",
@@ -33,7 +33,7 @@ const platforms = [
 ];
 
 const metrics = [
-  { value: "2", label: "Pilotkliniken" },
+  { value: "3", label: "Pilotkliniken" },
   { value: "ISO 27001", label: "orientiert" },
   { value: "Minuten", label: "Setup-Zeit" },
   { value: "1x", label: "Dokumentieren" },
@@ -86,7 +86,7 @@ const PlatformOverview = () => {
                   </Link>
                   <Link to="/platform/documentation">
                     <Button variant="outline" size="lg" className="rounded-full">
-                      Documentation Suite entdecken
+                      AngioAssist Suite entdecken
                     </Button>
                   </Link>
                 </div>

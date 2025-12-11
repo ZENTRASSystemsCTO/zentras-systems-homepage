@@ -11,10 +11,10 @@ import heroBackground from "@/assets/hero-background.png";
 
 const platforms = [
   {
-    title: "Documentation Suite",
+    title: "AngioAssist Suite",
     description: "Webbasierte Click-Through-Dokumentation für diverse interventionelle Eingriffe.",
     href: "/platform/documentation",
-    iconPlaceholder: "DS",
+    iconPlaceholder: "AS",
   },
   {
     title: "Tablets",

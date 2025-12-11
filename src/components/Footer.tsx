@@ -5,7 +5,7 @@ import { Mail, MapPin } from "lucide-react";
 const footerLinks = {
   produkte: [
     { label: "Übersicht", href: "/platform" },
-    { label: "Documentation Suite", href: "/platform/documentation" },
+    { label: "AngioAssist Suite", href: "/platform/documentation" },
     { label: "Tablets", href: "/platform/hardware" },
     { label: "Analytics", href: "/platform/analytics" },
   ],

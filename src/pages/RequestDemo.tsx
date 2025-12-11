@@ -145,7 +145,7 @@ const RequestDemo = () => {
               {/* Trust indicators */}
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { value: "2", label: "Pilotkliniken" },
+                  { value: "3", label: "Pilotkliniken" },
                   { value: "ISO 27001", label: "orientiert" },
                   { value: "Setup", label: "in Minuten" },
                   { value: "Made in", label: "Germany" },
