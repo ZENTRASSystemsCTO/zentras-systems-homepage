@@ -7,8 +7,8 @@ import { TeamMemberCard } from "@/components/TeamMemberCard";
 import { Button } from "@/components/ui/button";
 import { Check, ArrowRight, Shield, Zap, FileText, BarChart3, Tablet, Database } from "lucide-react";
 
-// Hero mockup image
-import heroMockup from "@/assets/hero-mockup.png";
+// Hero mockup image (cropped version)
+import heroMockup from "@/assets/hero-mockup-cropped.png";
 
 // Clinic logos
 import uniklinikKoelnLogo from "@/assets/uniklinik-koeln-logo.png";
@@ -58,65 +58,61 @@ const valueProps = [
 const Index = () => {
   return (
     <Layout>
-      {/* Hero Section - Side-by-Side Layout */}
-      <section className="relative bg-primary overflow-hidden">
-        <div className="container mx-auto px-4 lg:px-8 py-16 lg:py-24">
-          <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
-            {/* Left Column - Text Content */}
-            <div className="w-full lg:w-1/2 text-center lg:text-left">
-              <AnimatedSection>
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 mb-6">
-                  <span className="w-2 h-2 rounded-full bg-accent-green animate-pulse-soft" />
-                  <span className="text-sm text-primary-foreground/80">Pilotprojekte aktiv</span>
-                </div>
-              </AnimatedSection>
-              
-              <AnimatedSection delay={100}>
-                <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-primary-foreground leading-tight mb-6">
-                  Dokumentation.
-                  <span className="text-accent"> Einmal. Richtig.</span>
-                </h1>
-              </AnimatedSection>
+      {/* Hero Section - Desktop: Side-by-Side, Mobile: Text only */}
+      <section className="relative bg-primary overflow-hidden min-h-[60vh] lg:min-h-[80vh]">
+        {/* Tablet Mockup - Desktop only, positioned at right edge */}
+        <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-[45%] xl:w-[40%] h-auto">
+          <img 
+            src={heroMockup} 
+            alt="ZENTRAS Tablet mit Documentation Suite" 
+            className="w-full h-auto object-contain object-right"
+          />
+        </div>
 
-              <AnimatedSection delay={200}>
-                <p className="text-base lg:text-lg text-primary-foreground/70 mb-8 max-w-xl mx-auto lg:mx-0">
-                  Dokumentieren Sie Ihre Eingriffe in Zukunft einmalig, in Echtzeit, direkt am Point-of-Care. 
-                  Verzichten Sie auf redundante, unpräzise nachgereichte Dokumentation.
-                </p>
-              </AnimatedSection>
+        {/* Text Content */}
+        <div className="container mx-auto px-4 lg:px-8 py-16 lg:py-28 relative z-10">
+          <div className="max-w-xl lg:max-w-lg xl:max-w-xl">
+            <AnimatedSection>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 mb-6">
+                <span className="w-2 h-2 rounded-full bg-accent-green animate-pulse-soft" />
+                <span className="text-sm text-primary-foreground/80">Pilotprojekte aktiv</span>
+              </div>
+            </AnimatedSection>
+            
+            <AnimatedSection delay={100}>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-primary-foreground leading-tight mb-6">
+                Dokumentation.
+                <span className="text-accent"> Einmal. Richtig.</span>
+              </h1>
+            </AnimatedSection>
 
-              <AnimatedSection delay={300}>
-                <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
-                  <Link to="/demo">
-                    <Button variant="hero" size="lg" className="rounded-full">
-                      Demo anfragen
-                      <ArrowRight size={18} />
-                    </Button>
-                  </Link>
-                  <Link to="/platform">
-                    <Button variant="heroOutline" size="lg" className="rounded-full">
-                      Plattform entdecken
-                    </Button>
-                  </Link>
-                </div>
-              </AnimatedSection>
-            </div>
+            <AnimatedSection delay={200}>
+              <p className="text-base lg:text-lg text-primary-foreground/70 mb-8">
+                Dokumentieren Sie Ihre Eingriffe in Zukunft einmalig, in Echtzeit, direkt am Point-of-Care. 
+                Verzichten Sie auf redundante, unpräzise nachgereichte Dokumentation.
+              </p>
+            </AnimatedSection>
 
-            {/* Right Column - Tablet Mockup */}
-            <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
-              <AnimatedSection delay={400}>
-                <img 
-                  src={heroMockup} 
-                  alt="ZENTRAS Tablet mit Documentation Suite" 
-                  className="w-full max-w-md lg:max-w-lg xl:max-w-xl h-auto object-contain"
-                />
-              </AnimatedSection>
-            </div>
+            <AnimatedSection delay={300}>
+              <div className="flex flex-wrap gap-4">
+                <Link to="/demo">
+                  <Button variant="hero" size="lg" className="rounded-full">
+                    Demo anfragen
+                    <ArrowRight size={18} />
+                  </Button>
+                </Link>
+                <Link to="/platform">
+                  <Button variant="heroOutline" size="lg" className="rounded-full">
+                    Plattform entdecken
+                  </Button>
+                </Link>
+              </div>
+            </AnimatedSection>
           </div>
         </div>
         
         {/* Bottom fade to next section */}
-        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background to-transparent z-20" />
       </section>
 
       {/* Backed By Section */}
