@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { PlaceholderGraphic } from "@/components/PlaceholderGraphic";
+import { ImageWithLoader } from "@/components/ImageWithLoader";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check, ArrowLeft, Monitor, FileText, Tablet, BarChart3 } from "lucide-react";
 
@@ -235,7 +236,7 @@ const PlatformDetail = () => {
               ) : platform.heroImage ? (
                 platform.heroTransparent ? (
                   <div className="flex items-center justify-center">
-                    <img 
+                    <ImageWithLoader 
                       src={platform.heroImage} 
                       alt={`${platform.title} Ansicht`}
                       className="w-full h-auto object-contain max-h-[500px]"
@@ -243,7 +244,7 @@ const PlatformDetail = () => {
                   </div>
                 ) : (
                   <div className="rounded-xl overflow-hidden shadow-lg border border-border/50">
-                    <img 
+                    <ImageWithLoader 
                       src={platform.heroImage} 
                       alt={`${platform.title} Ansicht`}
                       className="w-full h-auto object-cover"
@@ -302,7 +303,7 @@ const PlatformDetail = () => {
                           ? 'p-12 flex items-center justify-center' 
                           : ''
                       }`}>
-                        <img 
+                        <ImageWithLoader 
                           src={feature.image} 
                           alt={feature.title}
                           className={`object-contain ${
@@ -375,7 +376,7 @@ const PlatformDetail = () => {
 
                 <AnimatedSection delay={200} className="lg:order-1">
                   <div className="flex items-center justify-center max-w-[550px] mx-auto">
-                    <img 
+                    <ImageWithLoader 
                       src={analyticsFuerKlinikenImg} 
                       alt="Analytics für Kliniken"
                       className="w-full h-auto object-contain rounded-xl shadow-lg"
@@ -424,7 +425,7 @@ const PlatformDetail = () => {
 
                 <AnimatedSection delay={200}>
                   <div className="flex items-center justify-center max-w-[550px] mx-auto">
-                    <img 
+                    <ImageWithLoader 
                       src={analyticsFuerMpherstellerImg} 
                       alt="Analytics für Medizinprodukthersteller"
                       className="w-full h-auto object-contain rounded-xl shadow-lg"
