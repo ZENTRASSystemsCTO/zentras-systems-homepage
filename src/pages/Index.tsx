@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import { AnimatedSection } from "@/components/AnimatedSection";
@@ -6,7 +6,7 @@ import { PlatformCard } from "@/components/PlatformCard";
 import { TestimonialCarousel } from "@/components/TestimonialCarousel";
 import { PageLoader } from "@/components/PageLoader";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Shield, Zap, FileText, BarChart3, Database } from "lucide-react";
+import { ArrowRight, Shield, Zap, FileText, BarChart3, Database, ChevronDown } from "lucide-react";
 
 // Hero background image (OR scene with tablet)
 import heroBackground from "@/assets/hero-mockup.webp";
@@ -41,6 +41,8 @@ const valueProps = [
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [showScrollIndicator, setShowScrollIndicator] = useState(true);
+  const valueSectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     // Preload the hero image
@@ -53,6 +55,24 @@ const Index = () => {
     const timeout = setTimeout(() => setIsLoading(false), 3000);
     return () => clearTimeout(timeout);
   }, []);
+
+  // Hide scroll indicator on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 80) {
+        setShowScrollIndicator(false);
+      } else {
+        setShowScrollIndicator(true);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToNextSection = () => {
+    valueSectionRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <Layout>
@@ -121,11 +141,24 @@ const Index = () => {
         
         {/* Bottom fade to next section */}
         <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-background to-transparent z-20" />
+        
+        {/* Scroll indicator */}
+        <button
+          onClick={scrollToNextSection}
+          className={`absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2 px-4 py-2 rounded-full bg-primary-foreground/10 border border-primary-foreground/20 backdrop-blur-sm text-primary-foreground/90 text-sm font-medium cursor-pointer transition-all duration-300 hover:bg-primary-foreground/20 ${
+            showScrollIndicator ? "opacity-100" : "opacity-0 pointer-events-none"
+          }`}
+          style={{ animation: showScrollIndicator ? "float 2s ease-in-out infinite" : "none" }}
+          aria-label="Zur nächsten Sektion scrollen"
+        >
+          Mehr entdecken
+          <ChevronDown size={18} />
+        </button>
       </section>
 
 
       {/* Intro Grid / Value Props */}
-      <section className="py-20 lg:py-28 bg-background">
+      <section ref={valueSectionRef} className="py-20 lg:py-28 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
           <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
