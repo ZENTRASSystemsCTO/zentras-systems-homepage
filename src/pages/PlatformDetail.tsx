@@ -22,7 +22,9 @@ import autoUpdateImg from "@/assets/auto-update.png";
 import securedByKnoxImg from "@/assets/secured-by-knox.png";
 
 // Import images for Analytics Platform
-import analyticsScreenshotImg from "@/assets/analytics-screenshot.jpg";
+import analyticsHeroImg from "@/assets/analytics-hero.png";
+import analyticsFuerKlinikenImg from "@/assets/analytics-fuer-kliniken.png";
+import analyticsFuerMpherstellerImg from "@/assets/analytics-fuer-mphersteller.png";
 
 // Platform data for all three products
 const platformData: Record<string, {
@@ -104,7 +106,8 @@ const platformData: Record<string, {
     title: "Analytics Platform",
     tagline: "Daten auswerten und nutzen",
     icon: BarChart3,
-    heroImage: analyticsScreenshotImg,
+    heroImage: analyticsHeroImg,
+    heroTransparent: true,
     description: "Die Analytics Platform ermöglicht Export, Schnittstellen und Reporting für BI-Integration. Nutzen Sie Ihre Dokumentationsdaten für Auswertungen, Register-Anbindungen und individuelle Reports.",
     features: [
       {
@@ -329,6 +332,109 @@ const PlatformDetail = () => {
           </div>
         </div>
       </section>
+      )}
+
+      {/* Analytics Platform Use Cases - Only for Analytics */}
+      {slug === 'analytics' && (
+        <>
+          {/* Für Kliniken Section */}
+          <section className="py-20 lg:py-28 bg-background">
+            <div className="container mx-auto px-4 lg:px-8">
+              <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <AnimatedSection>
+                  <span className="inline-block px-3 py-1 rounded-full bg-secondary/10 text-secondary text-sm font-medium mb-4">
+                    Für Kliniken
+                  </span>
+                  <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
+                    Interne Prozesse auswerten und optimieren
+                  </h2>
+                  <p className="text-lg text-muted-foreground mb-6">
+                    Als Klinik erhalten Sie mit der Analytics Platform einen umfassenden Überblick über Ihre interventionellen Eingriffe. Analysieren Sie Prozesszeiten, Materialverbrauch und Ergebnisqualität – und identifizieren Sie Optimierungspotenziale in Ihren Abläufen.
+                  </p>
+                  <ul className="space-y-3">
+                    <li className="flex items-start gap-3">
+                      <div className="w-6 h-6 rounded-full bg-accent-green/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Check size={14} className="text-accent-green" />
+                      </div>
+                      <span className="text-muted-foreground">Übersichtliche Dashboards für Ihre KPIs</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-6 h-6 rounded-full bg-accent-green/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Check size={14} className="text-accent-green" />
+                      </div>
+                      <span className="text-muted-foreground">Vergleich zwischen Abteilungen und Zeiträumen</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-6 h-6 rounded-full bg-accent-green/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Check size={14} className="text-accent-green" />
+                      </div>
+                      <span className="text-muted-foreground">Automatische Register- und QS-Daten-Übermittlung</span>
+                    </li>
+                  </ul>
+                </AnimatedSection>
+
+                <AnimatedSection delay={200}>
+                  <div className="flex items-center justify-center">
+                    <img 
+                      src={analyticsFuerKlinikenImg} 
+                      alt="Analytics für Kliniken"
+                      className="w-full h-auto object-contain max-h-[450px] rounded-xl"
+                    />
+                  </div>
+                </AnimatedSection>
+              </div>
+            </div>
+          </section>
+
+          {/* Für Medizinprodukthersteller Section */}
+          <section className="py-20 lg:py-28 bg-primary">
+            <div className="container mx-auto px-4 lg:px-8">
+              <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <AnimatedSection className="lg:order-2">
+                  <span className="inline-block px-3 py-1 rounded-full bg-accent/20 text-accent text-sm font-medium mb-4">
+                    Für Medizinprodukthersteller
+                  </span>
+                  <h2 className="text-3xl lg:text-4xl font-bold text-primary-foreground mb-6">
+                    Produktevaluationen über Kliniken hinweg
+                  </h2>
+                  <p className="text-lg text-primary-foreground/80 mb-6">
+                    Als Medizinprodukthersteller können Sie mit unserer Plattform Ihre Produkte kontinuierlich evaluieren – über mehrere Kliniken hinweg. Sammeln Sie Real-World-Daten aus dem klinischen Alltag und überwachen Sie den Evaluationsprozess zentral.
+                  </p>
+                  <ul className="space-y-3">
+                    <li className="flex items-start gap-3">
+                      <div className="w-6 h-6 rounded-full bg-accent/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Check size={14} className="text-accent" />
+                      </div>
+                      <span className="text-primary-foreground/80">Aggregierte Daten aus verschiedenen Kliniken</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-6 h-6 rounded-full bg-accent/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Check size={14} className="text-accent" />
+                      </div>
+                      <span className="text-primary-foreground/80">Echtzeit-Monitoring der Evaluationsfortschritte</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-6 h-6 rounded-full bg-accent/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Check size={14} className="text-accent" />
+                      </div>
+                      <span className="text-primary-foreground/80">Schnellere und vollständigere Datensätze für Studien</span>
+                    </li>
+                  </ul>
+                </AnimatedSection>
+
+                <AnimatedSection delay={200} className="lg:order-1">
+                  <div className="flex items-center justify-center">
+                    <img 
+                      src={analyticsFuerMpherstellerImg} 
+                      alt="Analytics für Medizinprodukthersteller"
+                      className="w-full h-auto object-contain max-h-[450px] rounded-xl"
+                    />
+                  </div>
+                </AnimatedSection>
+              </div>
+            </div>
+          </section>
+        </>
       )}
 
       {/* Benefits Section */}
