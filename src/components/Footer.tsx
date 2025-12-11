@@ -29,7 +29,7 @@ export const Footer = () => {
             {/* GRAPHIC PLACEHOLDER: official zentras logo (SVG) in brand colors. */}
             <ZentrasLogo variant="light" className="mb-6" />
             <p className="text-primary-foreground/70 text-sm max-w-sm mb-6">
-              ZENTRAS Systems unterstützt die digitale Dokumentation in der interventionellen Medizin 
+              Zentras Systems unterstützt die digitale Dokumentation in der interventionellen Medizin 
               direkt am Point-of-Care. Eine Erfassung, die alle Anforderungen erfüllt.
             </p>
             <div className="space-y-3">
@@ -99,7 +99,7 @@ export const Footer = () => {
         {/* Bottom Bar */}
         <div className="mt-16 pt-8 border-t border-primary-foreground/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-primary-foreground/50">
-            © {new Date().getFullYear()} ZENTRAS Systems UG. Alle Rechte vorbehalten.
+            © {new Date().getFullYear()} Zentras Systems UG. Alle Rechte vorbehalten.
           </p>
           <div className="flex items-center gap-6">
             <Link to="/datenschutz" className="text-sm text-primary-foreground/50 hover:text-accent transition-colors">

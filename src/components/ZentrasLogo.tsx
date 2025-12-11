@@ -19,7 +19,7 @@ export const ZentrasLogo = ({
       {/* Logomark */}
       <img 
         src={zentrasLogo} 
-        alt="ZENTRAS Logo" 
+        alt="zentras Logo" 
         className="w-8 h-8 object-contain"
       />
       
