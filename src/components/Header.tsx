@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ZentrasLogo } from "./ZentrasLogo";
-import { GmbHBanner } from "./GmbHBanner";
 import { Button } from "./ui/button";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -38,9 +37,6 @@ export const Header = () => {
           : "bg-primary"
       )}
     >
-      {/* GmbH Banner - above navigation */}
-      <GmbHBanner />
-      
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
