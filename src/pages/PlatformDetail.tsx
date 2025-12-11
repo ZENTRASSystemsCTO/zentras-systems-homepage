@@ -71,7 +71,7 @@ const platformData: Record<string, {
     title: "Tablets",
     tagline: "Vorkonfiguriert für den OP-Saal",
     icon: Tablet,
-    heroImage: tabletBild03Img,
+    heroImage: tabletBild04Img,
     description: "Vorkonfigurierte, sterile Tablets im abgesicherten Kiosk Modus, an Halterungen für den OP-Saal. Desinfizierbar, bruch- und diebstahlgesichert mit automatischen Updates.",
     features: [
       {

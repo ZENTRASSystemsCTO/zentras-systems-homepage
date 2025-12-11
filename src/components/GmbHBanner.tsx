@@ -21,9 +21,9 @@ export const GmbHBanner = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="bg-secondary/20 border-b border-secondary/30">
+    <div className="bg-primary/90 border-b border-primary/50">
       <div className="container mx-auto px-4 py-2 flex items-center justify-between gap-4">
-        <p className="text-sm text-foreground/80">
+        <p className="text-sm text-primary-foreground/90">
           Du suchst die <span className="font-medium">ZENTRAS GmbH</span>?{" "}
           <a 
             href="https://zentras.de" 
@@ -37,10 +37,10 @@ export const GmbHBanner = () => {
         </p>
         <button
           onClick={handleDismiss}
-          className="p-1 hover:bg-secondary/30 rounded transition-colors"
+          className="p-1 hover:bg-white/10 rounded transition-colors"
           aria-label="Banner schließen"
         >
-          <X size={18} className="text-foreground/60" />
+          <X size={18} className="text-primary-foreground/70" />
         </button>
       </div>
     </div>
