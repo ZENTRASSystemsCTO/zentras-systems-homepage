@@ -16,14 +16,14 @@ interface Testimonial {
 
 const testimonials: Testimonial[] = [
   {
-    quote: "Mit den Tools aus der AngioAssist Suite können wir unsere interventionellen Eingriffe schon während der Prozedur zügig dokumentieren. Dadurch konnten wir die Datenqualität, die sonst unter verzögerten Dokumentationen nach Erinnerung litt, deutlich verbessern.",
+    quote: "Mit den Tools aus der AngioAssist Suite können wir unsere interventionellen Eingriffe bereits während der Prozedur zügig dokumentieren. Die Datenqualität hat sich deutlich verbessert, weil wir nicht mehr auf verzögerte Dokumentation aus der Erinnerung angewiesen sind.",
     name: "PD Dr. med. Michael Schönfeld",
     title: "Facharzt für Radiologie",
     institution: "Uniklinik Köln",
     image: michaelSchoenfeld,
   },
   {
-    quote: "Die redundante Dokumentation nach Eingriffen war für mich eine der größten Frustrationsquellen in meinem Klinikalltag. Mit dem Durchklicken und der automatischen Berichtgenerierung fühlt es sich so an, als sei ich davon völlig befreit worden.",
+    quote: "Die redundante Dokumentation nach Eingriffen war für mich einer der größten Frustfaktoren im Klinikalltag. Mit dem einfachen Durchklicken und der automatischen Berichtserstellung habe ich das Gefühl, von dieser Zusatzarbeit komplett befreit zu sein.",
     name: "PD Dr. med. Kai Laukamp",
     title: "Facharzt für Radiologie",
     institution: "Agaplesion Klinikum Hagen",

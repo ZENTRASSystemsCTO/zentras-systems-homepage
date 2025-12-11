@@ -39,7 +39,7 @@ const platformData: Record<string, {
     title: "AngioAssist Suite",
     tagline: "Dokumentation am Point-of-Care",
     icon: FileText,
-    description: "Die AngioAssist Suite ist unsere Click-Through-Dokumentation für diverse interventionelle Eingriffe. Mit vorkonfigurierten Modulen für die häufigsten Interventionen, erweiterbar und remote anpassbar.",
+    description: "Die AngioAssist Suite ist unsere Click-Through-Dokumentation für diverse interventionelle Eingriffe. Sie bietet vorkonfigurierte Module für die häufigsten Interventionen und ist erweiterbar sowie remote anpassbar.",
     features: [
       {
         title: "Befundberichte",
@@ -79,7 +79,7 @@ const platformData: Record<string, {
       },
       {
         title: "Automatische Updates",
-        description: "Software-Updates werden automatisch eingespielt, ohne IT-Aufwand in Ihrer Klinik. So sind Sie immer auf dem neuesten Stand.",
+        description: "Software-Updates werden automatisch eingespielt, ohne IT-Aufwand in Ihrer Klinik. So bleiben Ihre Tablets und die Software immer auf dem neuesten Stand.",
         image: autoUpdateImg,
       },
       {
@@ -270,9 +270,9 @@ const PlatformDetail = () => {
             <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
               Funktionen
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl">
+            <p className="text-lg text-muted-foreground">
               {slug === 'hardware' 
-                ? "In enger Zusammenarbeit mit Kliniken haben wir ein Konzept entwickelt, das den Einsatz unserer Tablets im OP ermöglicht – sicher, steril und praxistauglich."
+                ? "Unser Tablet-Konzept wurde gemeinsam mit Kliniken entwickelt, um eine sichere und praxistaugliche Nutzung im OP zu ermöglichen."
                 : `Entdecken Sie die Funktionen, die ${platform.title} zur bevorzugten Wahl für Kliniken machen.`}
             </p>
           </AnimatedSection>
@@ -340,8 +340,10 @@ const PlatformDetail = () => {
             </h2>
             <p className="text-lg text-muted-foreground mb-12">
               {slug === 'analytics' 
-                ? "Kliniken, die unsere Analytics Platform nutzen, profitieren von messbaren Verbesserungen. Medizinprodukthersteller sammeln schneller und vollständigere Daten ein."
-                : `Kliniken, die unsere ${platform.title} nutzen, profitieren von messbaren Verbesserungen.`}
+                ? "Kliniken, die unsere Analytics Platform nutzen, profitieren von messbaren Verbesserungen. Medizinprodukthersteller erhalten schneller vollständigere und auswertbare Datensätze."
+                : slug === 'hardware'
+                ? "Kliniken, die unsere vorkonfigurierten Tablets nutzen, reduzieren den Einrichtungsaufwand und stellen einen stabilen Betrieb im OP sicher."
+                : "Kliniken, die unsere AngioAssist Suite einsetzen, reduzieren den Dokumentationsaufwand und verbessern gleichzeitig die Datenqualität. Teams im OP gewinnen mehr Zeit für die eigentliche Patientenversorgung."}
             </p>
 
             <div className="grid sm:grid-cols-2 gap-6">
@@ -363,7 +365,7 @@ const PlatformDetail = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <AnimatedSection className="text-center mb-10">
             <h3 className="text-xl font-semibold text-foreground mb-2">Weitere Produkte entdecken</h3>
-            <p className="text-muted-foreground">Das Angebot von ZENTRAS Systems im Überblick</p>
+            <p className="text-muted-foreground">Weitere Lösungen von ZENTRAS Systems</p>
           </AnimatedSection>
 
           <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
@@ -403,7 +405,11 @@ const PlatformDetail = () => {
               {slug === 'hardware' ? 'Unsere Tablets' : platform.title} in Aktion erleben
             </h2>
             <p className="text-lg text-primary-foreground/70 mb-8">
-              Vereinbaren Sie eine individuelle Demo und erfahren Sie, wie {slug === 'hardware' ? 'unsere Tablets' : slug === 'analytics' ? 'die Analytics Platform' : 'die AngioAssist Suite'} Ihre Dokumentation vereinfacht.
+              {slug === 'analytics' 
+                ? "Vereinbaren Sie eine individuelle Demo und erfahren Sie, wie unsere Analytics Platform Ihre Analysen vereinfachen kann."
+                : slug === 'hardware'
+                ? "Vereinbaren Sie eine individuelle Demo und erfahren Sie, wie unser Tablet-Konzept den Einsatz im OP unterstützt."
+                : "Vereinbaren Sie eine individuelle Demo und erfahren Sie, wie unsere AngioAssist Suite Ihre Eingriffsdokumentation vereinfacht."}
             </p>
             <Link to="/demo">
               <Button variant="hero" size="xl" className="rounded-full">
