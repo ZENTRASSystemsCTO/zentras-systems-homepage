@@ -76,7 +76,7 @@ const Index = () => {
 
   return (
     <Layout>
-      <PageLoader isLoading={isLoading} />
+      {/* <PageLoader isLoading={isLoading} /> */}
       
       {/* Hero Section - Full background image with text overlay */}
       <section className="relative overflow-hidden min-h-[70vh] lg:min-h-[85vh] -mt-16 lg:-mt-20 pt-16 lg:pt-20">
@@ -144,10 +144,10 @@ const Index = () => {
       </section>
 
       {/* Scroll indicator - positioned on white background */}
-      <div className="relative bg-background">
+      <div className="relative bg-background pt-12">
         <button
           onClick={scrollToNextSection}
-          className={`absolute -top-6 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border shadow-md text-foreground text-sm font-medium cursor-pointer transition-all duration-300 hover:bg-muted hover:shadow-lg ${
+          className={`absolute top-4 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border shadow-md text-foreground text-sm font-medium cursor-pointer transition-all duration-300 hover:bg-muted hover:shadow-lg ${
             showScrollIndicator ? "opacity-100" : "opacity-0 pointer-events-none"
           }`}
           style={{ animation: showScrollIndicator ? "float 2s ease-in-out infinite" : "none" }}
