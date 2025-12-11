@@ -187,7 +187,7 @@ const Index = () => {
 
           <div className="grid lg:grid-cols-3 gap-8">
             {[
-              { icon: FileText, title: "Befundberichte", desc: "Strukturierte medizinische Dokumentation direkt am Point-of-Care." },
+              { icon: FileText, title: "Befundberichte", desc: "Strukturierte medizinische Dokumentation nach etablierten Vorlagen und Standards." },
               { icon: Database, title: "OPS-Codes & QS-Daten", desc: "Automatische Kodierung und Qualitätssicherung in einem Schritt." },
               { icon: BarChart3, title: "Registerdaten", desc: "Direkte Anbindung an Register wie DeGIR, ohne Mehraufwand." },
             ].map((feature, index) => (

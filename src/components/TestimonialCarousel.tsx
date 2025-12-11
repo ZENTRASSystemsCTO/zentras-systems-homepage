@@ -16,14 +16,14 @@ interface Testimonial {
 
 const testimonials: Testimonial[] = [
   {
-    quote: "Mit ZENTRAS dokumentieren wir unsere interventionellen Eingriffe jetzt direkt während der Prozedur. Das spart nicht nur Zeit, sondern die Datenqualität für unsere Register ist deutlich besser geworden.",
+    quote: "Mit den Tools aus der AngioAssist Suite können wir unsere interventionellen Eingriffe schon während der Prozedur zügig dokumentieren. Dadurch konnten wir die Datenqualität, die sonst unter verzögerten Dokumentationen nach Erinnerung litt, deutlich verbessern.",
     name: "PD Dr. med. Michael Schönfeld",
     title: "Facharzt für Radiologie",
     institution: "Uniklinik Köln",
     image: michaelSchoenfeld,
   },
   {
-    quote: "Die redundante Dokumentation nach Eingriffen war für mich einer der größten Frustrationsquellen im Klinikalltag. Mit ZENTRAS erfassen wir alles einmal, vollständig und direkt am Point-of-Care.",
+    quote: "Die redundante Dokumentation nach Eingriffen war für mich eine der größten Frustrationsquellen in meinem Klinikalltag. Mit dem Durchklicken und der automatischen Berichtgenerierung fühlt es sich so an, als sei ich davon völlig befreit worden.",
     name: "PD Dr. med. Kai Laukamp",
     title: "Facharzt für Radiologie",
     institution: "Agaplesion Klinikum Hagen",
