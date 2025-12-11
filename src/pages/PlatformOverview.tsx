@@ -72,7 +72,7 @@ const PlatformOverview = () => {
               <AnimatedSection delay={200}>
                 <p className="text-lg text-muted-foreground mb-8 max-w-xl">
                   ZENTRAS Systems bietet eine Lösung für die digitale Dokumentation in der interventionellen Medizin. 
-                  Unser Angebot umfasst die Hardware (OP-geeignete Tablets), Software (Dokumentationsinterfaces zum Durchklicken) und Schnittstellen für Analysen.
+                  Dazu gehören OP-geeignete Tablets, unsere Click-Through-Dokumentationssoftware und Schnittstellen für weiterführende Analysen.
                 </p>
               </AnimatedSection>
 
@@ -131,7 +131,7 @@ const PlatformOverview = () => {
               Unsere Produkte
             </h2>
             <p className="text-lg text-muted-foreground">
-              Wählen Sie die Kombination, die zu Ihnen passt: Software allein oder als Komplettlösung mit Hardware und Analytics.
+              Unsere Produkte sind aufeinander abgestimmt und flexibel kombinierbar. Die Analytics Platform setzt die Nutzung unserer Dokumentationssoftware voraus. Tablets liefern wir in der Regel im Paket mit unserer Software aus, auf Wunsch ist die Software auch für vorhandene Hardware verfügbar.
             </p>
           </AnimatedSection>
 
