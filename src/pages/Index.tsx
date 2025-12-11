@@ -49,8 +49,8 @@ const Index = () => {
             alt="ZENTRAS Tablet im OP-Saal" 
             className="w-full h-full object-cover object-center"
           />
-          {/* Dark overlay for text readability - sharper transition */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--primary))_0%,hsl(var(--primary))_30%,hsl(var(--primary)/0.4)_50%,hsl(var(--primary)/0.1)_65%,transparent_100%)]" />
+          {/* Dark overlay for text readability - balanced transition */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--primary))_0%,hsl(var(--primary))_20%,hsl(var(--primary)/0.6)_40%,hsl(var(--primary)/0.3)_60%,hsl(var(--primary)/0.15)_100%)]" />
         </div>
 
         {/* Text Content - Left aligned */}
