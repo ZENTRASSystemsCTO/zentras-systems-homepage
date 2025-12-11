@@ -350,7 +350,7 @@ const PlatformDetail = () => {
                     Interne Prozesse auswerten und optimieren
                   </h2>
                   <p className="text-lg text-muted-foreground mb-6">
-                    Als Klinik erhalten Sie mit der Analytics Platform einen umfassenden Überblick über Ihre interventionellen Eingriffe. Analysieren Sie Prozesszeiten, Materialverbrauch und Ergebnisqualität – und identifizieren Sie Optimierungspotenziale in Ihren Abläufen.
+                    Als Klinik erhalten Sie mit der Analytics Platform einen umfassenden Überblick über Ihre interventionellen Eingriffe. Analysieren Sie Prozesszeiten, Materialverbrauch und Ergebnisqualität, oder identifizieren Sie Optimierungspotenziale in Ihren Abläufen.
                   </p>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-3">
@@ -399,7 +399,7 @@ const PlatformDetail = () => {
                     Produktevaluationen über Kliniken hinweg
                   </h2>
                   <p className="text-lg text-muted-foreground mb-6">
-                    Als Medizinprodukthersteller können Sie mit unserer Plattform Ihre Produkte kontinuierlich evaluieren – über mehrere Kliniken hinweg. Sammeln Sie Real-World-Daten aus dem klinischen Alltag und überwachen Sie den Evaluationsprozess zentral.
+                    Als Medizinprodukthersteller können Sie mit unserer Plattform Ihre Produkte kontinuierlich, über mehrere Kliniken hinweg, evaluieren lassen. Sammeln Sie Real-World-Daten aus dem klinischen Alltag und überwachen Sie den Evaluationsprozess zentral. Durch die intuitive Bedienung und den minimalen Mehraufwand für die dokumentierenden Ärzte erreichen Studien mit unserer Lösung höhere Erfüllungsraten.
                   </p>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-3">
@@ -418,7 +418,7 @@ const PlatformDetail = () => {
                       <div className="w-6 h-6 rounded-full bg-accent-green/20 flex items-center justify-center flex-shrink-0 mt-0.5">
                         <Check size={14} className="text-accent-green" />
                       </div>
-                      <span className="text-muted-foreground">Schnellere und vollständigere Datensätze für Studien</span>
+                      <span className="text-muted-foreground">Schneller zu vollständigen Datensätzen</span>
                     </li>
                   </ul>
                 </AnimatedSection>
