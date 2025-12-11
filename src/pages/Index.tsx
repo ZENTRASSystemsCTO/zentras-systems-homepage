@@ -6,7 +6,9 @@ import { PlatformCard } from "@/components/PlatformCard";
 import { TeamMemberCard } from "@/components/TeamMemberCard";
 import { Button } from "@/components/ui/button";
 import { Check, ArrowRight, Shield, Zap, FileText, BarChart3, Tablet, Database } from "lucide-react";
-import { DnaAnimation } from "@/components/DnaAnimation";
+
+// Hero mockup image
+import heroMockup from "@/assets/hero-mockup.png";
 
 // Clinic logos
 import uniklinikKoelnLogo from "@/assets/uniklinik-koeln-logo.png";
@@ -58,17 +60,21 @@ const Index = () => {
     <Layout>
       {/* Hero Section */}
       <section className="relative bg-primary overflow-hidden min-h-[90vh]">
-        {/* DNA Animation - Background layer, full width */}
+        {/* Hero Mockup Image - Background layer */}
         <div className="absolute inset-0 overflow-hidden">
-          {/* Positioning: right-aligned, extends beyond viewport */}
-          <div className="absolute top-1/2 -translate-y-1/2 right-0 w-[120%] lg:w-[80%] h-[140%] -translate-x-[5%] lg:translate-x-[15%]">
-            <DnaAnimation className="w-full h-full" />
+          {/* Positioning: right-aligned, vertically centered */}
+          <div className="absolute top-1/2 -translate-y-1/2 right-0 w-[90%] lg:w-[60%] h-auto translate-x-[10%] lg:translate-x-[5%]">
+            <img 
+              src={heroMockup} 
+              alt="" 
+              className="w-full h-auto object-contain opacity-60"
+            />
           </div>
           {/* Fade top */}
           <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-primary to-transparent" />
           {/* Fade bottom */}
           <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-primary via-primary/80 to-transparent" />
-          {/* Fade left for text area - stronger gradient, no blur */}
+          {/* Fade left for text area - stronger gradient */}
           <div className="absolute inset-y-0 left-0 w-2/3 bg-gradient-to-r from-primary via-primary/80 to-transparent" />
         </div>
 
