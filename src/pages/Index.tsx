@@ -46,7 +46,7 @@ const Index = () => {
         <div className="absolute inset-0">
           <img 
             src={heroBackground} 
-            alt="ZENTRAS Tablet im OP-Saal" 
+            alt="Zentras Tablet im OP-Saal" 
             className="w-full h-full object-cover object-center"
           />
           {/* Dark overlay - denser gradient on mobile/tablet (<1030px), lighter gradient on desktop */}
@@ -142,7 +142,7 @@ const Index = () => {
               <div className="lg:sticky lg:top-32">
                 <AnimatedSection>
                   <span className="inline-block px-3 py-1 rounded-full bg-secondary/20 text-secondary text-sm font-medium mb-4">
-                    Die ZENTRAS Suite
+                    Das Angebot von Zentras Systems
                   </span>
                   <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
                     Drei Bausteine,
@@ -245,7 +245,7 @@ const Index = () => {
               Bereit für effizientere Dokumentation?
             </h2>
             <p className="text-lg text-primary-foreground/70 mb-8">
-              Lernen Sie ZENTRAS Systems kennen und erfahren Sie, wie Sie Dokumentationsaufwand reduzieren 
+              Lernen Sie Zentras Systems kennen und erfahren Sie, wie Sie Dokumentationsaufwand reduzieren 
               und Datenqualität verbessern können.
             </p>
             <div className="flex flex-wrap justify-center gap-4">

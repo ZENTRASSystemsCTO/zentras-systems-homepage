@@ -77,7 +77,7 @@ const platformData: Record<string, {
     features: [
       {
         title: "KIOSK Mode",
-        description: "Gesicherter Modus, der nur die ZENTRAS-Anwendung zulässt. Keine Ablenkung, keine Sicherheitsrisiken durch andere Apps.",
+        description: "Gesicherter Modus, der nur die Zentras-Anwendung zulässt. Keine Ablenkung, keine Sicherheitsrisiken durch andere Apps.",
         image: securedByKnoxImg,
       },
       {
@@ -125,7 +125,7 @@ const platformData: Record<string, {
       },
       {
         title: "BI-Integration",
-        description: "Anbindung an bestehende Business Intelligence Plattformen. Integrieren Sie ZENTRAS-Daten in Ihre Analyseumgebung.",
+        description: "Anbindung an bestehende Business Intelligence Plattformen. Integrieren Sie Zentras-Daten in Ihre Analyseumgebung.",
       },
     ],
     benefits: [
@@ -472,7 +472,7 @@ const PlatformDetail = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <AnimatedSection className="text-center mb-10">
             <h3 className="text-xl font-semibold text-foreground mb-2">Weitere Produkte entdecken</h3>
-            <p className="text-muted-foreground">Weitere Lösungen von ZENTRAS Systems</p>
+            <p className="text-muted-foreground">Weitere Lösungen von Zentras Systems</p>
           </AnimatedSection>
 
           <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">

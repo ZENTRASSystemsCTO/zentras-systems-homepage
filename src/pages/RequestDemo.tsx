@@ -125,13 +125,13 @@ const RequestDemo = () => {
       <section className="py-20 lg:py-28 bg-brand-surface">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
-            {/* Left: About ZENTRAS */}
+            {/* Left: About Zentras */}
             <AnimatedSection>
               <h2 className="text-2xl lg:text-3xl font-bold text-foreground mb-6">
-                Über ZENTRAS Systems
+                Über Zentras Systems
               </h2>
               <p className="text-muted-foreground mb-6">
-                ZENTRAS Systems unterstützt die digitale Dokumentation in der interventionellen Medizin 
+                Zentras Systems unterstützt die digitale Dokumentation in der interventionellen Medizin 
                 direkt am Point-of-Care. Statt Befunde, OPS-Codes, QS-Berichte und Registerdaten mehrfach 
                 zu erfassen, ermöglicht unsere Tool Suite eine strukturierte Echtzeit-Dokumentation 
                 während des Eingriffs.

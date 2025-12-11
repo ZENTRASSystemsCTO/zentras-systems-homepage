@@ -37,7 +37,7 @@ const Datenschutz = () => {
               <h2 className="text-2xl font-semibold text-foreground mt-8 mb-4">2. Verantwortliche Stelle</h2>
               {/* PLACEHOLDER: Bitte mit echten Firmendaten ausfüllen */}
               <p className="text-muted-foreground mb-4">
-                ZENTRAS Systems UG (haftungsbeschränkt)<br />
+                Zentras Systems UG (haftungsbeschränkt)<br />
                 [Straße und Hausnummer]<br />
                 [PLZ] [Ort]<br /><br />
                 Telefon: [Telefonnummer]<br />

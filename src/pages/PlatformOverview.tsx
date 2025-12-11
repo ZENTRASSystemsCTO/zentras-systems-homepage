@@ -58,7 +58,7 @@ const PlatformOverview = () => {
             <div>
               <AnimatedSection>
                 <span className="inline-block px-3 py-1 rounded-full bg-secondary/20 text-secondary text-sm font-medium mb-4">
-                  Die ZENTRAS Suite
+                  Das Angebot von Zentras Systems
                 </span>
               </AnimatedSection>
 
@@ -98,7 +98,7 @@ const PlatformOverview = () => {
               <div className="relative rounded-2xl overflow-hidden">
                 <img 
                   src={plattformVisualisierung} 
-                  alt="ZENTRAS Plattform Visualisierung - Die drei Bausteine der ZENTRAS Suite" 
+                  alt="Zentras Plattform Visualisierung - Die drei Bausteine von Zentras Systems" 
                   className="w-full h-auto object-cover"
                 />
               </div>
@@ -202,7 +202,7 @@ const PlatformOverview = () => {
               Bereit für eine Demo?
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Vereinbaren Sie ein individuelles Beratungsgespräch und erleben Sie ZENTRAS in Aktion.
+              Vereinbaren Sie ein individuelles Beratungsgespräch und erleben Sie Zentras in Aktion.
             </p>
             <Link to="/demo">
               <Button variant="default" size="xl" className="rounded-full">

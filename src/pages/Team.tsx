@@ -57,7 +57,7 @@ const Team = () => {
               <AnimatedSection delay={100}>
                 <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-tight mb-6">
                   Das Team hinter
-                  <span className="text-secondary"> ZENTRAS</span>
+                  <span className="text-secondary"> zentras</span>
                 </h1>
               </AnimatedSection>
 
@@ -84,7 +84,7 @@ const Team = () => {
               <div className="rounded-2xl overflow-hidden">
                 <img 
                   src={teamFoto} 
-                  alt="ZENTRAS Team" 
+                  alt="Zentras Team" 
                   className="w-full h-auto object-cover min-h-[400px]"
                 />
               </div>
@@ -98,7 +98,7 @@ const Team = () => {
         <div className="h-[300px] lg:h-[500px] overflow-hidden">
           <img 
             src={teamFoto} 
-            alt="ZENTRAS Team" 
+            alt="Zentras Team" 
             className="w-full h-full object-cover object-center"
           />
         </div>
@@ -116,7 +116,7 @@ const Team = () => {
                     Unsere Geschichte
                   </h2>
                   <p className="text-muted-foreground mb-6">
-                    ZENTRAS wurde von PD Dr. med. Michael Schönfeld und PD Dr. med. Kai Laukamp initiiert, 
+                    Zentras wurde von PD Dr. med. Michael Schönfeld und PD Dr. med. Kai Laukamp initiiert, 
                     die die Realität aus dem OP kennen: Derselbe Eingriff muss teils 5-6x in unterschiedlichen 
                     Systemen dokumentiert werden, obwohl sich die Inhalte stark überschneiden.
                   </p>
@@ -158,7 +158,7 @@ const Team = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <AnimatedSection className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl lg:text-4xl font-bold text-primary-foreground mb-6">
-              Mehr über ZENTRAS erfahren?
+              Mehr über Zentras erfahren?
             </h2>
             <p className="text-lg text-primary-foreground/70 mb-8">
               Vereinbaren Sie ein Gespräch mit unserem Team und erfahren Sie, wie wir Ihre Dokumentation 
