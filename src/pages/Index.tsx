@@ -1,24 +1,13 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import { AnimatedSection } from "@/components/AnimatedSection";
-import { PlaceholderGraphic } from "@/components/PlaceholderGraphic";
 import { PlatformCard } from "@/components/PlatformCard";
-import { TeamMemberCard } from "@/components/TeamMemberCard";
+import { TestimonialCarousel } from "@/components/TestimonialCarousel";
 import { Button } from "@/components/ui/button";
-import { Check, ArrowRight, Shield, Zap, FileText, BarChart3, Tablet, Database } from "lucide-react";
+import { ArrowRight, Shield, Zap, FileText, BarChart3, Database } from "lucide-react";
 
 // Hero mockup image (cropped version)
 import heroMockup from "@/assets/hero-mockup-cropped.png";
-
-// Clinic logos
-import uniklinikKoelnLogo from "@/assets/uniklinik-koeln-logo.png";
-import agaplesionHagenLogo from "@/assets/agaplesion-hagen-logo.png";
-
-// Team member photos
-import michaelSchoenfeld from "@/assets/michael-schoenfeld.jpg";
-import kaiLaukamp from "@/assets/kai-laukamp.jpg";
-import eliasUlrich from "@/assets/elias-ulrich.jpg";
-import casparMuenzinger from "@/assets/caspar-muenzinger.jpg";
 
 const platforms = [
   {
@@ -39,13 +28,6 @@ const platforms = [
     href: "/platform/analytics",
     iconPlaceholder: "AP",
   },
-];
-
-const teamMembers = [
-  { name: "PD Dr. med. Michael Schönfeld", role: "Founder", bio: "", image: michaelSchoenfeld },
-  { name: "PD Dr. med. Kai Laukamp", role: "Founder", bio: "", image: kaiLaukamp },
-  { name: "Dr. med. Elias Ulrich", role: "", bio: "", image: eliasUlrich },
-  { name: "Caspar Münzinger", role: "", bio: "", image: casparMuenzinger },
 ];
 
 const valueProps = [
@@ -115,31 +97,6 @@ const Index = () => {
         <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background to-transparent z-20" />
       </section>
 
-      {/* Backed By Section */}
-      <section className="py-12 lg:py-16 bg-background border-b border-border">
-        <div className="container mx-auto px-4 lg:px-8">
-          <AnimatedSection>
-            <p className="text-sm text-muted-foreground text-center mb-8">Bereits im Einsatz bei</p>
-          </AnimatedSection>
-          
-          <div className="flex flex-wrap justify-center items-center gap-8 lg:gap-16">
-            <AnimatedSection delay={50}>
-              <img 
-                src={uniklinikKoelnLogo} 
-                alt="Uniklinik Köln" 
-                className="h-12 lg:h-16 w-auto object-contain"
-              />
-            </AnimatedSection>
-            <AnimatedSection delay={100}>
-              <img 
-                src={agaplesionHagenLogo} 
-                alt="Agaplesion Klinikum Hagen" 
-                className="h-12 lg:h-16 w-auto object-contain"
-              />
-            </AnimatedSection>
-          </div>
-        </div>
-      </section>
 
       {/* Intro Grid / Value Props */}
       <section className="py-20 lg:py-28 bg-background">
@@ -247,34 +204,21 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Team Preview */}
+      {/* Testimonials */}
       <section className="py-20 lg:py-28 bg-brand-surface-tinted">
         <div className="container mx-auto px-4 lg:px-8">
-          <AnimatedSection className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12">
-            <div>
-              <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-                Das Team
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-xl">
-                Kliniker und Technologen, die die Realität aus dem OP kennen und Dokumentation neu denken.
-              </p>
-            </div>
-            <Link to="/team">
-              <Button variant="outline" className="rounded-full">
-                Ganzes Team ansehen
-                <ArrowRight size={18} />
-              </Button>
-            </Link>
+          <AnimatedSection className="text-center max-w-3xl mx-auto mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+              Das sagen unsere Nutzer
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              Stimmen aus der klinischen Praxis
+            </p>
           </AnimatedSection>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {teamMembers.map((member, index) => (
-              <AnimatedSection key={member.name} delay={index * 100}>
-                {/* GRAPHIC PLACEHOLDER: team member headshot (portrait photo), color graded to harmonize with zentras palette. */}
-                <TeamMemberCard {...member} />
-              </AnimatedSection>
-            ))}
-          </div>
+          <AnimatedSection delay={100}>
+            <TestimonialCarousel />
+          </AnimatedSection>
         </div>
       </section>
 

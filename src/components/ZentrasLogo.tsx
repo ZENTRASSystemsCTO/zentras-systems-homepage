@@ -29,7 +29,7 @@ export const ZentrasLogo = ({
           "text-xl font-semibold tracking-tight",
           isLight ? "text-primary-foreground" : "text-primary"
         )}>
-          zentras
+          zentras systems
         </span>
       )}
     </div>
