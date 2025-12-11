@@ -63,7 +63,7 @@ const Index = () => {
         {/* Hero Mockup Image - Background layer */}
         <div className="absolute inset-0 overflow-hidden">
           {/* Positioning: right-aligned, vertically centered */}
-          <div className="absolute top-1/2 -translate-y-1/2 right-0 w-[90%] lg:w-[60%] h-auto translate-x-[10%] lg:translate-x-[5%]">
+          <div className="absolute top-1/2 -translate-y-1/2 right-0 w-[70%] lg:w-[45%] h-auto translate-x-[10%] lg:translate-x-[5%]">
             <img 
               src={heroMockup} 
               alt="" 
