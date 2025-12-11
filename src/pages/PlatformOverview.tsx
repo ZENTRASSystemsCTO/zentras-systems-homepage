@@ -3,7 +3,7 @@ import { Layout } from "@/components/Layout";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check, FileText, Tablet, BarChart3 } from "lucide-react";
-import plattformVisualisierung from "@/assets/plattform-visualisierung.png";
+import plattformVisualisierung from "@/assets/plattform-visualisierung.webp";
 
 const platforms = [
   {
@@ -71,7 +71,7 @@ const PlatformOverview = () => {
 
               <AnimatedSection delay={200}>
                 <p className="text-lg text-muted-foreground mb-8 max-w-xl">
-                  ZENTRAS Systems bietet eine Lösung für die digitale Dokumentation in der interventionellen Medizin. 
+                  Zentras Systems bietet eine Lösung für die digitale Dokumentation in der interventionellen Medizin. 
                   Dazu gehören OP-geeignete Tablets, unsere Click-Through-Dokumentationssoftware und Schnittstellen für weiterführende Analysen.
                 </p>
               </AnimatedSection>
