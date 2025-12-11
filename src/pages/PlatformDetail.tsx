@@ -341,7 +341,7 @@ const PlatformDetail = () => {
           <section className="py-20 lg:py-28 bg-background">
             <div className="container mx-auto px-4 lg:px-8">
               <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                <AnimatedSection>
+                <AnimatedSection className="lg:order-2">
                   <span className="inline-block px-3 py-1 rounded-full bg-secondary/10 text-secondary text-sm font-medium mb-4">
                     Für Kliniken
                   </span>
@@ -373,12 +373,12 @@ const PlatformDetail = () => {
                   </ul>
                 </AnimatedSection>
 
-                <AnimatedSection delay={200}>
+                <AnimatedSection delay={200} className="lg:order-1">
                   <div className="flex items-center justify-center">
                     <img 
                       src={analyticsFuerKlinikenImg} 
                       alt="Analytics für Kliniken"
-                      className="w-full h-auto object-contain max-h-[450px] rounded-xl"
+                      className="w-full h-auto object-contain max-h-[450px] rounded-xl shadow-lg"
                     />
                   </div>
                 </AnimatedSection>
@@ -387,47 +387,47 @@ const PlatformDetail = () => {
           </section>
 
           {/* Für Medizinprodukthersteller Section */}
-          <section className="py-20 lg:py-28 bg-primary">
+          <section className="py-20 lg:py-28 bg-brand-surface">
             <div className="container mx-auto px-4 lg:px-8">
               <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                <AnimatedSection className="lg:order-2">
-                  <span className="inline-block px-3 py-1 rounded-full bg-accent/20 text-accent text-sm font-medium mb-4">
+                <AnimatedSection>
+                  <span className="inline-block px-3 py-1 rounded-full bg-secondary/10 text-secondary text-sm font-medium mb-4">
                     Für Medizinprodukthersteller
                   </span>
-                  <h2 className="text-3xl lg:text-4xl font-bold text-primary-foreground mb-6">
+                  <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
                     Produktevaluationen über Kliniken hinweg
                   </h2>
-                  <p className="text-lg text-primary-foreground/80 mb-6">
+                  <p className="text-lg text-muted-foreground mb-6">
                     Als Medizinprodukthersteller können Sie mit unserer Plattform Ihre Produkte kontinuierlich evaluieren – über mehrere Kliniken hinweg. Sammeln Sie Real-World-Daten aus dem klinischen Alltag und überwachen Sie den Evaluationsprozess zentral.
                   </p>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-3">
-                      <div className="w-6 h-6 rounded-full bg-accent/30 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <Check size={14} className="text-accent" />
+                      <div className="w-6 h-6 rounded-full bg-accent-green/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Check size={14} className="text-accent-green" />
                       </div>
-                      <span className="text-primary-foreground/80">Aggregierte Daten aus verschiedenen Kliniken</span>
+                      <span className="text-muted-foreground">Aggregierte Daten aus verschiedenen Kliniken</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <div className="w-6 h-6 rounded-full bg-accent/30 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <Check size={14} className="text-accent" />
+                      <div className="w-6 h-6 rounded-full bg-accent-green/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Check size={14} className="text-accent-green" />
                       </div>
-                      <span className="text-primary-foreground/80">Echtzeit-Monitoring der Evaluationsfortschritte</span>
+                      <span className="text-muted-foreground">Echtzeit-Monitoring der Evaluationsfortschritte</span>
                     </li>
                     <li className="flex items-start gap-3">
-                      <div className="w-6 h-6 rounded-full bg-accent/30 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <Check size={14} className="text-accent" />
+                      <div className="w-6 h-6 rounded-full bg-accent-green/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Check size={14} className="text-accent-green" />
                       </div>
-                      <span className="text-primary-foreground/80">Schnellere und vollständigere Datensätze für Studien</span>
+                      <span className="text-muted-foreground">Schnellere und vollständigere Datensätze für Studien</span>
                     </li>
                   </ul>
                 </AnimatedSection>
 
-                <AnimatedSection delay={200} className="lg:order-1">
+                <AnimatedSection delay={200}>
                   <div className="flex items-center justify-center">
                     <img 
                       src={analyticsFuerMpherstellerImg} 
                       alt="Analytics für Medizinprodukthersteller"
-                      className="w-full h-auto object-contain max-h-[450px] rounded-xl"
+                      className="w-full h-auto object-contain max-h-[450px] rounded-xl shadow-lg"
                     />
                   </div>
                 </AnimatedSection>
