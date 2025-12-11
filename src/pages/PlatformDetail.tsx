@@ -16,7 +16,7 @@ import ctEingriffeImg from "@/assets/ct-eingriffe.jpg";
 import allgemeinEingriffeImg from "@/assets/allgemein-eingriffe.jpg";
 
 // Import images for Tablets
-import tabletHeroImg from "@/assets/tablet-hero-transparent.png";
+import tabletHeroImg from "@/assets/tablet-hero-transparent.webp";
 import tabletHangingOrImg from "@/assets/tablet-hanging-or.png";
 import tabletCaseOpTableImg from "@/assets/tablet-case-op-table.png";
 import autoUpdateImg from "@/assets/auto-update.png";
