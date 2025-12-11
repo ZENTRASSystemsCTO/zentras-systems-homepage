@@ -1,8 +1,10 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { PlatformCard } from "@/components/PlatformCard";
 import { TestimonialCarousel } from "@/components/TestimonialCarousel";
+import { PageLoader } from "@/components/PageLoader";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Zap, FileText, BarChart3, Database } from "lucide-react";
 
@@ -38,8 +40,24 @@ const valueProps = [
 ];
 
 const Index = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Preload the hero image
+    const img = new Image();
+    img.src = heroBackground;
+    img.onload = () => setIsLoading(false);
+    img.onerror = () => setIsLoading(false);
+    
+    // Fallback timeout in case image takes too long
+    const timeout = setTimeout(() => setIsLoading(false), 3000);
+    return () => clearTimeout(timeout);
+  }, []);
+
   return (
     <Layout>
+      <PageLoader isLoading={isLoading} />
+      
       {/* Hero Section - Full background image with text overlay */}
       <section className="relative overflow-hidden min-h-[70vh] lg:min-h-[85vh] -mt-16 lg:-mt-20 pt-16 lg:pt-20">
         {/* Background Image */}
