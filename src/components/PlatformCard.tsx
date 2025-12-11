@@ -7,7 +7,6 @@ interface PlatformCardProps {
   description: string;
   href: string;
   iconPlaceholder: string;
-  variant?: "default" | "featured";
   className?: string;
 }
 
@@ -16,17 +15,14 @@ export const PlatformCard = ({
   description,
   href,
   iconPlaceholder,
-  variant = "default",
   className,
 }: PlatformCardProps) => {
   return (
     <Link
       to={href}
       className={cn(
-        "group block p-6 rounded-2xl transition-all duration-300 hover-lift",
-        variant === "featured"
-          ? "bg-primary text-primary-foreground"
-          : "bg-card border border-border hover:border-secondary",
+        "group block p-6 rounded-2xl transition-all duration-300 hover-lift h-full flex flex-col",
+        "bg-card border border-border hover:bg-primary hover:border-primary",
         className
       )}
     >
@@ -34,10 +30,8 @@ export const PlatformCard = ({
       {/* GRAPHIC PLACEHOLDER: platform-specific icon or pictogram for this SKU. */}
       <div
         className={cn(
-          "w-12 h-12 rounded-xl mb-4 flex items-center justify-center text-xs font-medium",
-          variant === "featured"
-            ? "bg-accent/20 text-accent"
-            : "gradient-placeholder text-muted-foreground"
+          "w-12 h-12 rounded-xl mb-4 flex items-center justify-center text-xs font-medium transition-colors duration-300",
+          "gradient-placeholder text-muted-foreground group-hover:bg-accent/20 group-hover:text-accent"
         )}
       >
         {iconPlaceholder}
@@ -45,8 +39,8 @@ export const PlatformCard = ({
 
       <h3
         className={cn(
-          "text-lg font-semibold mb-2",
-          variant === "featured" ? "text-primary-foreground" : "text-foreground"
+          "text-lg font-semibold mb-2 transition-colors duration-300",
+          "text-foreground group-hover:text-primary-foreground"
         )}
       >
         {title}
@@ -54,10 +48,8 @@ export const PlatformCard = ({
 
       <p
         className={cn(
-          "text-sm mb-4",
-          variant === "featured"
-            ? "text-primary-foreground/70"
-            : "text-muted-foreground"
+          "text-sm mb-4 flex-1 transition-colors duration-300",
+          "text-muted-foreground group-hover:text-primary-foreground/70"
         )}
       >
         {description}
@@ -65,13 +57,11 @@ export const PlatformCard = ({
 
       <div
         className={cn(
-          "flex items-center gap-2 text-sm font-medium transition-colors",
-          variant === "featured"
-            ? "text-accent group-hover:text-accent"
-            : "text-secondary group-hover:text-brand-cyan"
+          "flex items-center gap-2 text-sm font-medium transition-colors duration-300",
+          "text-secondary group-hover:text-accent"
         )}
       >
-        Learn more
+        Mehr erfahren
         <ArrowRight
           size={16}
           className="transition-transform group-hover:translate-x-1"

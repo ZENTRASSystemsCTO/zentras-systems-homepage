@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Zap, FileText, BarChart3, Database } from "lucide-react";
 
 // Hero background image (OR scene with tablet)
-import heroBackground from "@/assets/hero-background.png";
+import heroBackground from "@/assets/hero-mockup.webp";
 
 const platforms = [
   {
@@ -166,10 +166,9 @@ const Index = () => {
             <div className="lg:col-span-7">
               <div className="grid sm:grid-cols-2 gap-6">
                 {platforms.map((platform, index) => (
-                  <AnimatedSection key={platform.title} delay={index * 100}>
+                  <AnimatedSection key={platform.title} delay={index * 100} className="h-full">
                     <PlatformCard
                       {...platform}
-                      variant={index === 0 ? "featured" : "default"}
                     />
                   </AnimatedSection>
                 ))}
@@ -197,14 +196,14 @@ const Index = () => {
               { icon: Database, title: "OPS-Codes & QS-Daten", desc: "Automatische Kodierung und Qualitätssicherung in einem Schritt." },
               { icon: BarChart3, title: "Registerdaten", desc: "Direkte Anbindung an Register wie DeGIR, ohne Mehraufwand." },
             ].map((feature, index) => (
-              <AnimatedSection key={feature.title} delay={index * 100}>
-                <div className="group p-8 rounded-2xl bg-card border border-border hover:border-accent transition-all duration-300 hover-lift">
+              <AnimatedSection key={feature.title} delay={index * 100} className="h-full">
+                <div className="group p-8 rounded-2xl bg-card border border-border hover:border-accent transition-all duration-300 hover-lift h-full flex flex-col">
                   {/* GRAPHIC PLACEHOLDER: small abstract icon representing this feature (SVG in zentras colors). */}
                   <div className="w-14 h-14 rounded-xl gradient-brand flex items-center justify-center mb-6 group-hover:shadow-glow transition-shadow">
                     <feature.icon size={28} className="text-primary-foreground" />
                   </div>
                   <h3 className="text-xl font-semibold text-foreground mb-3">{feature.title}</h3>
-                  <p className="text-muted-foreground">{feature.desc}</p>
+                  <p className="text-muted-foreground flex-1">{feature.desc}</p>
                 </div>
               </AnimatedSection>
             ))}

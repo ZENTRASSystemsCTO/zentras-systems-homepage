@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { X, ExternalLink } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const BANNER_DISMISSED_KEY = "zentras_gmbh_banner_dismissed";
 
@@ -24,9 +25,9 @@ export const GmbHBanner = () => {
 
   return (
     <div 
-      className="fixed bottom-6 right-6 z-50 w-[380px] bg-white rounded-2xl p-6 animate-fade-in"
+      className="fixed bottom-6 right-6 z-50 w-[420px] max-w-[calc(100vw-3rem)] bg-white rounded-2xl p-6 animate-fade-in"
       style={{
-        boxShadow: "0 0 60px 20px rgba(255, 255, 255, 0.4), 0 8px 32px rgba(0, 0, 0, 0.12)"
+        boxShadow: "0 0 80px 30px rgba(255, 255, 255, 0.5), 0 12px 40px rgba(0, 0, 0, 0.15)"
       }}
     >
       <button
@@ -37,29 +38,33 @@ export const GmbHBanner = () => {
         <X size={20} className="text-muted-foreground" />
       </button>
       
-      <h3 className="text-lg font-semibold text-foreground mb-2 pr-8">
+      <h3 className="text-lg font-semibold text-foreground mb-3 pr-8">
         Du bist auf der Zentras Systems Seite
       </h3>
-      
-      <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
-        Dies ist die Website von <strong className="text-foreground">Zentras Systems</strong> – 
-        unsere Lösung für digitale Dokumentation in der interventionellen Medizin.
-      </p>
       
       <p className="text-muted-foreground mb-5 text-sm leading-relaxed">
         Suchst du die <strong className="text-foreground">Zentras GmbH</strong>? 
         Die findest du unter zentras.de
       </p>
       
-      <a 
-        href="https://zentras.de" 
-        target="_blank" 
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground rounded-xl hover:bg-primary/90 transition-colors text-sm font-medium"
-      >
-        Zur Zentras GmbH Website
-        <ExternalLink size={16} />
-      </a>
+      <div className="flex gap-3">
+        <a 
+          href="https://zentras.de" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground rounded-xl hover:bg-primary/90 transition-colors text-sm font-medium"
+        >
+          Zur Zentras GmbH
+          <ExternalLink size={16} />
+        </a>
+        <Button 
+          variant="outline" 
+          onClick={handleDismiss}
+          className="rounded-xl"
+        >
+          Ich bin richtig
+        </Button>
+      </div>
     </div>
   );
 };
