@@ -374,11 +374,11 @@ const PlatformDetail = () => {
                 </AnimatedSection>
 
                 <AnimatedSection delay={200} className="lg:order-1">
-                  <div className="flex items-center justify-center">
+                  <div className="flex items-center justify-center max-w-[550px] mx-auto">
                     <img 
                       src={analyticsFuerKlinikenImg} 
                       alt="Analytics für Kliniken"
-                      className="w-full h-auto object-contain max-h-[450px] rounded-xl shadow-lg"
+                      className="w-full h-auto object-contain rounded-xl shadow-lg"
                     />
                   </div>
                 </AnimatedSection>
@@ -423,11 +423,11 @@ const PlatformDetail = () => {
                 </AnimatedSection>
 
                 <AnimatedSection delay={200}>
-                  <div className="flex items-center justify-center">
+                  <div className="flex items-center justify-center max-w-[550px] mx-auto">
                     <img 
                       src={analyticsFuerMpherstellerImg} 
                       alt="Analytics für Medizinprodukthersteller"
-                      className="w-full h-auto object-contain max-h-[450px] rounded-xl shadow-lg"
+                      className="w-full h-auto object-contain rounded-xl shadow-lg"
                     />
                   </div>
                 </AnimatedSection>
