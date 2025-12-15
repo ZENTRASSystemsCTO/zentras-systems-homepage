@@ -13,7 +13,6 @@ const Impressum = () => {
           <AnimatedSection delay={100}>
             <div className="prose prose-lg max-w-none">
               <h2 className="text-2xl font-semibold text-foreground mt-8 mb-4">Angaben gemäß § 5 TMG</h2>
-              {/* PLACEHOLDER: Bitte mit echten Firmendaten ausfüllen */}
               <p className="text-muted-foreground mb-4">
                 Zentras Systems UG (haftungsbeschränkt)
                 <br />
@@ -24,15 +23,11 @@ const Impressum = () => {
               <h2 className="text-2xl font-semibold text-foreground mt-8 mb-4">Vertreten durch</h2>
               <p className="text-muted-foreground mb-4">
                 PD Dr. med. Michael Schönfeld
-                <br />
-                PD Dr. med. Kai Laukamp
               </p>
 
               <h2 className="text-2xl font-semibold text-foreground mt-8 mb-4">Kontakt</h2>
               <p className="text-muted-foreground mb-4">
-                Telefon: +49 160 905 22441
-                <br />
-                E-Mail: m.schoenfeld@zentras.de
+                E-Mail: kontakt@zentras-systems.com
               </p>
 
               <h2 className="text-2xl font-semibold text-foreground mt-8 mb-4">Registereintrag</h2>
