@@ -37,7 +37,6 @@ const Datenschutz = () => {
               </p>
 
               <h2 className="text-2xl font-semibold text-foreground mt-8 mb-4">2. Verantwortliche Stelle</h2>
-              {/* PLACEHOLDER: Bitte mit echten Firmendaten ausfüllen */}
               <p className="text-muted-foreground mb-4">
                 Zentras Systems UG (haftungsbeschränkt)
                 <br />
@@ -45,9 +44,7 @@ const Datenschutz = () => {
                 50997 Köln
                 <br />
                 <br />
-                Telefon: (+49) 160 905 22441
-                <br />
-                E-Mail: m.schoenfeld@zentras.de
+                E-Mail: kontakt@zentras-systems.com
               </p>
 
               <h2 className="text-2xl font-semibold text-foreground mt-8 mb-4">3. Hosting</h2>

@@ -34,7 +34,7 @@ export const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-sm text-primary-foreground/70">
                 <Mail size={16} className="text-accent" />
-                <span>kontakt@zentras.systems</span>
+                <span>kontakt@zentras-systems.com</span>
               </div>
               <div className="flex items-center gap-3 text-sm text-primary-foreground/70">
                 <MapPin size={16} className="text-accent" />
