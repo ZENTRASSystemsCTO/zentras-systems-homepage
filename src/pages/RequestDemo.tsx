@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
 import { ArrowRight, Check, Users, Calendar, MessageCircle, Rocket } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 import demoVisualisierung from "@/assets/demo-visualisierung.webp";
 
 const steps = [
@@ -46,16 +47,37 @@ const RequestDemo = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      const { data, error } = await supabase.functions.invoke("send-demo-request", {
+        body: formData,
+      });
 
-    toast({
-      title: "Anfrage erhalten!",
-      description: "Wir melden uns innerhalb von 24 Stunden bei Ihnen.",
-    });
+      if (error) {
+        console.error("Error sending demo request:", error);
+        toast({
+          title: "Fehler beim Senden",
+          description: "Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt per E-Mail.",
+          variant: "destructive",
+        });
+        return;
+      }
 
-    setFormData({ name: "", company: "", email: "", phone: "", message: "" });
-    setIsSubmitting(false);
+      toast({
+        title: "Anfrage erhalten!",
+        description: "Wir melden uns innerhalb von 24 Stunden bei Ihnen. Sie erhalten in Kürze eine Bestätigungs-E-Mail.",
+      });
+
+      setFormData({ name: "", company: "", email: "", phone: "", message: "" });
+    } catch (err) {
+      console.error("Error:", err);
+      toast({
+        title: "Fehler beim Senden",
+        description: "Bitte versuchen Sie es später erneut.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
