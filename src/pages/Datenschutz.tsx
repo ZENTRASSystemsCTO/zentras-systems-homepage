@@ -166,7 +166,7 @@ const Datenschutz = () => {
                 Browsers von „http://" auf „https://" wechselt und an dem Schloss-Symbol in Ihrer Browserzeile.
               </p>
 
-              <p className="text-muted-foreground mt-8 text-sm">Stand: Dezember 2024</p>
+              <p className="text-muted-foreground mt-8 text-sm">Stand: Dezember 2025</p>
             </div>
           </AnimatedSection>
         </div>
