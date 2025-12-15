@@ -64,7 +64,7 @@ const RequestDemo = () => {
 
       toast({
         title: "Anfrage erhalten!",
-        description: "Wir melden uns innerhalb von 24 Stunden bei Ihnen. Sie erhalten in Kürze eine Bestätigungs-E-Mail.",
+        description: "Wir melden uns schnellstmöglich bei Ihnen. Sie erhalten in Kürze eine Bestätigungs-E-Mail.",
       });
 
       setFormData({ name: "", company: "", email: "", phone: "", message: "" });
