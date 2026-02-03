@@ -28,7 +28,7 @@ export const Footer = () => {
             {/* GRAPHIC PLACEHOLDER: official zentras logo (SVG) in brand colors. */}
             <ZentrasLogo variant="light" className="mb-6" />
             <p className="text-primary-foreground/70 text-sm max-w-sm mb-6">
-              Entwicklung, Betrieb und Vertrieb einer cloudbasierten Softwarelösung zur Live‑Doku von interventionell‑medizinischen Eingriffen
+              Entwicklung, Betrieb und Vertrieb einer cloudbasierten Softwarelösung zur live Dokumentation von interventionell‑medizinischen Eingriffen.
             </p>
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-sm text-primary-foreground/70">
