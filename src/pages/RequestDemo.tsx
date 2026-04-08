@@ -44,6 +44,7 @@ const RequestDemo = () => {
     source: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   useEffect(() => {
     const source = searchParams.get('source');
@@ -90,15 +91,12 @@ const RequestDemo = () => {
         throw new Error(data.message || 'Ein Fehler ist aufgetreten');
       }
 
-      toast({
-        title: "Anfrage erhalten!",
-        description: "Wir melden uns schnellstmöglich bei Ihnen. Sie erhalten in Kürze eine Bestätigungs-E-Mail.",
-      });
+      setIsSuccess(true);
 
       // Redirect to homepage after successful submission
       setTimeout(() => {
         navigate('/');
-      }, 2000);
+      }, 2500);
     } catch (err: any) {
       console.error("Error:", err);
       toast({
@@ -376,6 +374,19 @@ const RequestDemo = () => {
           </AnimatedSection>
         </div>
       </section>
+
+      {/* Success Overlay */}
+      {isSuccess && (
+        <div className="fixed inset-0 bg-white/90 backdrop-blur-sm z-[100] flex flex-col items-center justify-center animate-in fade-in duration-300">
+          <div className="w-24 h-24 rounded-full bg-accent-green/20 flex items-center justify-center mb-6 animate-scale-in">
+            <Check size={48} className="text-accent-green animate-in zoom-in duration-500 delay-150" />
+          </div>
+          <h2 className="text-3xl font-bold text-foreground mb-2 animate-fade-up">Anfrage erfolgreich gesendet!</h2>
+          <p className="text-muted-foreground animate-fade-up" style={{ animationDelay: '100ms' }}>
+            Vielen Dank! Wir melden uns in Kürze bei Ihnen.
+          </p>
+        </div>
+      )}
     </Layout>
   );
 };
