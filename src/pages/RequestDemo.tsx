@@ -61,18 +61,33 @@ const RequestDemo = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/contact.php', {
+      // Choose Web3Forms access key based on source routing
+      // TODO: Update the first key with Elias's token once the email is verified
+      const accessKey = formData.source === 'strykersymposium' 
+        ? "be195f29-e104-4009-a333-c25ab9208d4e" 
+        : "be195f29-e104-4009-a333-c25ab9208d4e";
+        
+      const payload = {
+        access_key: accessKey,
+        subject: `Neue Demo-Anfrage von ${formData.name} (${formData.company})`,
+        from_name: "ZENTRAS Website",
+        replyto: formData.email,
+        ...formData
+      };
+
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json'
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       });
 
       const data = await response.json();
 
-      if (!response.ok) {
-        throw new Error(data.error || 'Ein Fehler ist aufgetreten');
+      if (!data.success) {
+        throw new Error(data.message || 'Ein Fehler ist aufgetreten');
       }
 
       toast({
