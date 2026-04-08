@@ -10,47 +10,47 @@
 @layer base {
   :root {
     /* Base backgrounds */
-    --background: 210 40% 98%;
-    --foreground: 222 47% 11%;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 9%;
 
     /* Cards and surfaces */
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 0 0% 9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover-foreground: 0 0% 9%;
 
-    /* Brand Primary - Dark Teal #15566f */
+    /* Brand Primary */
     --primary: 195 68% 26%;
     --primary-foreground: 210 40% 98%;
 
-    /* Brand Secondary - Light Teal #6fadc6 */
+    /* Brand Secondary */
     --secondary: 195 41% 61%;
-    --secondary-foreground: 222 47% 11%;
+    --secondary-foreground: 0 0% 9%;
 
     /* Muted surfaces */
-    --muted: 195 30% 95%;
-    --muted-foreground: 195 20% 40%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
 
-    /* Accent Cyan #00bbd1 */
+    /* Accent */
     --accent: 186 100% 41%;
-    --accent-foreground: 0 0% 100%;
+    --accent-foreground: 0 0% 98%;
 
-    /* Accent Green #0fd100 */
+    /* Accent Green */
     --accent-green: 115 100% 41%;
-    --accent-green-foreground: 0 0% 100%;
+    --accent-green-foreground: 0 0% 98%;
 
     /* UI States */
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 195 20% 88%;
-    --input: 195 20% 88%;
-    --ring: 195 68% 26%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 0 0% 9%;
 
-    --radius: 0.75rem;
+    --radius: 1rem; /* Softer radius for Apple vibe */
 
-    /* Custom brand colors */
+    /* Custom brand colors - retaining for distinct accents if absolutely needed */
     --brand-dark-teal: 195 68% 26%;
     --brand-light-teal: 195 41% 61%;
     --brand-cyan: 186 100% 41%;
@@ -61,23 +61,23 @@
     /* Sidebar */
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 195 68% 26%;
+    --sidebar-primary: 0 0% 9%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 195 30% 95%;
-    --sidebar-accent-foreground: 195 68% 26%;
-    --sidebar-border: 195 20% 88%;
-    --sidebar-ring: 186 100% 41%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 0 0% 9%;
+    --sidebar-border: 240 5.9% 90%;
+    --sidebar-ring: 0 0% 9%;
   }
 
   .dark {
-    --background: 222 47% 8%;
-    --foreground: 210 40% 98%;
+    --background: 0 0% 0%; /* Pure black Apple dark mode */
+    --foreground: 0 0% 98%;
 
-    --card: 222 47% 11%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 0%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 222 47% 11%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 0%;
+    --popover-foreground: 0 0% 98%;
 
     --primary: 186 100% 41%;
     --primary-foreground: 222 47% 11%;
@@ -85,27 +85,31 @@
     --secondary: 195 41% 30%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 222 47% 15%;
-    --muted-foreground: 195 20% 65%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
 
     --accent: 186 100% 41%;
-    --accent-foreground: 222 47% 11%;
+    --accent-foreground: 0 0% 98%;
 
-    --destructive: 0 62% 30%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 222 47% 20%;
-    --input: 222 47% 20%;
-    --ring: 186 100% 41%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 0 0% 98%;
 
-    --sidebar-background: 222 47% 8%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 186 100% 41%;
-    --sidebar-primary-foreground: 222 47% 11%;
-    --sidebar-accent: 222 47% 15%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 222 47% 20%;
-    --sidebar-ring: 186 100% 41%;
+    /* Keep custom brand for subtle icons */
+    --brand-surface: 222 47% 8%; 
+    --brand-surface-tinted: 222 47% 11%;
+
+    --sidebar-background: 0 0% 0%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 0 0% 98%;
+    --sidebar-primary-foreground: 0 0% 9%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 0 0% 98%;
   }
 }
 
@@ -184,19 +188,19 @@
 
   /* Button variants */
   .btn-primary {
-    @apply bg-accent text-accent-foreground hover:bg-accent/90 transition-all duration-300;
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300;
   }
 
   .btn-secondary {
-    @apply border-2 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground transition-all duration-300;
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-all duration-300 border border-border/50;
   }
 
   .btn-hero {
-    @apply bg-accent text-primary font-semibold hover:bg-accent/90 shadow-lg hover:shadow-xl transition-all duration-300;
+    @apply bg-primary text-primary-foreground font-medium hover:bg-primary/90 hover:scale-[1.02] shadow-sm transition-all duration-300 rounded-full;
   }
 
   .btn-hero-outline {
-    @apply border-2 border-secondary/50 text-secondary hover:bg-secondary/10 transition-all duration-300;
+    @apply border border-border bg-transparent text-foreground hover:bg-secondary/50 hover:scale-[1.02] transition-all duration-300 rounded-full;
   }
 }
 
