@@ -80,11 +80,11 @@ export default {
         "3xl": "2rem",
       },
       boxShadow: {
-        "brand": "0 4px 20px -4px hsl(var(--brand-dark-teal) / 0.15)",
-        "brand-lg": "0 10px 40px -10px hsl(var(--brand-dark-teal) / 0.25)",
-        "brand-xl": "0 20px 60px -15px hsl(var(--brand-dark-teal) / 0.3)",
-        "glow": "0 0 30px hsl(var(--brand-cyan) / 0.3)",
-        "glow-lg": "0 0 50px hsl(var(--brand-cyan) / 0.4)",
+        "brand": "0 8px 30px rgba(0, 0, 0, 0.04)",
+        "brand-lg": "0 20px 40px rgba(0, 0, 0, 0.06)",
+        "brand-xl": "0 30px 60px rgba(0, 0, 0, 0.08)",
+        "glow": "0 0 30px rgba(0, 0, 0, 0.03)",
+        "glow-lg": "0 0 50px rgba(0, 0, 0, 0.05)",
       },
       keyframes: {
         "accordion-down": {

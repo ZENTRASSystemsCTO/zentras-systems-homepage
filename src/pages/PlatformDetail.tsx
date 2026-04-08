@@ -7,8 +7,8 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Check, ArrowLeft, Monitor, FileText, Tablet, BarChart3 } from "lucide-react";
 
 // Import images for Documentation Suite
-import befundBerichtImg from "@/assets/befund-bericht.jpg";
-import opsCodesImg from "@/assets/ops-codes.jpg";
+import befundBerichtImg from "@/assets/Report_02.webp";
+import opsCodesImg from "@/assets/ops-codes-new.webp";
 import degirImg from "@/assets/degir-dokumentation.jpg";
 import produktevaluationenImg from "@/assets/produktevaluationen.jpg";
 import neuroEingriffeImg from "@/assets/neuro-eingriffe.jpg";
@@ -281,53 +281,61 @@ const PlatformDetail = () => {
             </p>
           </AnimatedSection>
 
-          <div className="space-y-16">
+          <div className={`grid gap-6 md:gap-8 items-stretch ${platform.features.length === 3 ? 'lg:grid-cols-3' : 'lg:grid-cols-2'}`}>
             {platform.features.map((feature, index) => (
-              <AnimatedSection key={feature.title} delay={index * 100}>
-                <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-                  {/* Alternate layout */}
-                  <div className={index % 2 === 1 ? "lg:order-2" : ""}>
+              <AnimatedSection key={feature.title} delay={index * 100} className="h-full">
+                <div className="bg-brand-surface/60 hover:bg-brand-surface transition-colors border border-border/50 rounded-[2.5rem] p-8 md:p-10 h-full flex flex-col group relative overflow-hidden">
+                  
+                  <div className="mb-10 relative z-10">
                     <h3 className="text-2xl font-semibold text-foreground mb-4">{feature.title}</h3>
                     <p className="text-muted-foreground mb-6">{feature.description}</p>
                     <div className="flex items-center gap-2 text-sm font-medium text-secondary">
                       <Check size={16} className="text-accent-green" />
-                      Enthalten in {platform.title}
+                      Enthalten
                     </div>
                   </div>
 
-                  {/* Feature image or placeholder */}
-                  <div className={index % 2 === 1 ? "lg:order-1" : ""}>
+                  {/* Feature image or placeholder pushed to bottom */}
+                  <div className="mt-auto px-4 flex items-end justify-center w-full">
                     {feature.image ? (
-                      <div className={`rounded-xl overflow-hidden shadow-lg border border-border/50 bg-white ${
-                        feature.image === securedByKnoxImg || feature.image === autoUpdateImg 
-                          ? 'p-12 flex items-center justify-center' 
-                          : ''
-                      }`}>
-                        <ImageWithLoader 
-                          src={feature.image} 
-                          alt={feature.title}
-                          className={`object-contain ${
-                            feature.image === securedByKnoxImg || feature.image === autoUpdateImg 
-                              ? 'max-w-[200px] h-auto' 
-                              : 'w-full h-auto'
-                          }`}
+                      feature.image === befundBerichtImg || feature.image === opsCodesImg ? (
+                        <div className="flex justify-center transform transition-transform duration-500 ease-out group-hover:-translate-y-4">
+                          <ImageWithLoader 
+                            src={feature.image} 
+                            alt={feature.title}
+                            className="max-w-[200px] w-full h-auto drop-shadow-2xl rounded-2xl border border-border/20"
+                          />
+                        </div>
+                      ) : (
+                        <div className={`rounded-xl overflow-hidden shadow-lg border border-border/50 bg-white w-full transform transition-transform duration-500 ease-out group-hover:-translate-y-3 ${
+                          feature.image === securedByKnoxImg || feature.image === autoUpdateImg 
+                            ? 'p-8 flex items-center justify-center' 
+                            : ''
+                        }`}>
+                          <ImageWithLoader 
+                            src={feature.image} 
+                            alt={feature.title}
+                            className={`object-contain ${
+                              feature.image === securedByKnoxImg || feature.image === autoUpdateImg 
+                                ? 'max-w-[160px] mx-auto h-auto' 
+                                : 'w-full h-auto'
+                            }`}
+                          />
+                        </div>
+                      )
+                    ) : (
+                      <div className="transform transition-transform duration-500 ease-out group-hover:-translate-y-3 w-full">
+                        <PlaceholderGraphic
+                          label={`${feature.title} Ansicht`}
+                          description="Screenshot oder Illustration"
+                          aspectRatio="video"
+                          variant="outline"
+                          className="min-h-[200px]"
                         />
                       </div>
-                    ) : (
-                      <PlaceholderGraphic
-                        label={`${feature.title} Ansicht`}
-                        description="Screenshot oder Illustration"
-                        aspectRatio="video"
-                        variant="outline"
-                        className="min-h-[250px]"
-                      />
                     )}
                   </div>
                 </div>
-
-                {index < platform.features.length - 1 && (
-                  <div className="border-b border-border mt-16" />
-                )}
               </AnimatedSection>
             ))}
           </div>
