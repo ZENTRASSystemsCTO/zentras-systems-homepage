@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useSearchParams, useNavigate } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Button } from "@/components/ui/button";
@@ -7,7 +7,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
 import { ArrowRight, Check, Users, Calendar, MessageCircle, Rocket } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
 import demoVisualisierung from "@/assets/demo-visualisierung.webp";
 
 const steps = [
@@ -34,6 +33,8 @@ const steps = [
 ];
 
 const RequestDemo = () => {
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     company: "",
@@ -43,23 +44,33 @@ const RequestDemo = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  useEffect(() => {
+    const source = searchParams.get('source');
+    if (source === 'strykersymposium') {
+      setFormData(prev => ({
+        ...prev,
+        message: "Sehr geehrter Herr Ulrich,\n\nich habe eben Ihren Vortrag gehört zu AngioAssist und würde gerne mit Ihnen in Kontakt treten.\n\nBitte senden Sie mir Infomaterial zu AngioAssist und eine individuelle ROI-Schätzung."
+      }));
+    }
+  }, [searchParams]);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
-      const { data, error } = await supabase.functions.invoke("send-demo-request", {
-        body: formData,
+      const response = await fetch('/api/contact.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
 
-      if (error) {
-        console.error("Error sending demo request:", error);
-        toast({
-          title: "Fehler beim Senden",
-          description: "Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt per E-Mail.",
-          variant: "destructive",
-        });
-        return;
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Ein Fehler ist aufgetreten');
       }
 
       toast({
@@ -67,12 +78,15 @@ const RequestDemo = () => {
         description: "Wir melden uns schnellstmöglich bei Ihnen. Sie erhalten in Kürze eine Bestätigungs-E-Mail.",
       });
 
-      setFormData({ name: "", company: "", email: "", phone: "", message: "" });
-    } catch (err) {
+      // Redirect to homepage after successful submission
+      setTimeout(() => {
+        navigate('/');
+      }, 2000);
+    } catch (err: any) {
       console.error("Error:", err);
       toast({
         title: "Fehler beim Senden",
-        description: "Bitte versuchen Sie es später erneut.",
+        description: err.message || "Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt per E-Mail.",
         variant: "destructive",
       });
     } finally {
@@ -89,7 +103,7 @@ const RequestDemo = () => {
       {/* Hero Section */}
       <section className="bg-background py-20 lg:py-28">
         <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             {/* Left: Content */}
             <div>
               <AnimatedSection>
@@ -107,7 +121,7 @@ const RequestDemo = () => {
 
               <AnimatedSection delay={200}>
                 <p className="text-lg text-muted-foreground mb-8 max-w-xl">
-                  Vereinbaren Sie ein individuelles Beratungsgespräch. Wir zeigen Ihnen, wie ZENTRAS 
+                  Vereinbaren Sie ein individuelles Beratungsgespräch. Wir zeigen Ihnen, wie ZENTRAS
                   Ihre Dokumentation vereinfacht.
                 </p>
               </AnimatedSection>
@@ -130,59 +144,8 @@ const RequestDemo = () => {
               </AnimatedSection>
             </div>
 
-            {/* Right: Demo Visual */}
+            {/* Right: Contact Form */}
             <AnimatedSection delay={400}>
-              <div className="relative rounded-2xl overflow-hidden">
-                <img 
-                  src={demoVisualisierung} 
-                  alt="ZENTRAS Demo Visualisierung - Interaktive Präsentation der Dokumentationssoftware" 
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-            </AnimatedSection>
-          </div>
-        </div>
-      </section>
-
-      {/* Split Section: About + Form */}
-      <section className="py-20 lg:py-28 bg-brand-surface">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
-            {/* Left: About Zentras */}
-            <AnimatedSection>
-              <h2 className="text-2xl lg:text-3xl font-bold text-foreground mb-6">
-                Über Zentras Systems
-              </h2>
-              <p className="text-muted-foreground mb-6">
-                Zentras Systems unterstützt die digitale Dokumentation in der interventionellen Medizin 
-                direkt am Point-of-Care. Statt Befunde, OPS-Codes, QS-Berichte und Registerdaten mehrfach 
-                zu erfassen, ermöglicht unsere Tool Suite eine strukturierte Echtzeit-Dokumentation 
-                während des Eingriffs.
-              </p>
-              <p className="text-muted-foreground mb-8">
-                Gegründet von Klinikern, die die Frustration der Mehrfachdokumentation selbst erlebt haben. 
-                Unser Ziel: Echtzeit-Dokumentation am Point-of-Care zum Standard in der interventionellen 
-                Medizin machen.
-              </p>
-
-              {/* Trust indicators */}
-              <div className="grid grid-cols-2 gap-4">
-                {[
-                  { value: "3", label: "Pilotkliniken" },
-                  { value: "ISO 27001", label: "orientiert" },
-                  { value: "Setup", label: "in Minuten" },
-                  { value: "Made in", label: "Germany" },
-                ].map((stat) => (
-                  <div key={stat.label} className="p-4 rounded-xl bg-card border border-border">
-                    <p className="text-2xl font-bold text-secondary">{stat.value}</p>
-                    <p className="text-sm text-muted-foreground">{stat.label}</p>
-                  </div>
-                ))}
-              </div>
-            </AnimatedSection>
-
-            {/* Right: Lead Capture Form */}
-            <AnimatedSection delay={200}>
               <div className="p-8 rounded-2xl bg-card border border-border shadow-brand">
                 <h3 className="text-xl font-semibold text-foreground mb-6">
                   Demo anfragen
@@ -262,8 +225,8 @@ const RequestDemo = () => {
                       value={formData.message}
                       onChange={handleChange}
                       placeholder="Erzählen Sie uns von Ihrer Klinik und Ihren Anforderungen..."
-                      rows={4}
-                      className="rounded-lg resize-none"
+                      rows={8}
+                      className="rounded-lg resize-none min-h-56"
                     />
                   </div>
 
@@ -288,6 +251,45 @@ const RequestDemo = () => {
         </div>
       </section>
 
+      {/* About Section */}
+      <section className="py-20 lg:py-28 bg-brand-surface">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <AnimatedSection>
+              <h2 className="text-2xl lg:text-3xl font-bold text-foreground mb-6">
+                Über Zentras Systems
+              </h2>
+              <p className="text-muted-foreground mb-6">
+                Zentras Systems unterstützt die digitale Dokumentation in der interventionellen Medizin 
+                direkt am Point-of-Care. Statt Befunde, OPS-Codes, QS-Berichte und Registerdaten mehrfach 
+                zu erfassen, ermöglicht unsere Tool Suite eine strukturierte Echtzeit-Dokumentation 
+                während des Eingriffs.
+              </p>
+              <p className="text-muted-foreground mb-8">
+                Gegründet von Klinikern, die die Frustration der Mehrfachdokumentation selbst erlebt haben. 
+                Unser Ziel: Echtzeit-Dokumentation am Point-of-Care zum Standard in der interventionellen 
+                Medizin machen.
+              </p>
+
+              {/* Trust indicators */}
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { value: "3", label: "Pilotkliniken" },
+                  { value: "ISO 27001", label: "orientiert" },
+                  { value: "Setup", label: "in Minuten" },
+                  { value: "Made in", label: "Germany" },
+                ].map((stat) => (
+                  <div key={stat.label} className="p-4 rounded-xl bg-card border border-border">
+                    <p className="text-2xl font-bold text-secondary">{stat.value}</p>
+                    <p className="text-sm text-muted-foreground">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
       {/* How It Works Steps */}
       <section className="py-20 lg:py-28 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
@@ -298,6 +300,17 @@ const RequestDemo = () => {
             <p className="text-lg text-muted-foreground">
               Von der ersten Kontaktaufnahme bis zum Pilotprojekt begleiten wir Sie.
             </p>
+          </AnimatedSection>
+
+          {/* Demo Visualization */}
+          <AnimatedSection className="max-w-4xl mx-auto mb-16">
+            <div className="relative rounded-2xl overflow-hidden">
+              <img
+                src={demoVisualisierung}
+                alt="ZENTRAS Demo Visualisierung - Interaktive Präsentation der Dokumentationssoftware"
+                className="w-full h-auto object-cover"
+              />
+            </div>
           </AnimatedSection>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">

@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ScrollToTop } from "./components/ScrollToTop";
 import Index from "./pages/Index";
 import PlatformOverview from "./pages/PlatformOverview";
@@ -27,6 +27,7 @@ const App = () => (
           <Route path="/platform" element={<PlatformOverview />} />
           <Route path="/platform/:slug" element={<PlatformDetail />} />
           <Route path="/demo" element={<RequestDemo />} />
+          <Route path="/strykersymposium" element={<Navigate to="/demo?source=strykersymposium" replace />} />
           <Route path="/team" element={<Team />} />
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/datenschutz" element={<Datenschutz />} />
