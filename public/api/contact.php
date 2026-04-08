@@ -4,25 +4,6 @@ header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Content-Type');
 
-// SMTP Configuration (IONOS-compatible)
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-// Include PHPMailer (assuming it's installed via Composer in a vendor directory)
-// If not using Composer, you'll need to download and include PHPMailer manually
-// require 'path/to/PHPMailer/src/PHPMailer.php';
-// require 'path/to/PHPMailer/src/Exception.php';
-// require 'path/to/PHPMailer/src/SMTP.php';
-
-$mail = new PHPMailer(true);
-$mail->isSMTP();
-$mail->Host = 'smtp.ionos.de'; // IONOS SMTP
-$mail->SMTPAuth = true;
-$mail->Username = 'noreply@zentras-systems.com';
-$mail->Password = getenv('SMTP_PASSWORD') ?: 'YOUR_SMTP_PASSWORD_HERE'; // Set in IONOS config or .env
-$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-$mail->Port = 587;
-
 // Handle POST request
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = json_decode(file_get_contents('php://input'), true);
@@ -44,27 +25,45 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    try {
-        // Internal notification email
-        $mail->setFrom('noreply@zentras-systems.com', 'ZENTRAS Systems');
-        $mail->addAddress('kontakt@zentras-systems.com');
-        $mail->Subject = "Neue Demo-Anfrage von {$data['name']} ({$data['company']})";
-        $mail->isHTML(true);
-        $mail->Body = generateNotificationHTML($data);
-        $mail->send();
-        $mail->clearAddresses();
+    // EMAIL CONFIGURATION
+    $to = 'kontakt@zentras-systems.com'; // ZENTRAS target email
+    
+    // Custom routing based on source
+    if (isset($data['source']) && $data['source'] === 'strykersymposium') {
+        $to = 'ulrich.elias@zentras-systems.com';
+    }
 
-        // Confirmation email to user
-        $mail->addAddress($data['email']);
-        $mail->Subject = 'Ihre Demo-Anfrage bei ZENTRAS Systems';
-        $mail->Body = generateConfirmationHTML($data);
-        $mail->send();
+    $senderDomain = 'zentras-systems.com'; // Must match your IONOS domain
+    $senderEmail = 'noreply@' . $senderDomain;
 
+    // 1. Send Internal Notification
+    $subjectNotification = "Neue Demo-Anfrage von {$data['name']} ({$data['company']})";
+    $bodyNotification = generateNotificationHTML($data);
+    
+    $headersNotification = "MIME-Version: 1.0\r\n";
+    $headersNotification .= "Content-type: text/html; charset=UTF-8\r\n";
+    $headersNotification .= "From: ZENTRAS Systems <{$senderEmail}>\r\n";
+    $headersNotification .= "Reply-To: {$data['name']} <{$data['email']}>\r\n";
+    $headersNotification .= "X-Mailer: PHP/" . phpversion();
+
+    $mail1 = mail($to, $subjectNotification, $bodyNotification, $headersNotification);
+
+    // 2. Send Confirmation to User
+    $subjectConfirmation = 'Ihre Demo-Anfrage bei ZENTRAS Systems';
+    $bodyConfirmation = generateConfirmationHTML($data);
+    
+    $headersConfirmation = "MIME-Version: 1.0\r\n";
+    $headersConfirmation .= "Content-type: text/html; charset=UTF-8\r\n";
+    $headersConfirmation .= "From: ZENTRAS Systems <{$senderEmail}>\r\n";
+    $headersConfirmation .= "X-Mailer: PHP/" . phpversion();
+
+    $mail2 = mail($data['email'], $subjectConfirmation, $bodyConfirmation, $headersConfirmation);
+
+    if ($mail1) {
         echo json_encode(['success' => true, 'message' => 'Demo-Anfrage erfolgreich gesendet']);
-    } catch (Exception $e) {
-        error_log("Mail error: " . $mail->ErrorInfo);
+    } else {
         http_response_code(500);
-        echo json_encode(['error' => 'E-Mail-Versand fehlgeschlagen. Bitte versuchen Sie es später erneut.']);
+        echo json_encode(['error' => 'E-Mail-Server Fehler (IONOS).']);
     }
 } else {
     http_response_code(405);

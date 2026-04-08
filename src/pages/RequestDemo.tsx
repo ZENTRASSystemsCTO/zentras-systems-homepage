@@ -41,6 +41,7 @@ const RequestDemo = () => {
     email: "",
     phone: "",
     message: "",
+    source: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -49,6 +50,7 @@ const RequestDemo = () => {
     if (source === 'strykersymposium') {
       setFormData(prev => ({
         ...prev,
+        source: source || "",
         message: "Sehr geehrter Herr Ulrich,\n\nich habe eben Ihren Vortrag gehört zu AngioAssist und würde gerne mit Ihnen in Kontakt treten.\n\nBitte senden Sie mir Infomaterial zu AngioAssist und eine individuelle ROI-Schätzung."
       }));
     }
