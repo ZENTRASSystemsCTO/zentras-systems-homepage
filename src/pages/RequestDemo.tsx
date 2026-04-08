@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
 import { ArrowRight, Check, Users, Calendar, MessageCircle, Rocket } from "lucide-react";
-import demoVisualisierung from "@/assets/demo-visualisierung.webp";
+
 
 const steps = [
   {
@@ -302,16 +302,7 @@ const RequestDemo = () => {
             </p>
           </AnimatedSection>
 
-          {/* Demo Visualization */}
-          <AnimatedSection className="max-w-4xl mx-auto mb-16">
-            <div className="relative rounded-2xl overflow-hidden">
-              <img
-                src={demoVisualisierung}
-                alt="ZENTRAS Demo Visualisierung - Interaktive Präsentation der Dokumentationssoftware"
-                className="w-full h-auto object-cover"
-              />
-            </div>
-          </AnimatedSection>
+
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {steps.map((step, index) => (

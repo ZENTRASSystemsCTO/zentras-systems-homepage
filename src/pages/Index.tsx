@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Zap, FileText, BarChart3, Database, ChevronDown } from "lucide-react";
 
 // Hero background image (OR scene with tablet)
-import heroBackground from "@/assets/hero-mockup.webp";
+import heroBackground from "@/assets/HERO_Graphic_Revised.webp";
 
 const platforms = [
   {
@@ -78,59 +78,53 @@ const Index = () => {
     <Layout>
       {/* <PageLoader isLoading={isLoading} /> */}
       
-      {/* Hero Section - Full background image with text overlay */}
-      <section className="relative overflow-hidden min-h-[70vh] lg:min-h-[85vh] -mt-16 lg:-mt-20 pt-16 lg:pt-20">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <img 
-            src={heroBackground} 
-            alt="Zentras Tablet im OP-Saal" 
-            className="w-full h-full object-cover object-center"
-          />
-          {/* Dark overlay - denser gradient on mobile/tablet (<1030px), lighter gradient on desktop */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--primary)/0.95)_0%,hsl(var(--primary)/0.85)_30%,hsl(var(--primary)/0.7)_60%,hsl(var(--primary)/0.55)_100%)] min-[1030px]:bg-[linear-gradient(to_right,hsl(var(--primary)/0.95)_0%,hsl(var(--primary)/0.8)_25%,hsl(var(--primary)/0.5)_50%,hsl(var(--primary)/0.25)_75%,hsl(var(--primary)/0.15)_100%)]" />
-        </div>
+      {/* Hero Section - Apple Style Minimalist */}
+      <section className="relative overflow-hidden pt-4 lg:pt-8 pb-10 lg:pb-16 bg-gradient-to-b from-brand-surface to-background flex flex-col items-center text-center">
+        <div className="container mx-auto px-4 lg:px-8 relative z-10 flex flex-col items-center">
+          
+          <AnimatedSection delay={100} className="w-full max-w-4xl mx-auto flex justify-center px-4 relative z-0">
+            {/* The actual product mockup shown correctly tightly in the hero, now above text, no shadow, smaller max-width */}
+            <img 
+              src={heroBackground} 
+              alt="Zentras Tablet AngioAssist Mockup" 
+              className="w-full h-auto object-contain transition-transform duration-1000 lg:hover:scale-[1.02]" 
+            />
+          </AnimatedSection>
 
-        {/* Text Content - Left aligned */}
-        <div className="container mx-auto px-4 lg:px-8 py-20 lg:py-32 relative z-10">
-          <div className="max-w-xl lg:max-w-lg xl:max-w-xl">
-            <AnimatedSection>
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 mb-6 backdrop-blur-sm">
-                <span className="w-2 h-2 rounded-full bg-accent-green animate-pulse-soft" />
-                <span className="text-sm text-primary-foreground/90">Pilotprojekte aktiv</span>
+          {/* Pull text up with negative margin to lie directly over the white fade-out */}
+          <div className="max-w-4xl relative z-20 -mt-12 sm:-mt-20 md:-mt-24 lg:-mt-32">
+            <AnimatedSection delay={200}>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary/50 text-secondary-foreground text-sm font-medium mb-8">
+                <span className="w-2 h-2 rounded-full bg-primary animate-pulse-soft" />
+                Pilotprojekte aktiv
               </div>
             </AnimatedSection>
             
-            <AnimatedSection delay={100}>
+            <AnimatedSection delay={300}>
               <h1 
-                className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-primary-foreground leading-tight mb-6"
-                style={{ textShadow: "0 2px 20px rgba(0, 0, 0, 0.3)" }}
+                className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-semibold text-foreground tracking-tight leading-tight mb-6"
               >
-                Dokumentation.
-                <span className="text-accent"> Einmal. Richtig.</span>
+                Dokumentation.<br/>Einmal. Richtig.
               </h1>
             </AnimatedSection>
 
-            <AnimatedSection delay={200}>
+            <AnimatedSection delay={400}>
               <p 
-                className="text-base lg:text-lg text-primary-foreground/80 mb-8"
-                style={{ textShadow: "0 1px 12px rgba(0, 0, 0, 0.25)" }}
+                className="text-lg md:text-xl lg:text-2xl text-muted-foreground mb-10 max-w-2xl mx-auto font-medium"
               >
                 Dokumentieren Sie Ihre Eingriffe in Zukunft einmalig, in Echtzeit, direkt am Point-of-Care. 
-                Verzichten Sie auf redundante, unpräzise nachgereichte Dokumentation.
               </p>
             </AnimatedSection>
 
-            <AnimatedSection delay={300}>
-              <div className="flex flex-wrap gap-4">
+            <AnimatedSection delay={500}>
+              <div className="flex flex-wrap justify-center gap-4">
                 <Link to="/demo">
-                  <Button variant="hero" size="lg" className="rounded-full">
+                  <Button variant="hero" size="lg" className="rounded-full px-8">
                     Demo anfragen
-                    <ArrowRight size={18} />
                   </Button>
                 </Link>
                 <Link to="/platform">
-                  <Button variant="heroOutline" size="lg" className="rounded-full">
+                  <Button variant="heroOutline" size="lg" className="rounded-full px-8">
                     Plattform entdecken
                   </Button>
                 </Link>
@@ -138,28 +132,10 @@ const Index = () => {
             </AnimatedSection>
           </div>
         </div>
-        
-        {/* Bottom fade to next section */}
-        <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-background to-transparent z-20" />
       </section>
 
-      {/* Scroll indicator - positioned on white background */}
-      <div className="relative bg-background pt-12">
-        <button
-          onClick={scrollToNextSection}
-          className={`absolute top-4 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border shadow-md text-foreground text-sm font-medium cursor-pointer transition-all duration-300 hover:bg-muted hover:shadow-lg ${
-            showScrollIndicator ? "opacity-100" : "opacity-0 pointer-events-none"
-          }`}
-          style={{ animation: showScrollIndicator ? "float 2s ease-in-out infinite" : "none" }}
-          aria-label="Zur nächsten Sektion scrollen"
-        >
-          Mehr entdecken
-          <ChevronDown size={18} className="text-primary" />
-        </button>
-      </div>
-
       {/* Intro Grid / Value Props */}
-      <section ref={valueSectionRef} className="py-20 lg:py-28 bg-background">
+      <section ref={valueSectionRef} className="pt-10 lg:pt-16 pb-20 lg:pb-28 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
           <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
@@ -173,11 +149,11 @@ const Index = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {valueProps.map((prop, index) => (
               <AnimatedSection key={prop.label} delay={index * 100}>
-                <div className="p-6 rounded-2xl bg-card border border-border hover:border-secondary transition-all duration-300 hover-lift">
-                  <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
-                    <prop.icon size={24} className="text-accent" />
+                <div className="p-8 rounded-3xl bg-brand-surface transition-all duration-500 hover:scale-[1.02] flex flex-col items-center text-center">
+                  <div className="w-14 h-14 rounded-2xl bg-background flex items-center justify-center mb-6 shadow-sm shadow-black/5">
+                    <prop.icon size={26} className="text-primary" />
                   </div>
-                  <h3 className="font-semibold text-foreground">{prop.label}</h3>
+                  <h3 className="text-lg font-semibold text-foreground">{prop.label}</h3>
                 </div>
               </AnimatedSection>
             ))}
@@ -186,7 +162,7 @@ const Index = () => {
       </section>
 
       {/* Platform Highlight Section with Sticky Storytelling */}
-      <section className="py-20 lg:py-28 bg-brand-surface">
+      <section className="py-24 lg:py-40 bg-brand-surface">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
             {/* Left: Sticky explanation */}
@@ -249,10 +225,10 @@ const Index = () => {
               { icon: BarChart3, title: "Registerdaten", desc: "Direkte Anbindung an Register wie DeGIR, ohne Mehraufwand." },
             ].map((feature, index) => (
               <AnimatedSection key={feature.title} delay={index * 100} className="h-full">
-                <div className="group p-8 rounded-2xl bg-card border border-border hover:border-accent transition-all duration-300 hover-lift h-full flex flex-col">
-                  {/* GRAPHIC PLACEHOLDER: small abstract icon representing this feature (SVG in zentras colors). */}
-                  <div className="w-14 h-14 rounded-xl gradient-brand flex items-center justify-center mb-6 group-hover:shadow-glow transition-shadow">
-                    <feature.icon size={28} className="text-primary-foreground" />
+                <div className="group p-8 rounded-3xl bg-brand-surface hover:scale-[1.02] transition-all duration-500 h-full flex flex-col">
+                  {/* GRAPHIC PLACEHOLDER: small abstract icon representing this feature */}
+                  <div className="w-14 h-14 rounded-2xl bg-background flex items-center justify-center mb-6 shadow-sm shadow-black/5">
+                    <feature.icon size={26} className="text-primary group-hover:scale-110 transition-transform duration-500" />
                   </div>
                   <h3 className="text-xl font-semibold text-foreground mb-3">{feature.title}</h3>
                   <p className="text-muted-foreground flex-1">{feature.desc}</p>
@@ -264,7 +240,7 @@ const Index = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 lg:py-28 bg-brand-surface-tinted">
+      <section className="py-24 lg:py-40 bg-brand-surface-tinted">
         <div className="container mx-auto px-4 lg:px-8">
           <AnimatedSection className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
@@ -282,12 +258,10 @@ const Index = () => {
       </section>
 
       {/* Final CTA Block */}
-      <section className="py-20 lg:py-28 bg-primary relative overflow-hidden">
-        {/* GRAPHIC PLACEHOLDER: abstract background illustration or pattern using the zentras squares motif. */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-20 w-32 h-32 rounded-2xl bg-accent rotate-12" />
-          <div className="absolute bottom-20 right-20 w-40 h-40 rounded-2xl bg-secondary -rotate-12" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-3xl bg-accent-green rotate-45" />
+      <section className="py-24 lg:py-40 bg-brand-dark-teal text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/30 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3" />
+          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-secondary/20 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/3" />
         </div>
 
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
@@ -301,13 +275,12 @@ const Index = () => {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link to="/demo">
-                <Button variant="hero" size="xl" className="rounded-full">
+                <Button variant="hero" size="xl" className="rounded-full bg-background text-foreground hover:bg-background/90 hover:scale-105">
                   Demo anfragen
-                  <ArrowRight size={20} />
                 </Button>
               </Link>
               <Link to="/platform">
-                <Button variant="heroOutline" size="xl" className="rounded-full text-primary-foreground border-primary-foreground/30 hover:bg-primary-foreground/10">
+                <Button variant="heroOutline" size="xl" className="rounded-full text-background border-background/20 hover:bg-background/10 hover:border-background/30 hover:scale-105">
                   Mehr erfahren
                 </Button>
               </Link>

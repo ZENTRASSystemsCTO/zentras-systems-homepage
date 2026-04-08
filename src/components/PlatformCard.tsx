@@ -21,8 +21,8 @@ export const PlatformCard = ({
     <Link
       to={href}
       className={cn(
-        "group block p-6 rounded-2xl transition-all duration-500 ease-out hover-lift h-full flex flex-col",
-        "bg-card border border-border hover:bg-primary hover:border-primary",
+        "group block p-8 rounded-3xl transition-all duration-500 ease-out h-full flex flex-col",
+        "bg-brand-surface hover:scale-[1.02] hover:shadow-brand",
         className
       )}
     >
@@ -30,8 +30,7 @@ export const PlatformCard = ({
       {/* GRAPHIC PLACEHOLDER: platform-specific icon or pictogram for this SKU. */}
       <div
         className={cn(
-          "w-12 h-12 rounded-xl mb-4 flex items-center justify-center text-xs font-medium transition-colors duration-500 ease-out",
-          "gradient-placeholder text-muted-foreground group-hover:bg-accent/20 group-hover:text-accent"
+          "w-14 h-14 rounded-2xl mb-6 flex items-center justify-center text-sm font-medium transition-colors duration-500 ease-out bg-background text-foreground shadow-sm group-hover:text-primary"
         )}
       >
         {iconPlaceholder}
@@ -39,8 +38,8 @@ export const PlatformCard = ({
 
       <h3
         className={cn(
-          "text-lg font-semibold mb-2 transition-colors duration-500 ease-out",
-          "text-foreground group-hover:text-primary-foreground"
+          "text-xl font-semibold mb-3 transition-colors duration-300",
+          "text-foreground"
         )}
       >
         {title}
@@ -48,8 +47,8 @@ export const PlatformCard = ({
 
       <p
         className={cn(
-          "text-sm mb-4 flex-1 transition-colors duration-500 ease-out",
-          "text-muted-foreground group-hover:text-primary-foreground/70"
+          "text-base mb-6 flex-1 transition-colors duration-300",
+          "text-muted-foreground"
         )}
       >
         {description}
@@ -57,8 +56,8 @@ export const PlatformCard = ({
 
       <div
         className={cn(
-          "flex items-center gap-2 text-sm font-medium transition-colors duration-500 ease-out",
-          "text-secondary group-hover:text-accent"
+          "flex items-center gap-2 text-sm font-medium transition-colors duration-300",
+          "text-primary group-hover:underline"
         )}
       >
         Mehr erfahren
