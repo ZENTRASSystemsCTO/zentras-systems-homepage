@@ -82,17 +82,17 @@ const Index = () => {
       <section className="relative overflow-hidden pt-4 lg:pt-8 pb-10 lg:pb-16 bg-gradient-to-b from-brand-surface to-background flex flex-col items-center text-center">
         <div className="container mx-auto px-4 lg:px-8 relative z-10 flex flex-col items-center">
           
-          <AnimatedSection delay={100} className="w-full max-w-4xl mx-auto flex justify-center px-4 relative z-0">
+          <AnimatedSection delay={100} className="w-full max-w-[800px] xl:max-w-4xl mx-auto flex justify-center px-4 relative z-0">
             {/* The actual product mockup shown correctly tightly in the hero, now above text, no shadow, smaller max-width */}
             <img 
               src={heroBackground} 
               alt="Zentras Tablet AngioAssist Mockup" 
-              className="w-full h-auto object-contain transition-transform duration-1000 lg:hover:scale-[1.02]" 
+              className="w-full h-auto max-h-[55vh] lg:max-h-[60vh] object-contain object-top transition-transform duration-1000 lg:hover:scale-[1.02]" 
             />
           </AnimatedSection>
 
           {/* Pull text up with negative margin to lie directly over the white fade-out */}
-          <div className="max-w-4xl relative z-20 -mt-12 sm:-mt-20 md:-mt-24 lg:-mt-32">
+          <div className="max-w-4xl relative z-20 -mt-16 sm:-mt-24 md:-mt-32 lg:-mt-40 xl:-mt-48">
             <AnimatedSection delay={200}>
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary/50 text-secondary-foreground text-sm font-medium mb-8">
                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse-soft" />
