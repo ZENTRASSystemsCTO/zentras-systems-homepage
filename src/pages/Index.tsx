@@ -93,13 +93,7 @@ const Index = () => {
 
           {/* Pull text up with negative margin to lie directly over the white fade-out */}
           <div className="max-w-4xl relative z-20 -mt-16 sm:-mt-24 md:-mt-32 lg:-mt-40 xl:-mt-48">
-            <AnimatedSection delay={200}>
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary/50 text-secondary-foreground text-sm font-medium mb-8">
-                <span className="w-2 h-2 rounded-full bg-primary animate-pulse-soft" />
-                Pilotprojekte aktiv
-              </div>
-            </AnimatedSection>
-            
+
             <AnimatedSection delay={300}>
               <h1 
                 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-semibold text-foreground tracking-tight leading-tight mb-6"
