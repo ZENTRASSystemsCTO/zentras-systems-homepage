@@ -92,7 +92,7 @@ const Index = () => {
           </AnimatedSection>
 
           {/* Pull text up with negative margin to lie directly over the white fade-out */}
-          <div className="max-w-4xl relative z-20 -mt-16 sm:-mt-24 md:-mt-32 lg:-mt-40 xl:-mt-48">
+          <div className="max-w-4xl relative z-20 -mt-3 sm:-mt-12 md:-mt-20 lg:-mt-28 xl:-mt-36">
 
             <AnimatedSection delay={300}>
               <h1 
