@@ -113,12 +113,12 @@ const Index = () => {
             <AnimatedSection delay={500}>
               <div className="flex flex-wrap justify-center gap-4">
                 <Link to="/demo">
-                  <Button variant="hero" size="lg" className="rounded-full px-8">
+                  <Button variant="default" size="lg" className="rounded-full px-8">
                     Demo anfragen
                   </Button>
                 </Link>
                 <Link to="/platform">
-                  <Button variant="heroOutline" size="lg" className="rounded-full px-8">
+                  <Button variant="outline" size="lg" className="rounded-full px-8">
                     Plattform entdecken
                   </Button>
                 </Link>
