@@ -10,7 +10,6 @@ import teamFoto from "@/assets/team-foto.jpg";
 import michaelSchoenfeld from "@/assets/michael-schoenfeld.jpg";
 import kaiLaukamp from "@/assets/kai-laukamp.jpg";
 import eliasUlrich from "@/assets/elias-ulrich.jpg";
-import casparMuenzinger from "@/assets/caspar-muenzinger.jpg";
 
 const teamMembers = [
   {
@@ -35,7 +34,7 @@ const teamMembers = [
     name: "Caspar Münzinger",
     role: "",
     bio: "", // BIO PLACEHOLDER: Kurze Biografie hier einfügen
-    image: casparMuenzinger,
+    image: teamFoto,
   },
 ];
 
