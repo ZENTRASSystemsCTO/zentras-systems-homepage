@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Check, FileText, Tablet, BarChart3 } from "lucide-react";
 import plattformVisualisierung from "@/assets/plattform-visualisierung.webp";
 
+const isoCertificateHref = "/iso-27001-zertifikat.pdf";
+
 const platforms = [
   {
     title: "AngioAssist Suite",
@@ -34,7 +36,7 @@ const platforms = [
 
 const metrics = [
   { value: "3", label: "Pilotkliniken" },
-  { value: "ISO 27001", label: "orientiert" },
+  { value: "ISO 27001", label: "zertifiziert", href: isoCertificateHref },
   { value: "Minuten", label: "Setup-Zeit" },
   { value: "1x", label: "Dokumentieren" },
 ];
@@ -114,7 +116,18 @@ const PlatformOverview = () => {
             {metrics.map((metric, index) => (
               <AnimatedSection key={metric.label} delay={index * 100}>
                 <div className="text-center">
-                  <p className="text-3xl lg:text-4xl font-bold text-accent mb-2">{metric.value}</p>
+                  {metric.href ? (
+                    <a
+                      href={metric.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block text-3xl lg:text-4xl font-bold text-accent hover:text-primary-foreground transition-colors mb-2"
+                    >
+                      {metric.value}
+                    </a>
+                  ) : (
+                    <p className="text-3xl lg:text-4xl font-bold text-accent mb-2">{metric.value}</p>
+                  )}
                   <p className="text-sm text-primary-foreground/70">{metric.label}</p>
                 </div>
               </AnimatedSection>

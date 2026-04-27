@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
 import { ArrowRight, Check, Users, Calendar, MessageCircle, Rocket } from "lucide-react";
 
+const isoCertificateHref = "/iso-27001-zertifikat.pdf";
 
 const steps = [
   {
@@ -290,12 +291,23 @@ const RequestDemo = () => {
               <div className="grid grid-cols-2 gap-4">
                 {[
                   { value: "3", label: "Pilotkliniken" },
-                  { value: "ISO 27001", label: "orientiert" },
+                  { value: "ISO 27001", label: "zertifiziert", href: isoCertificateHref },
                   { value: "Setup", label: "in Minuten" },
                   { value: "Made in", label: "Germany" },
                 ].map((stat) => (
                   <div key={stat.label} className="p-4 rounded-xl bg-card border border-border">
-                    <p className="text-2xl font-bold text-secondary">{stat.value}</p>
+                    {stat.href ? (
+                      <a
+                        href={stat.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block text-2xl font-bold text-secondary hover:text-primary transition-colors"
+                      >
+                        {stat.value}
+                      </a>
+                    ) : (
+                      <p className="text-2xl font-bold text-secondary">{stat.value}</p>
+                    )}
                     <p className="text-sm text-muted-foreground">{stat.label}</p>
                   </div>
                 ))}

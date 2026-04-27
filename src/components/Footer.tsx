@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { ZentrasLogo } from "./ZentrasLogo";
 import { Mail, MapPin } from "lucide-react";
 
+const isoCertificateHref = "/iso-27001-zertifikat.pdf";
+
 const footerLinks = {
   produkte: [
     { label: "Übersicht", href: "/platform" },
@@ -15,6 +17,7 @@ const footerLinks = {
   rechtliches: [
     { label: "Datenschutz", href: "/datenschutz" },
     { label: "Impressum", href: "/impressum" },
+    { label: "ISO-27001 Zertifikat", href: isoCertificateHref, external: true },
   ],
 };
 
@@ -82,12 +85,23 @@ export const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.rechtliches.map((link) => (
                 <li key={link.href}>
-                  <Link
-                    to={link.href}
-                    className="text-sm text-primary-foreground/70 hover:text-accent transition-colors"
-                  >
-                    {link.label}
-                  </Link>
+                  {"external" in link && link.external ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-primary-foreground/70 hover:text-accent transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link
+                      to={link.href}
+                      className="text-sm text-primary-foreground/70 hover:text-accent transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

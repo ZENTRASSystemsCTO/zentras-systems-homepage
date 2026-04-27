@@ -11,6 +11,8 @@ import { ArrowRight, Shield, Zap, FileText, BarChart3, Database, ChevronDown } f
 // Hero background image (OR scene with tablet)
 import heroBackground from "@/assets/HERO_Graphic_Revised.webp";
 
+const isoCertificateHref = "/iso-27001-zertifikat.pdf";
+
 const platforms = [
   {
     title: "AngioAssist Suite",
@@ -36,7 +38,7 @@ const valueProps = [
   { label: "Weniger Doppelarbeit", icon: FileText },
   { label: "Bessere Datenqualität", icon: BarChart3 },
   { label: "Schneller Rollout", icon: Zap },
-  { label: "ISO-27001 orientiert", icon: Shield },
+  { label: "ISO-27001 zertifiziert", icon: Shield, href: isoCertificateHref },
 ];
 
 const Index = () => {
@@ -147,7 +149,18 @@ const Index = () => {
                   <div className="w-14 h-14 rounded-2xl bg-background flex items-center justify-center mb-6 shadow-sm shadow-black/5">
                     <prop.icon size={26} className="text-primary" />
                   </div>
-                  <h3 className="text-lg font-semibold text-foreground">{prop.label}</h3>
+                  {prop.href ? (
+                    <a
+                      href={prop.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-lg font-semibold text-foreground hover:text-secondary transition-colors"
+                    >
+                      {prop.label}
+                    </a>
+                  ) : (
+                    <h3 className="text-lg font-semibold text-foreground">{prop.label}</h3>
+                  )}
                 </div>
               </AnimatedSection>
             ))}
