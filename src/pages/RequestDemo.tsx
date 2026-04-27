@@ -296,20 +296,20 @@ const RequestDemo = () => {
                   { value: "Setup", label: "in Minuten" },
                   { value: "Made in", label: "Germany" },
                 ].map((stat) => (
-                  <div key={stat.label} className="p-4 rounded-xl bg-card border border-border">
+                  <div key={stat.label} className="group relative p-4 rounded-xl bg-card border border-border">
                     {stat.href ? (
                       <a
                         href={stat.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex flex-col items-center gap-3 text-secondary hover:text-primary transition-colors"
+                        className="inline-block text-secondary hover:text-primary transition-colors"
                       >
                         <span className="text-2xl font-bold">{stat.value}</span>
                         {stat.badgeSrc ? (
                           <img
                             src={stat.badgeSrc}
                             alt="TÜV Süd Zertifizierungssiegel"
-                            className="h-12 w-auto object-contain"
+                            className="absolute -top-5 -right-4 h-16 w-auto object-contain drop-shadow-lg transition-transform duration-500 group-hover:rotate-6 group-hover:scale-105"
                           />
                         ) : null}
                       </a>

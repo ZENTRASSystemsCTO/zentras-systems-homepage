@@ -116,20 +116,20 @@ const PlatformOverview = () => {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {metrics.map((metric, index) => (
               <AnimatedSection key={metric.label} delay={index * 100}>
-                <div className="text-center">
+                <div className="group relative text-center">
                   {metric.href ? (
                     <a
                       href={metric.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex flex-col items-center gap-3 text-accent hover:text-primary-foreground transition-colors mb-2"
+                      className="inline-block text-accent hover:text-primary-foreground transition-colors mb-2"
                     >
                       <span className="text-3xl lg:text-4xl font-bold">{metric.value}</span>
                       {metric.badgeSrc ? (
                         <img
                           src={metric.badgeSrc}
                           alt="TÜV Süd Zertifizierungssiegel"
-                          className="h-12 w-auto object-contain"
+                          className="absolute -top-5 -right-4 h-16 w-auto object-contain drop-shadow-lg transition-transform duration-500 group-hover:rotate-6 group-hover:scale-105"
                         />
                       ) : null}
                     </a>

@@ -146,7 +146,7 @@ const Index = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {valueProps.map((prop, index) => (
               <AnimatedSection key={prop.label} delay={index * 100}>
-                <div className="p-8 rounded-3xl bg-brand-surface transition-all duration-500 hover:scale-[1.02] flex flex-col items-center text-center">
+                <div className="group relative overflow-visible p-8 rounded-3xl bg-brand-surface transition-all duration-500 hover:scale-[1.02] flex flex-col items-center text-center">
                   <div className="w-14 h-14 rounded-2xl bg-background flex items-center justify-center mb-6 shadow-sm shadow-black/5">
                     <prop.icon size={26} className="text-primary" />
                   </div>
@@ -155,14 +155,14 @@ const Index = () => {
                       href={prop.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex flex-col items-center gap-4 text-lg font-semibold text-foreground hover:text-secondary transition-colors"
+                      className="text-lg font-semibold text-foreground hover:text-secondary transition-colors"
                     >
                       <span>{prop.label}</span>
                       {prop.badgeSrc ? (
                         <img
                           src={prop.badgeSrc}
                           alt="TÜV Süd Zertifizierungssiegel"
-                          className="h-14 w-auto object-contain"
+                          className="absolute -top-5 -right-5 h-20 w-auto object-contain drop-shadow-lg transition-transform duration-500 group-hover:rotate-6 group-hover:scale-105"
                         />
                       ) : null}
                     </a>
