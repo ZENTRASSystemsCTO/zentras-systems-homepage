@@ -8,7 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
 import { ArrowRight, Check, Users, Calendar, MessageCircle, Rocket } from "lucide-react";
 
-const isoCertificateHref = "/iso-27001-zertifikat.pdf";
+const isoCertificateHref = "/70701ms27001_de.pdf";
 
 const steps = [
   {

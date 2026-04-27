@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { ZentrasLogo } from "./ZentrasLogo";
 import { Mail, MapPin } from "lucide-react";
 
-const isoCertificateHref = "/iso-27001-zertifikat.pdf";
+const isoCertificateHref = "/70701ms27001_de.pdf";
 
 const footerLinks = {
   produkte: [

@@ -11,7 +11,7 @@ import { ArrowRight, Shield, Zap, FileText, BarChart3, Database, ChevronDown } f
 // Hero background image (OR scene with tablet)
 import heroBackground from "@/assets/HERO_Graphic_Revised.webp";
 
-const isoCertificateHref = "/iso-27001-zertifikat.pdf";
+const isoCertificateHref = "/70701ms27001_de.pdf";
 
 const platforms = [
   {

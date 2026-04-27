@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Check, FileText, Tablet, BarChart3 } from "lucide-react";
 import plattformVisualisierung from "@/assets/plattform-visualisierung.webp";
 
-const isoCertificateHref = "/iso-27001-zertifikat.pdf";
+const isoCertificateHref = "/70701ms27001_de.pdf";
 
 const platforms = [
   {
