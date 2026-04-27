@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
 import { ArrowRight, Check, Users, Calendar, MessageCircle, Rocket } from "lucide-react";
+import tuvSudBadge from "@/assets/TÜV_Süd_logo.svg.png";
 
 const isoCertificateHref = "/70701ms27001_de.pdf";
 
@@ -291,7 +292,7 @@ const RequestDemo = () => {
               <div className="grid grid-cols-2 gap-4">
                 {[
                   { value: "3", label: "Pilotkliniken" },
-                  { value: "ISO 27001", label: "zertifiziert", href: isoCertificateHref },
+                  { value: "ISO 27001", label: "zertifiziert", href: isoCertificateHref, badgeSrc: tuvSudBadge },
                   { value: "Setup", label: "in Minuten" },
                   { value: "Made in", label: "Germany" },
                 ].map((stat) => (
@@ -301,9 +302,16 @@ const RequestDemo = () => {
                         href={stat.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-block text-2xl font-bold text-secondary hover:text-primary transition-colors"
+                        className="inline-flex flex-col items-center gap-3 text-secondary hover:text-primary transition-colors"
                       >
-                        {stat.value}
+                        <span className="text-2xl font-bold">{stat.value}</span>
+                        {stat.badgeSrc ? (
+                          <img
+                            src={stat.badgeSrc}
+                            alt="TÜV Süd Zertifizierungssiegel"
+                            className="h-12 w-auto object-contain"
+                          />
+                        ) : null}
                       </a>
                     ) : (
                       <p className="text-2xl font-bold text-secondary">{stat.value}</p>

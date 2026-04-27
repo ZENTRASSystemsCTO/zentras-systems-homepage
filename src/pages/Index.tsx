@@ -10,6 +10,7 @@ import { ArrowRight, Shield, Zap, FileText, BarChart3, Database, ChevronDown } f
 
 // Hero background image (OR scene with tablet)
 import heroBackground from "@/assets/HERO_Graphic_Revised.webp";
+import tuvSudBadge from "@/assets/TÜV_Süd_logo.svg.png";
 
 const isoCertificateHref = "/70701ms27001_de.pdf";
 
@@ -38,7 +39,7 @@ const valueProps = [
   { label: "Weniger Doppelarbeit", icon: FileText },
   { label: "Bessere Datenqualität", icon: BarChart3 },
   { label: "Schneller Rollout", icon: Zap },
-  { label: "ISO-27001 zertifiziert", icon: Shield, href: isoCertificateHref },
+  { label: "ISO-27001 zertifiziert", icon: Shield, href: isoCertificateHref, badgeSrc: tuvSudBadge },
 ];
 
 const Index = () => {
@@ -154,9 +155,16 @@ const Index = () => {
                       href={prop.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-lg font-semibold text-foreground hover:text-secondary transition-colors"
+                      className="flex flex-col items-center gap-4 text-lg font-semibold text-foreground hover:text-secondary transition-colors"
                     >
-                      {prop.label}
+                      <span>{prop.label}</span>
+                      {prop.badgeSrc ? (
+                        <img
+                          src={prop.badgeSrc}
+                          alt="TÜV Süd Zertifizierungssiegel"
+                          className="h-14 w-auto object-contain"
+                        />
+                      ) : null}
                     </a>
                   ) : (
                     <h3 className="text-lg font-semibold text-foreground">{prop.label}</h3>

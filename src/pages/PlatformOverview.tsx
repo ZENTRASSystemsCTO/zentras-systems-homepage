@@ -4,6 +4,7 @@ import { AnimatedSection } from "@/components/AnimatedSection";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check, FileText, Tablet, BarChart3 } from "lucide-react";
 import plattformVisualisierung from "@/assets/plattform-visualisierung.webp";
+import tuvSudBadge from "@/assets/TÜV_Süd_logo.svg.png";
 
 const isoCertificateHref = "/70701ms27001_de.pdf";
 
@@ -36,7 +37,7 @@ const platforms = [
 
 const metrics = [
   { value: "3", label: "Pilotkliniken" },
-  { value: "ISO 27001", label: "zertifiziert", href: isoCertificateHref },
+  { value: "ISO 27001", label: "zertifiziert", href: isoCertificateHref, badgeSrc: tuvSudBadge },
   { value: "Minuten", label: "Setup-Zeit" },
   { value: "1x", label: "Dokumentieren" },
 ];
@@ -121,9 +122,16 @@ const PlatformOverview = () => {
                       href={metric.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-block text-3xl lg:text-4xl font-bold text-accent hover:text-primary-foreground transition-colors mb-2"
+                      className="inline-flex flex-col items-center gap-3 text-accent hover:text-primary-foreground transition-colors mb-2"
                     >
-                      {metric.value}
+                      <span className="text-3xl lg:text-4xl font-bold">{metric.value}</span>
+                      {metric.badgeSrc ? (
+                        <img
+                          src={metric.badgeSrc}
+                          alt="TÜV Süd Zertifizierungssiegel"
+                          className="h-12 w-auto object-contain"
+                        />
+                      ) : null}
                     </a>
                   ) : (
                     <p className="text-3xl lg:text-4xl font-bold text-accent mb-2">{metric.value}</p>
