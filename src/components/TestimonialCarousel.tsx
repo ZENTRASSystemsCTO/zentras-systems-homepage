@@ -12,6 +12,7 @@ interface Testimonial {
   title: string;
   institution?: string;
   image: string;
+  imagePosition?: string;
 }
 
 const testimonials: Testimonial[] = [
@@ -27,6 +28,7 @@ const testimonials: Testimonial[] = [
     name: "PD Dr. med. Kai Laukamp",
     title: "Facharzt für Radiologie und Neuroradiologie",
     image: kaiLaukamp,
+    imagePosition: "center 25%",
   },
 ];
 
@@ -64,10 +66,11 @@ export const TestimonialCarousel = () => {
                   {/* Image */}
                   <div className="shrink-0">
                     <div className="w-24 h-24 lg:w-32 lg:h-32 rounded-2xl overflow-hidden">
-                      <img 
-                        src={testimonial.image} 
+                      <img
+                        src={testimonial.image}
                         alt={testimonial.name}
                         className="w-full h-full object-cover"
+                        style={{ objectPosition: testimonial.imagePosition }}
                       />
                     </div>
                   </div>
