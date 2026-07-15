@@ -10,7 +10,7 @@ interface Testimonial {
   quote: string;
   name: string;
   title: string;
-  institution: string;
+  institution?: string;
   image: string;
 }
 
@@ -23,10 +23,9 @@ const testimonials: Testimonial[] = [
     image: michaelSchoenfeld,
   },
   {
-    quote: "Die redundante Dokumentation nach Eingriffen war für mich einer der größten Frustfaktoren im Klinikalltag. Mit dem einfachen Durchklicken und der automatischen Berichtserstellung habe ich das Gefühl, von dieser Zusatzarbeit komplett befreit zu sein.",
+    quote: "AngioAssist gibt mir Sicherheit bei komplexen Eingriffen. Die strukturierte Führung vereinfacht die Einarbeitung und Ausbildung neuer Mitarbeiter und unterstützt eine gleichbleibend hohe Qualität. Durch die automatische Berichterstellung lässt sich die notwendige qualitätssichernde Dokumentation ohne relevante Zusatzarbeit in den Workflow integrieren. Das ist für mich ein entscheidender Vorteil.",
     name: "PD Dr. med. Kai Laukamp",
-    title: "Facharzt für Radiologie",
-    institution: "Agaplesion Klinikum Hagen",
+    title: "Facharzt für Radiologie und Neuroradiologie",
     image: kaiLaukamp,
   },
 ];
@@ -82,7 +81,9 @@ export const TestimonialCarousel = () => {
                     <div>
                       <p className="font-semibold text-foreground">{testimonial.name}</p>
                       <p className="text-muted-foreground">{testimonial.title}</p>
-                      <p className="text-secondary font-medium">{testimonial.institution}</p>
+                      {testimonial.institution && (
+                        <p className="text-secondary font-medium">{testimonial.institution}</p>
+                      )}
                     </div>
                   </div>
                 </div>
