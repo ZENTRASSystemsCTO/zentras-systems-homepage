@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 import michaelSchoenfeld from "@/assets/michael-schoenfeld.jpg";
-import kaiLaukamp from "@/assets/kai-laukamp.png";
+import kaiLaukamp from "@/assets/kai-laukamp-gateway.jpg";
 
 interface Testimonial {
   quote: string;

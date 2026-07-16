@@ -8,7 +8,7 @@ import { ArrowRight, Users } from "lucide-react";
 // Team photos
 import teamFoto from "@/assets/team-foto.jpg";
 import michaelSchoenfeld from "@/assets/michael-schoenfeld.jpg";
-import kaiLaukamp from "@/assets/kai-laukamp.png";
+import kaiLaukamp from "@/assets/kai-laukamp-gateway.jpg";
 import eliasUlrich from "@/assets/elias-ulrich.jpg";
 
 const teamMembers = [
